@@ -14,7 +14,7 @@ const Location = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Map */}
-          <div className="rounded-2xl overflow-hidden shadow-medium h-[400px] bg-card">
+          <div className="rounded-2xl overflow-hidden shadow-medium h-[400px] bg-card relative group cursor-pointer">
             <iframe
               src={mapUrl}
               width="100%"
@@ -25,6 +25,17 @@ const Location = () => {
               referrerPolicy="no-referrer-when-downgrade"
               title="Moon Studio Location Map"
             />
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Moon+Studio+Andheri+East+Mumbai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute inset-0 flex items-center justify-center bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              <div className="text-center">
+                <MapPin className="w-12 h-12 text-primary mx-auto mb-2" />
+                <p className="text-foreground font-semibold">Click to open in Google Maps</p>
+              </div>
+            </a>
           </div>
 
           {/* Contact Info */}
@@ -89,6 +100,25 @@ const Location = () => {
                   </p>
                 </div>
               </div>
+            </div>
+
+            {/* Get Directions Button */}
+            <div className="flex gap-4">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Moon+Studio+Andheri+East+Mumbai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 bg-card hover:bg-secondary rounded-2xl p-6 shadow-soft hover:shadow-medium transition-all text-center border-2 border-primary"
+              >
+                <h3 className="font-semibold text-primary text-lg">Get Directions</h3>
+              </a>
+              
+              <a
+                href="tel:+919004832184"
+                className="flex-1 bg-primary hover:bg-accent rounded-2xl p-6 shadow-soft hover:shadow-medium transition-all text-center"
+              >
+                <h3 className="font-semibold text-primary-foreground text-lg">Call Now</h3>
+              </a>
             </div>
           </div>
         </div>

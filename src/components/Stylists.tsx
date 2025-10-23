@@ -1,4 +1,6 @@
-import { Scissors, Sparkles, Heart } from 'lucide-react';
+import stylistMonica from '@/assets/stylist-monica.jpg';
+import stylistShehzad from '@/assets/stylist-shehzad.jpg';
+import stylistSadam from '@/assets/stylist-sadam.jpg';
 
 const Stylists = () => {
   const stylists = [
@@ -6,19 +8,19 @@ const Stylists = () => {
       name: 'Monica',
       role: 'Owner & Lead Stylist',
       description: 'Warm consultations. Precision-driven.',
-      icon: Heart,
+      image: stylistMonica,
     },
     {
       name: 'Shehzad',
       role: 'Cutting & Styling',
       description: 'Face-framing layers, creative cuts.',
-      icon: Scissors,
+      image: stylistShehzad,
     },
     {
       name: 'Sadam',
       role: 'Color & Treatments',
       description: 'Patient, thorough, transformation-focused.',
-      icon: Sparkles,
+      image: stylistSadam,
     },
   ];
 
@@ -35,22 +37,28 @@ const Stylists = () => {
           {stylists.map((stylist, index) => (
             <div
               key={index}
-              className="group bg-card rounded-2xl p-8 shadow-soft hover:shadow-hover transition-all duration-300 hover:-translate-y-1 text-center animate-fade-up"
+              className="group bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-hover transition-all duration-300 hover:-translate-y-1 text-center animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <stylist.icon className="w-10 h-10 text-primary" strokeWidth={1.5} />
+              <div className="aspect-square overflow-hidden">
+                <img
+                  src={stylist.image}
+                  alt={`${stylist.name} - ${stylist.role}`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
               
-              <h3 className="text-2xl font-playfair font-semibold text-foreground mb-2">
-                {stylist.name}
-              </h3>
-              
-              <p className="text-primary font-medium mb-3">{stylist.role}</p>
-              
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {stylist.description}
-              </p>
+              <div className="p-6">
+                <h3 className="text-2xl font-playfair font-semibold text-foreground mb-2">
+                  {stylist.name}
+                </h3>
+                
+                <p className="text-primary font-medium mb-3">{stylist.role}</p>
+                
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {stylist.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>

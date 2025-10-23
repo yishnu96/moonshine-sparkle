@@ -7,7 +7,7 @@ import HowItWorks from '@/components/HowItWorks';
 import ClientReviews from '@/components/ClientReviews';
 import Stylists from '@/components/Stylists';
 import Gallery from '@/components/Gallery';
-import BookingCTA from '@/components/BookingCTA';
+import BookingForm from '@/components/BookingForm';
 import Location from '@/components/Location';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
@@ -25,7 +25,7 @@ const Index = () => {
       <ClientReviews />
       <Stylists />
       <Gallery />
-      <BookingCTA />
+      <BookingForm />
       <Location />
       <Footer />
     </div>

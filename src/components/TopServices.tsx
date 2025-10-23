@@ -1,5 +1,7 @@
 import { Sparkles } from 'lucide-react';
 import { Button } from './ui/button';
+import useEmblaCarousel from 'embla-carousel-react';
+import { useEffect, useState } from 'react';
 import serviceNanoplastia from '@/assets/service-nanoplastia.jpg';
 import serviceOlaplex from '@/assets/service-olaplex.jpg';
 import serviceColoring from '@/assets/service-coloring.jpg';
@@ -45,6 +47,12 @@ const TopServices = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const [emblaRef] = useEmblaCarousel({
+    align: 'start',
+    loop: false,
+    dragFree: true,
+  });
+
   return (
     <section id="services" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-7xl">
@@ -54,7 +62,52 @@ const TopServices = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Desktop: Carousel for all items */}
+        <div className="hidden lg:block overflow-hidden" ref={emblaRef}>
+          <div className="flex gap-6">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="group bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-hover transition-all duration-300 flex-[0_0_calc(33.333%-1rem)] min-w-0 animate-fade-up"
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 right-3">
+                    <Sparkles className="w-6 h-6 text-primary drop-shadow-md" />
+                  </div>
+                </div>
+                
+                <div className="p-6">
+                  <h3 className="text-xl font-playfair font-semibold text-foreground mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-primary font-bold text-lg mb-3">{service.price}</p>
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                    {service.description}
+                  </p>
+                  
+                  <Button
+                    onClick={scrollToBooking}
+                    variant="outline"
+                    size="sm"
+                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                  >
+                    Book Now
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile & Tablet: Grid layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:hidden gap-6">
           {services.map((service, index) => (
             <div
               key={index}
