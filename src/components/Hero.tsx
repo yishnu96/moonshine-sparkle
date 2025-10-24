@@ -11,18 +11,18 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative pt-28 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Subtle gradient vignette */}
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-transparent to-transparent pointer-events-none" />
       
       <div className="container mx-auto max-w-7xl relative">
-        <div className="text-center mb-12 animate-fade-up">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-playfair font-bold text-foreground mb-6 leading-tight">
+        <div className="text-center mb-12 sm:mb-16 animate-fade-up">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-playfair font-bold text-foreground mb-6 leading-tight px-4">
             Let your hair shine with<br />strength & beauty
           </h1>
           
           {/* Trust badges */}
-          <div className="flex flex-wrap items-center justify-center gap-6 mb-8 text-sm sm:text-base text-muted-foreground">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-6 sm:mb-8 text-sm sm:text-base text-muted-foreground px-4">
             <div className="flex items-center gap-2">
               <Shield className="w-5 h-5 text-primary" />
               <span className="font-medium">Certified stylists</span>
@@ -40,7 +40,7 @@ const Hero = () => {
           <Button
             onClick={scrollToBooking}
             size="lg"
-            className="bg-primary hover:bg-accent text-primary-foreground font-semibold px-8 py-6 text-lg rounded-xl shadow-medium hover:shadow-hover transition-all mb-4"
+            className="bg-primary hover:bg-accent text-primary-foreground font-semibold px-8 sm:px-10 h-12 sm:h-14 text-base sm:text-lg rounded-xl shadow-medium hover:shadow-hover transition-all mb-4"
           >
             Book Appointment
           </Button>

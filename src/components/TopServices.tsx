@@ -1,7 +1,6 @@
 import { Sparkles } from 'lucide-react';
 import { Button } from './ui/button';
 import useEmblaCarousel from 'embla-carousel-react';
-import { useEffect, useState } from 'react';
 import serviceNanoplastia from '@/assets/service-nanoplastia.jpg';
 import serviceOlaplex from '@/assets/service-olaplex.jpg';
 import serviceColoring from '@/assets/service-coloring.jpg';
@@ -96,7 +95,7 @@ const TopServices = () => {
                     onClick={scrollToBooking}
                     variant="outline"
                     size="sm"
-                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                    className="w-full sm:w-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-6 h-10 text-sm rounded-lg"
                   >
                     Book Now
                   </Button>
@@ -139,7 +138,7 @@ const TopServices = () => {
                   onClick={scrollToBooking}
                   variant="outline"
                   size="sm"
-                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                  className="w-full sm:w-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-6 h-10 text-sm rounded-lg"
                 >
                   Book Now
                 </Button>

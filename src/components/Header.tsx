@@ -50,7 +50,8 @@ const Header = () => {
           {/* CTA Button */}
           <Button
             onClick={() => scrollToSection('booking')}
-            className="bg-primary hover:bg-accent text-primary-foreground font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-xl shadow-soft hover:shadow-medium transition-all"
+            size="sm"
+            className="bg-primary hover:bg-accent text-primary-foreground font-semibold px-5 sm:px-7 h-9 sm:h-11 text-sm sm:text-base rounded-xl shadow-soft hover:shadow-medium transition-all"
           >
             Book Appointment
           </Button>

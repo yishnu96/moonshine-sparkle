@@ -1,4 +1,6 @@
 import { MapPin, Clock, CreditCard, Phone, Mail } from 'lucide-react';
+import { Button } from './ui/button';
+
 const Location = () => {
   const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.721!2d72.8573!3d19.1196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA3JzEwLjYiTiA3MsKwNTEnMjYuMyJF!5e0!3m2!1sen!2sin!4v1234567890";
   return <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
@@ -84,15 +86,26 @@ const Location = () => {
               </div>
             </div>
 
-            {/* Get Directions Button */}
-            <div className="flex gap-4">
-              <a href="https://www.google.com/maps/search/?api=1&query=Moon+Studio+Andheri+East+Mumbai" target="_blank" rel="noopener noreferrer" className="flex-1 bg-card hover:bg-secondary rounded-2xl p-6 shadow-soft hover:shadow-medium transition-all text-center border-2 border-primary">
-                <h3 className="font-semibold text-primary text-lg">Get Directions</h3>
-              </a>
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6">
+              <Button
+                onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=Moon+Studio+Andheri+East+Mumbai', '_blank')}
+                size="lg"
+                className="flex-1 bg-primary hover:bg-accent text-primary-foreground font-semibold px-6 sm:px-8 h-12 sm:h-14 text-base sm:text-lg rounded-xl shadow-medium hover:shadow-hover transition-all"
+              >
+                <MapPin className="w-5 h-5 mr-2" />
+                Get Directions
+              </Button>
               
-              <a href="tel:+919004832184" className="flex-1 bg-primary hover:bg-accent rounded-2xl p-6 shadow-soft hover:shadow-medium transition-all text-center">
-                <h3 className="font-semibold text-primary-foreground text-lg">Call Now</h3>
-              </a>
+              <Button
+                onClick={() => window.location.href = 'tel:+919004832184'}
+                variant="outline"
+                size="lg"
+                className="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-6 sm:px-8 h-12 sm:h-14 text-base sm:text-lg rounded-xl transition-all"
+              >
+                <Phone className="w-5 h-5 mr-2" />
+                Call Now
+              </Button>
             </div>
           </div>
         </div>
