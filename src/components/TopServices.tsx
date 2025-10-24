@@ -17,7 +17,7 @@ const TopServices = () => {
     },
     {
       title: 'Olaplex Hair Treatment',
-      price: 'Premium range',
+      price: 'from ₹2,999',
       description: 'Advanced bond-building treatment for hair repair.',
       image: serviceOlaplex,
     },
@@ -27,18 +27,18 @@ const TopServices = () => {
       description: 'Global color & balayage technique with precision blending.',
       image: serviceColoring,
     },
-    {
-      title: 'Hydra Facial & Korean Glass Facial',
-      price: '₹2,999 (combo offer)',
-      description: 'Skin treatment packages with special offers.',
-      image: serviceFacial,
-    },
-    {
-      title: 'Hair Smoothening & Advanced Hair Cut',
-      price: 'Starting ₹300+',
-      description: 'Popular everyday services with expert styling.',
-      image: serviceHaircut,
-    },
+    // {
+    //   title: 'Hydra Facial & Korean Glass Facial',
+    //   price: '₹2,999 (combo offer)',
+    //   description: 'Skin treatment packages with special offers.',
+    //   image: serviceFacial,
+    // },
+    // {
+    //   title: 'Hair Smoothening & Advanced Hair Cut',
+    //   price: 'Starting ₹300+',
+    //   description: 'Popular everyday services with expert styling.',
+    //   image: serviceHaircut,
+    // },
   ];
 
   const scrollToBooking = () => {

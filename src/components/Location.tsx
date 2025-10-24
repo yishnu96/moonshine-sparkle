@@ -2,7 +2,7 @@ import { MapPin, Clock, CreditCard, Phone, Mail } from 'lucide-react';
 import { Button } from './ui/button';
 
 const Location = () => {
-  const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.721!2d72.8573!3d19.1196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA3JzEwLjYiTiA3MsKwNTEnMjYuMyJF!5e0!3m2!1sen!2sin!4v1234567890";
+  const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.8501965309724!2d72.88492991149732!3d19.114226682023627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c991b4c48baf%3A0x59444ef9221923!2sMoon%20Studios-The%20Family%20Salon-Nanoplastia%20Hair%20Treatment%20%7C%20Hydra%20Medi%20Facial%20%7C%20Olaplex%20Hair%20Treatment-Balayage%20Hair%20colour!5e0!3m2!1sen!2sin!4v1761295422766!5m2!1sen!2sin" 
   return <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
@@ -17,7 +17,7 @@ const Location = () => {
             <iframe src={mapUrl} width="100%" height="100%" style={{
             border: 0
           }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Moon Studio Location Map" />
-            <a href="https://www.google.com/maps/search/?api=1&query=Moon+Studio+Andheri+East+Mumbai" target="_blank" rel="noopener noreferrer" className="absolute inset-0 flex items-center justify-center bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <a href="https://maps.app.goo.gl/YqntQGMKfKekQMN69" target="_blank" rel="noopener noreferrer" className="absolute inset-0 flex items-center justify-center bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div className="text-center">
                 <MapPin className="w-12 h-12 text-primary mx-auto mb-2" />
                 <p className="text-foreground font-semibold">Click to open in Google Maps</p>
