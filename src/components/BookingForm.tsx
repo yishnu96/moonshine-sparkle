@@ -67,16 +67,19 @@ const BookingForm = () => {
 
   return (
     <section id="booking" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10">
-      <div className="container mx-auto max-w-2xl">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-semibold text-foreground mb-3 sm:mb-4">
-            Your dream hair is<br />one appointment away
-          </h2>
-          <p className="text-muted-foreground text-sm sm:text-base">Fill in your details and we'll get back to you</p>
-        </div>
-        
-        <div className="bg-card rounded-2xl p-6 sm:p-8 shadow-medium">
-          <form onSubmit={handleSubmit} className="space-y-5">
+      <div className="container mx-auto max-w-6xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+          {/* Left side - Heading */}
+          <div className="flex flex-col justify-center text-center lg:text-left">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-semibold text-foreground mb-3 sm:mb-4">
+              Your dream hair is<br />one appointment away
+            </h2>
+            <p className="text-muted-foreground text-base sm:text-lg">Fill in your details and we'll get back to you</p>
+          </div>
+          
+          {/* Right side - Form */}
+          <div className="bg-card rounded-2xl p-6 sm:p-8 shadow-medium h-full flex flex-col">
+            <form onSubmit={handleSubmit} className="space-y-5 flex-1 flex flex-col">
             <div>
               <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">
                 Your Name *
@@ -147,7 +150,7 @@ const BookingForm = () => {
               </select>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 mt-auto">
               <Button
                 type="submit"
                 size="lg"
@@ -168,6 +171,7 @@ const BookingForm = () => {
               </Button>
             </div>
           </form>
+          </div>
         </div>
       </div>
     </section>
