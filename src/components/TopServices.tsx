@@ -11,26 +11,22 @@ const TopServices = () => {
   const services = [
     {
       title: 'Haircuts',
-      price: 'Starting ₹300',
       description: 'Expert haircuts for men, women, and kids - perfect styles for your entire family.',
       image: serviceHaircut,
     },
     {
       title: 'Hair Coloring',
-      price: 'Custom Pricing',
-      description: 'Transform your look with our professional coloring services and expert color consultation.',
+      description: 'Professional hair coloring services with premium quality products for stunning results.',
       image: serviceColoring,
     },
     {
       title: 'Hair Spa',
-      price: 'from ₹1,999',
-      description: 'Rejuvenate your hair with L\'Oréal, Keratin, or Olaplex spa treatments.',
+      description: 'Rejuvenating hair spa treatments - Loreal, Keratin, and Lapex for deep nourishment.',
       image: serviceOlaplex,
     },
     {
       title: 'Hair Treatments',
-      price: 'from ₹2,999',
-      description: 'Premium treatments including Nanoplastia, Olaplex, and smoothening for healthy, beautiful hair.',
+      description: 'Advanced hair treatments including Nanoplastia, Botox, and Keratin for smooth, healthy hair.',
       image: serviceNanoplastia,
     },
   ];
@@ -80,19 +76,9 @@ const TopServices = () => {
                   <h3 className="text-xl font-playfair font-semibold text-foreground mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-primary font-bold text-lg mb-3">{service.price}</p>
-                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {service.description}
                   </p>
-                  
-                  <Button
-                    onClick={scrollToBooking}
-                    variant="outline"
-                    size="sm"
-                    className="w-full sm:w-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-6 h-10 text-sm rounded-lg"
-                  >
-                    Book Now
-                  </Button>
                 </div>
               </div>
             ))}
@@ -100,7 +86,7 @@ const TopServices = () => {
         </div>
 
         {/* Mobile & Tablet: Grid layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:hidden gap-6">
+        <div className="grid grid-cols-2 lg:hidden gap-4 sm:gap-6">
           {services.map((service, index) => (
             <div
               key={index}
@@ -119,23 +105,13 @@ const TopServices = () => {
                 </div>
               </div>
               
-              <div className="p-6">
-                <h3 className="text-xl font-playfair font-semibold text-foreground mb-2">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-base sm:text-xl font-playfair font-semibold text-foreground mb-2">
                   {service.title}
                 </h3>
-                <p className="text-primary font-bold text-lg mb-3">{service.price}</p>
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
                   {service.description}
                 </p>
-                
-                <Button
-                  onClick={scrollToBooking}
-                  variant="outline"
-                  size="sm"
-                  className="w-full sm:w-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-6 h-10 text-sm rounded-lg"
-                >
-                  Book Now
-                </Button>
               </div>
             </div>
           ))}

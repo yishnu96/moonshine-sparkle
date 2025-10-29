@@ -68,18 +68,26 @@ const HowItWorks = () => {
             {steps.map((step, index) => (
               <div
                 key={index}
-                className={`relative bg-card rounded-2xl p-6 shadow-soft hover:shadow-hover transition-all duration-300 hover:-translate-y-1 ${
-                  isVisible ? 'animate-fade-up' : 'opacity-0'
+                className={`relative bg-card rounded-2xl p-6 shadow-soft hover:shadow-hover transition-all duration-500 hover:-translate-y-2 hover:scale-105 ${
+                  isVisible ? 'animate-fade-up' : 'opacity-0 translate-y-8'
                 }`}
-                style={{ animationDelay: `${index * 100}ms` }}
+                style={{ animationDelay: `${index * 150}ms` }}
               >
                 {/* Step number badge */}
-                <div className="absolute -top-4 left-6 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-sm shadow-medium">
+                <div className={`absolute -top-4 left-6 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-sm shadow-medium transition-all duration-500 ${
+                  isVisible ? 'scale-100 rotate-0' : 'scale-0 rotate-180'
+                }`}
+                style={{ transitionDelay: `${index * 150 + 100}ms` }}
+                >
                   {index + 1}
                 </div>
 
                 <div className="flex flex-col items-center text-center pt-4">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <div className={`w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 transition-all duration-500 ${
+                    isVisible ? 'scale-100 rotate-0' : 'scale-0 rotate-180'
+                  }`}
+                  style={{ transitionDelay: `${index * 150 + 200}ms` }}
+                  >
                     <step.icon className="w-8 h-8 text-primary" strokeWidth={1.5} />
                   </div>
                   

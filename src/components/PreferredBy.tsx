@@ -9,10 +9,10 @@ const PreferredBy = () => {
   );
 
   const clients = [
-    { name: 'Sanchari Sengupta', title: 'Singer', image: '' },
-    { name: 'Lakshya Raj Anand', title: 'Film Producer', image: '' },
-    { name: 'Majeet Kaur', title: 'MTX Winner', image: '' },
-    { name: 'Nikhil Singh', title: 'Artist', image: '' },
+    { name: 'Sanchari Sengupta', title: 'Singer', image: 'https://placehold.co/200x200/e0e0e0/666?text=SS' },
+    { name: 'Lakshya Raj Anand', title: 'Film Producer', image: 'https://placehold.co/200x200/e0e0e0/666?text=LA' },
+    { name: 'Majeet Kaur', title: 'MTX Winner', image: 'https://placehold.co/200x200/e0e0e0/666?text=MK' },
+    { name: 'Nikhil Singh', title: 'Artist', image: 'https://placehold.co/200x200/e0e0e0/666?text=NS' },
   ];
 
   return (
@@ -37,8 +37,12 @@ const PreferredBy = () => {
                 className="flex-[0_0_300px] min-w-0"
               >
                 <div className="bg-card rounded-2xl p-8 shadow-soft hover:shadow-hover transition-all duration-300 text-center h-full flex flex-col items-center justify-center">
-                  <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-4 mx-auto">
-                    <Star className="w-10 h-10 text-primary" strokeWidth={1.5} />
+                  <div className="w-24 h-24 rounded-full overflow-hidden mb-4 mx-auto border-4 border-primary/20">
+                    <img 
+                      src={client.image} 
+                      alt={client.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h3 className="text-xl font-playfair font-semibold text-foreground mb-2">
                     {client.name}

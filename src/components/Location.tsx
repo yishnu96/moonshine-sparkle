@@ -91,9 +91,9 @@ const Location = () => {
               <Button
                 onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=Moon+Studio+Andheri+East+Mumbai', '_blank')}
                 size="lg"
-                className="flex-1 bg-primary hover:bg-accent text-primary-foreground font-semibold px-6 sm:px-8 h-12 sm:h-14 text-base sm:text-lg rounded-xl shadow-medium hover:shadow-hover transition-all"
+                className="flex-1 bg-primary hover:bg-accent text-primary-foreground font-semibold px-4 sm:px-8 h-11 sm:h-14 text-sm sm:text-lg rounded-xl shadow-medium hover:shadow-hover transition-all"
               >
-                <MapPin className="w-5 h-5 mr-2" />
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Get Directions
               </Button>
               
@@ -101,9 +101,9 @@ const Location = () => {
                 onClick={() => window.location.href = 'tel:+919004832184'}
                 variant="outline"
                 size="lg"
-                className="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-6 sm:px-8 h-12 sm:h-14 text-base sm:text-lg rounded-xl transition-all"
+                className="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-4 sm:px-8 h-11 sm:h-14 text-sm sm:text-lg rounded-xl transition-all"
               >
-                <Phone className="w-5 h-5 mr-2" />
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Call Now
               </Button>
             </div>

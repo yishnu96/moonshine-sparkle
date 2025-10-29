@@ -1,5 +1,6 @@
 import { Phone } from 'lucide-react';
 import { Button } from './ui/button';
+import { Textarea } from './ui/textarea';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 
@@ -7,7 +8,7 @@ const BookingForm = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
-    service: '',
+    problem: '',
     date: '',
     time: '',
   });
@@ -40,17 +41,17 @@ const BookingForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.service || !formData.date || !formData.time) {
+    if (!formData.name || !formData.problem || !formData.date || !formData.time) {
       toast({
         title: "Please fill all fields",
-        description: "Name, service, date, and time are required.",
+        description: "Name, problem, date, and time are required.",
         variant: "destructive",
       });
       return;
     }
 
     // Create WhatsApp message
-    const message = `Hi! I'd like to book an appointment:\n\nName: ${formData.name}\nService: ${formData.service}\nDate: ${formData.date}\nTime: ${formData.time}`;
+    const message = `Hi! I'd like to book an appointment:\n\nName: ${formData.name}\nProblem: ${formData.problem}\nDate: ${formData.date}\nTime: ${formData.time}`;
     const whatsappUrl = `https://wa.me/919004832184?text=${encodeURIComponent(message)}`;
     
     window.open(whatsappUrl, '_blank');
@@ -96,23 +97,17 @@ const BookingForm = () => {
             </div>
 
             <div>
-              <label htmlFor="service" className="block text-sm font-semibold text-foreground mb-2">
-                Select Service *
+              <label htmlFor="problem" className="block text-sm font-semibold text-foreground mb-2">
+                Problem You Are Facing *
               </label>
-              <select
-                id="service"
-                value={formData.service}
-                onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                className="w-full px-4 py-3 sm:py-3.5 rounded-xl border-2 border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+              <Textarea
+                id="problem"
+                value={formData.problem}
+                onChange={(e) => setFormData({ ...formData, problem: e.target.value })}
+                className="w-full px-4 py-3 sm:py-3.5 rounded-xl border-2 border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all min-h-[100px] resize-none"
+                placeholder="Describe your hair or skin concerns..."
                 required
-              >
-                <option value="">Choose a service</option>
-                {services.map((service) => (
-                  <option key={service} value={service}>
-                    {service}
-                  </option>
-                ))}
-              </select>
+              />
             </div>
 
             <div>

@@ -10,25 +10,21 @@ const SkinCareServices = () => {
   const services = [
     {
       title: 'Facial Treatments',
-      price: 'from ₹999',
       description: 'Choose from Regular, Advanced, Organic, or Medi facials for glowing, healthy skin.',
       image: serviceFacial,
     },
     {
       title: 'Waxing',
-      price: 'Starting ₹150',
       description: 'Professional waxing services - Full, Half, Upper Arms for smooth, hair-free skin.',
       image: serviceColoring,
     },
     {
       title: 'Pedicure & Manicure',
-      price: 'from ₹499',
       description: 'Pamper yourself with Normal, Herbal, Spa, or Pedilogix treatments for beautiful hands and feet.',
       image: serviceOlaplex,
     },
     {
       title: 'Bleach & D-Tan',
-      price: 'from ₹299',
       description: 'Brighten your skin with our bleach, d-tan, body polish, and scrub treatments.',
       image: serviceNanoplastia,
     },
@@ -79,19 +75,9 @@ const SkinCareServices = () => {
                   <h3 className="text-xl font-playfair font-semibold text-foreground mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-primary font-bold text-lg mb-3">{service.price}</p>
-                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {service.description}
                   </p>
-                  
-                  <Button
-                    onClick={scrollToBooking}
-                    variant="outline"
-                    size="sm"
-                    className="w-full sm:w-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-6 h-10 text-sm rounded-lg"
-                  >
-                    Book Now
-                  </Button>
                 </div>
               </div>
             ))}
@@ -99,7 +85,7 @@ const SkinCareServices = () => {
         </div>
 
         {/* Mobile & Tablet: Grid layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:hidden gap-6">
+        <div className="grid grid-cols-2 lg:hidden gap-4 sm:gap-6">
           {services.map((service, index) => (
             <div
               key={index}
@@ -118,23 +104,13 @@ const SkinCareServices = () => {
                 </div>
               </div>
               
-              <div className="p-6">
-                <h3 className="text-xl font-playfair font-semibold text-foreground mb-2">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-base sm:text-xl font-playfair font-semibold text-foreground mb-2">
                   {service.title}
                 </h3>
-                <p className="text-primary font-bold text-lg mb-3">{service.price}</p>
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
                   {service.description}
                 </p>
-                
-                <Button
-                  onClick={scrollToBooking}
-                  variant="outline"
-                  size="sm"
-                  className="w-full sm:w-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-6 h-10 text-sm rounded-lg"
-                >
-                  Book Now
-                </Button>
               </div>
             </div>
           ))}
