@@ -46,7 +46,7 @@ const SkinCareServices = () => {
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-semibold text-foreground mb-3">
-            Skin Care Services<br />We Offer
+            Glow Starts With Us
           </h2>
         </div>
 

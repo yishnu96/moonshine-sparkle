@@ -4,23 +4,18 @@ const WhyChooseUs = () => {
   const reasons = [
     {
       icon: CheckCircle2,
-      title: 'Expert Consultancy',
-      description: 'Our clients love our precision in analysis. We understand your hair perfectly and deliver exactly what we promise.',
+      title: 'Deep-dive consultancy',
+      description: 'We dive deep into your hair and skin story — so we tailor every detail',
     },
     {
       icon: Heart,
       title: 'Calming Environment',
-      description: 'Step into a space designed for relaxation. Our peaceful ambiance ensures you feel refreshed and rejuvenated with every visit.',
+      description: 'A calm, inclusive space. We make you feel relaxed, restored, and ready',
     },
     {
       icon: Eye,
       title: 'Transparent Products',
-      description: 'We don\'t just tell you what products we use - we explain why and how they work for your specific hair needs.',
-    },
-    {
-      icon: Leaf,
-      title: 'Complete After Care',
-      description: 'Your hair journey doesn\'t end at the salon. We provide personalized aftercare schedules because your satisfaction is our priority.',
+      description: 'We show you the products. We explain what’s inside them. You always know what’s going on',
     },
   ];
 
@@ -32,7 +27,7 @@ const WhyChooseUs = () => {
             Why People Choose Us
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Experience the difference that makes us Mumbai's trusted salon
+            Families & Celebs Choose Us Because
           </p>
         </div>
 

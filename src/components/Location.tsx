@@ -7,7 +7,7 @@ const Location = () => {
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-semibold text-foreground">
-            Visit Us
+            Find Us Here
           </h2>
         </div>
 
@@ -16,7 +16,7 @@ const Location = () => {
           <div className="rounded-2xl overflow-hidden shadow-medium h-[400px] bg-card relative group cursor-pointer">
             <iframe src={mapUrl} width="100%" height="100%" style={{
             border: 0
-          }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Moon Studio Location Map" />
+          }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Moon Studios Location Map" />
             <a href="https://maps.app.goo.gl/YqntQGMKfKekQMN69" target="_blank" rel="noopener noreferrer" className="absolute inset-0 flex items-center justify-center bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div className="text-center">
                 <MapPin className="w-12 h-12 text-primary mx-auto mb-2" />
@@ -35,16 +35,15 @@ const Location = () => {
                 <div>
                   <h3 className="font-semibold text-foreground mb-2">Address</h3>
                   <p className="text-muted-foreground">
-                    Moon Studio<br />
+                    Moon Studios<br />
                     Andheri East<br />
                     Mumbai, Maharashtra
                   </p>
                 </div>
               </div>
-            </div>
+              
 
-            <div className="bg-card rounded-2xl p-6 shadow-soft">
-              <div className="flex items-start gap-4">
+              <div className="flex py-3 items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Clock className="w-6 h-6 text-primary" />
                 </div>
@@ -56,10 +55,9 @@ const Location = () => {
                   </p>
                 </div>
               </div>
-            </div>
+              
 
-            <div className="bg-card rounded-2xl p-6 shadow-soft">
-              <div className="flex items-start gap-4">
+              <div className="flex py-3 items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
@@ -70,10 +68,9 @@ const Location = () => {
                   </a>
                 </div>
               </div>
-            </div>
-
-            <div className="bg-card rounded-2xl p-6 shadow-soft">
-              <div className="flex items-start gap-4">
+              
+              
+              <div className="flex py-3 items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <CreditCard className="w-6 h-6 text-primary" />
                 </div>
@@ -91,9 +88,9 @@ const Location = () => {
               <Button
                 onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=Moon+Studio+Andheri+East+Mumbai', '_blank')}
                 size="lg"
-                className="flex-1 bg-primary hover:bg-accent text-primary-foreground font-semibold px-4 sm:px-8 h-11 sm:h-14 text-sm sm:text-lg rounded-xl shadow-medium hover:shadow-hover transition-all"
+                className="flex-1 bg-primary hover:bg-accent text-primary-foreground font-semibold px-6 sm:px-8 h-12 sm:h-14 text-base sm:text-lg rounded-xl shadow-medium hover:shadow-hover transition-all"
               >
-                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
               
@@ -101,9 +98,9 @@ const Location = () => {
                 onClick={() => window.location.href = 'tel:+919004832184'}
                 variant="outline"
                 size="lg"
-                className="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-4 sm:px-8 h-11 sm:h-14 text-sm sm:text-lg rounded-xl transition-all"
+                className="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-6 sm:px-8 h-12 sm:h-14 text-base sm:text-lg rounded-xl transition-all"
               >
-                <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                <Phone className="w-5 h-5 mr-2" />
                 Call Now
               </Button>
             </div>

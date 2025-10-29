@@ -13,7 +13,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-playfair font-bold text-foreground mb-3">
-              Moon Studio
+              Moon Studios
             </h3>
             <p className="text-muted-foreground text-sm">
               Your trusted hair care partner in Andheri East. Where beauty meets precision.
@@ -63,7 +63,7 @@ const Footer = () => {
 
         <div className="border-t border-border pt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Moon Studio. All rights reserved. Crafted with care in Mumbai.
+            © {new Date().getFullYear()} Moon Studios. All rights reserved. Crafted with care in Mumbai.
           </p>
         </div>
       </div>

@@ -27,8 +27,8 @@ const Index = () => {
       <WhyChooseUs />
       <HowItWorks />
       <ClientReviews />
-      <Stylists />
       <Gallery />
+      <Stylists />
       <BookingForm />
       <Location />
       <Footer />

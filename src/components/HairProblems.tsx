@@ -14,7 +14,7 @@ const HairProblems = () => {
     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-secondary/30">
       <div className="container mx-auto max-w-4xl text-center">
         <h2 className="text-2xl sm:text-4xl font-playfair font-semibold text-foreground mb-10">
-          Common hair problems<br className="sm:inline hidden" /><span className="sm:inline hidden"> </span>you may experience
+          Your Hair Has Stories<br/>We Listen
         </h2>
         
         <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-8 mb-8">
@@ -33,7 +33,7 @@ const HairProblems = () => {
         </div>
         
         <p className="text-lg text-muted-foreground font-medium">
-          We fix this every day.
+          Let’s Solve It Together
         </p>
       </div>
     </section>

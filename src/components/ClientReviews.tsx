@@ -24,7 +24,7 @@ const ClientReviews = () => {
       rating: 5,
       reviewCount: 8,
       date: '6 months ago on Google',
-      text: "Omg!! This is by far the best hair experience ever. Monica the owner is a sweetheart! They listened carefully and gave me exactly what I wanted. Sadam was magical!! He was patient and did my treatment with so much care and professionalism. My hair has never looked better! Highly recommend Moon Studio to everyone looking for a solid transformation. These people are amazing at their jobs and lovely humans too!",
+      text: "Omg!! This is by far the best hair experience ever. Monica the owner is a sweetheart! They listened carefully and gave me exactly what I wanted. Sadam was magical!! He was patient and did my treatment with so much care and professionalism. My hair has never looked better! Highly recommend Moon Studios to everyone looking for a solid transformation. These people are amazing at their jobs and lovely humans too!",
       avatar: 'AD',
     },
   ];

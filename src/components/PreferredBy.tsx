@@ -21,11 +21,11 @@ const PreferredBy = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-semibold text-foreground mb-3 flex items-center justify-center gap-3">
             <Star className="w-8 h-8 text-primary fill-primary" />
-            Preferred By
+            Loved by the Stylish
             <Star className="w-8 h-8 text-primary fill-primary" />
           </h2>
           <p className="text-muted-foreground text-lg">
-            Trusted by celebrities and professionals
+            Celebrities • Professionals • Moms • Dads • Leaders
           </p>
         </div>
 
@@ -36,7 +36,7 @@ const PreferredBy = () => {
                 key={index}
                 className="flex-[0_0_300px] min-w-0"
               >
-                <div className="bg-card rounded-2xl p-8 shadow-soft hover:shadow-hover transition-all duration-300 text-center h-full flex flex-col items-center justify-center">
+                <div className=" rounded-2xl p-8 duration-300 text-center h-full flex flex-col items-center justify-center">
                   <div className="w-24 h-24 rounded-full overflow-hidden mb-4 mx-auto border-4 border-primary/20">
                     <img 
                       src={client.image} 

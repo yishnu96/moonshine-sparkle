@@ -50,7 +50,7 @@ const Gallery = () => {
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-semibold text-foreground mb-3">
-            Before & After<br />Transformations
+            See Transformations You’ll Love
           </h2>
           <p className="text-muted-foreground">
             Follow us on Instagram for more stunning results

@@ -21,7 +21,7 @@ const TopServices = () => {
     },
     {
       title: 'Hair Spa',
-      description: 'Rejuvenating hair spa treatments - Loreal, Keratin, and Lapex for deep nourishment.',
+      description: 'Deep nourishment with Keratin, Protein, or L’Oréal hair feels softer, calmer, alive',
       image: serviceOlaplex,
     },
     {
@@ -47,7 +47,7 @@ const TopServices = () => {
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-semibold text-foreground mb-3">
-            Expert Hair Services<br />Tailored for You
+            Your Hair & Our Full-Care
           </h2>
         </div>
 

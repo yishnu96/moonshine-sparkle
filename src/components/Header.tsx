@@ -30,13 +30,13 @@ const Header = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <h1 className="text-xl sm:text-2xl font-playfair font-bold text-foreground">
-              Moon Studio
+              Moon Studios
             </h1>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
-            {['Services', 'Process', 'Reviews', 'Stylists', 'Gallery', 'Contact'].map((item) => (
+            {['Services', 'Process', 'Reviews', 'Gallery', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -53,7 +53,7 @@ const Header = () => {
             size="sm"
             className="bg-primary hover:bg-accent text-primary-foreground font-semibold px-5 sm:px-7 h-9 sm:h-11 text-sm sm:text-base rounded-xl shadow-soft hover:shadow-medium transition-all"
           >
-            Book Appointment
+            Book Your Visit
           </Button>
         </div>
       </div>

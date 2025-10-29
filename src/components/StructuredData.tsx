@@ -5,7 +5,7 @@ const StructuredData = () => {
     const localBusinessSchema = {
       "@context": "https://schema.org",
       "@type": "HairSalon",
-      "name": "Moon Studio",
+      "name": "Moon Studios",
       "description": "Certified stylists. 5000+ happy clients. Hygiene-first salon offering Nanoplastia, Olaplex, Balayage, and facials in Andheri East.",
       "image": "https://lovable.dev/opengraph-image-p98pqg.png",
       "address": {
@@ -42,7 +42,7 @@ const StructuredData = () => {
         "serviceType": "Nanoplastia Hair Treatment",
         "provider": {
           "@type": "HairSalon",
-          "name": "Moon Studio"
+          "name": "Moon Studios"
         },
         "offers": {
           "@type": "Offer",
@@ -57,7 +57,7 @@ const StructuredData = () => {
         "serviceType": "Olaplex Hair Treatment",
         "provider": {
           "@type": "HairSalon",
-          "name": "Moon Studio"
+          "name": "Moon Studios"
         },
         "description": "Advanced bond-building treatment for hair repair."
       },
@@ -67,7 +67,7 @@ const StructuredData = () => {
         "serviceType": "Hair Coloring with Highlights and Balayage",
         "provider": {
           "@type": "HairSalon",
-          "name": "Moon Studio"
+          "name": "Moon Studios"
         },
         "description": "Global color & balayage technique with precision blending."
       }
@@ -79,7 +79,7 @@ const StructuredData = () => {
         "@type": "Review",
         "itemReviewed": {
           "@type": "HairSalon",
-          "name": "Moon Studio"
+          "name": "Moon Studios"
         },
         "author": {
           "@type": "Person",
@@ -98,7 +98,7 @@ const StructuredData = () => {
         "@type": "Review",
         "itemReviewed": {
           "@type": "HairSalon",
-          "name": "Moon Studio"
+          "name": "Moon Studios"
         },
         "author": {
           "@type": "Person",
@@ -117,7 +117,7 @@ const StructuredData = () => {
         "@type": "Review",
         "itemReviewed": {
           "@type": "HairSalon",
-          "name": "Moon Studio"
+          "name": "Moon Studios"
         },
         "author": {
           "@type": "Person",
@@ -129,7 +129,7 @@ const StructuredData = () => {
           "bestRating": "5"
         },
         "datePublished": "2024-05-15",
-        "reviewBody": "This is by far the best hair experience ever. Monica the owner is a sweetheart! Sadam was magical!! My hair has never looked better! Highly recommend Moon Studio."
+        "reviewBody": "This is by far the best hair experience ever. Monica the owner is a sweetheart! Sadam was magical!! My hair has never looked better! Highly recommend Moon Studios."
       }
     ];
 

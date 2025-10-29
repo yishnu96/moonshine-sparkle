@@ -1,27 +1,20 @@
 import stylistMonica from '@/assets/stylist-monica.jpg';
 import stylistShehzad from '@/assets/stylist-shehzad.jpg';
-import stylistSadam from '@/assets/stylist-sadam.jpg';
 
 const Stylists = () => {
   const stylists = [
     {
       name: 'Monica',
-      role: 'Owner & Lead Stylist',
-      description: 'Warm consultations. Precision-driven.',
+      role: 'Owner',
+      description: 'Mastering every detail of the experience',
       image: stylistMonica,
     },
     {
       name: 'Shehzad',
-      role: 'Cutting & Styling',
-      description: 'Face-framing layers, creative cuts.',
+      role: 'Lead Stylist',
+      description: 'Dubai-trained, problem-solver extraordinaire, creative cuts.',
       image: stylistShehzad,
-    },
-    {
-      name: 'Sadam',
-      role: 'Color & Treatments',
-      description: 'Patient, thorough, transformation-focused.',
-      image: stylistSadam,
-    },
+    }
   ];
 
   return (
@@ -33,7 +26,7 @@ const Stylists = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
           {stylists.map((stylist, index) => (
             <div
               key={index}

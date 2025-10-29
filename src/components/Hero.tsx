@@ -18,7 +18,7 @@ const Hero = () => {
       <div className="container mx-auto max-w-7xl relative">
         <div className="text-center mb-12 sm:mb-16 animate-fade-up">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-playfair font-bold text-foreground mb-6 leading-tight px-4">
-            Let your hair shine with<br />strength & beauty
+            Bring Your Family<br />Leave With Style
           </h1>
           
           {/* Trust badges */}
@@ -42,7 +42,7 @@ const Hero = () => {
             size="lg"
             className="bg-primary hover:bg-accent text-primary-foreground font-semibold px-8 sm:px-10 h-12 sm:h-14 text-base sm:text-lg rounded-xl shadow-medium hover:shadow-hover transition-all mb-4"
           >
-            Book Appointment
+            Book Your Visit
           </Button>
 
           {/* Rating badges */}
