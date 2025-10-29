@@ -1,36 +1,35 @@
 import { Sparkles } from 'lucide-react';
 import { Button } from './ui/button';
 import useEmblaCarousel from 'embla-carousel-react';
-import serviceNanoplastia from '@/assets/service-nanoplastia.jpg';
-import serviceOlaplex from '@/assets/service-olaplex.jpg';
-import serviceColoring from '@/assets/service-coloring.jpg';
 import serviceFacial from '@/assets/service-facial.jpg';
-import serviceHaircut from '@/assets/service-haircut.jpg';
+import serviceColoring from '@/assets/service-coloring.jpg';
+import serviceOlaplex from '@/assets/service-olaplex.jpg';
+import serviceNanoplastia from '@/assets/service-nanoplastia.jpg';
 
-const TopServices = () => {
+const SkinCareServices = () => {
   const services = [
     {
-      title: 'Haircuts',
-      price: 'Starting ₹300',
-      description: 'Expert haircuts for men, women, and kids - perfect styles for your entire family.',
-      image: serviceHaircut,
+      title: 'Facial Treatments',
+      price: 'from ₹999',
+      description: 'Choose from Regular, Advanced, Organic, or Medi facials for glowing, healthy skin.',
+      image: serviceFacial,
     },
     {
-      title: 'Hair Coloring',
-      price: 'Custom Pricing',
-      description: 'Transform your look with our professional coloring services and expert color consultation.',
+      title: 'Waxing',
+      price: 'Starting ₹150',
+      description: 'Professional waxing services - Full, Half, Upper Arms for smooth, hair-free skin.',
       image: serviceColoring,
     },
     {
-      title: 'Hair Spa',
-      price: 'from ₹1,999',
-      description: 'Rejuvenate your hair with L\'Oréal, Keratin, or Olaplex spa treatments.',
+      title: 'Pedicure & Manicure',
+      price: 'from ₹499',
+      description: 'Pamper yourself with Normal, Herbal, Spa, or Pedilogix treatments for beautiful hands and feet.',
       image: serviceOlaplex,
     },
     {
-      title: 'Hair Treatments',
-      price: 'from ₹2,999',
-      description: 'Premium treatments including Nanoplastia, Olaplex, and smoothening for healthy, beautiful hair.',
+      title: 'Bleach & D-Tan',
+      price: 'from ₹299',
+      description: 'Brighten your skin with our bleach, d-tan, body polish, and scrub treatments.',
       image: serviceNanoplastia,
     },
   ];
@@ -47,11 +46,11 @@ const TopServices = () => {
   });
 
   return (
-    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/20">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-semibold text-foreground mb-3">
-            Expert Hair Services<br />Tailored for You
+            Skin Care Services<br />We Offer
           </h2>
         </div>
 
@@ -61,7 +60,7 @@ const TopServices = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-hover transition-all duration-300 flex-[0_0_calc(33.333%-1rem)] min-w-0 animate-fade-up"
+                className="group bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-hover transition-all duration-300 flex-[0_0_calc(25%-1.125rem)] min-w-0 animate-fade-up"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
@@ -145,4 +144,4 @@ const TopServices = () => {
   );
 };
 
-export default TopServices;
+export default SkinCareServices;

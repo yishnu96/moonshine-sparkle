@@ -1,10 +1,13 @@
-import { Wind, Zap, Droplet } from 'lucide-react';
+import { Wind, Zap, Droplet, AlertCircle, Scissors, TrendingDown } from 'lucide-react';
 
 const HairProblems = () => {
   const problems = [
     { icon: Wind, label: 'Frizz' },
     { icon: Zap, label: 'Damage' },
-    { icon: Droplet, label: 'Dryness' }
+    { icon: Droplet, label: 'Dryness' },
+    { icon: AlertCircle, label: 'Hairfall' },
+    { icon: Scissors, label: 'Breakage' },
+    { icon: TrendingDown, label: 'Hair Thinning' }
   ];
 
   return (
@@ -14,7 +17,7 @@ const HairProblems = () => {
           Common hair problems<br className="sm:inline hidden" /><span className="sm:inline hidden"> </span>you may experience
         </h2>
         
-        <div className="grid grid-cols-3 gap-4 sm:gap-8 mb-8">
+        <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-8 mb-8">
           {problems.map((problem, index) => (
             <div
               key={index}
@@ -24,7 +27,7 @@ const HairProblems = () => {
               <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-primary/10 flex items-center justify-center">
                 <problem.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary" strokeWidth={1.5} />
               </div>
-              <p className="text-sm sm:text-lg font-medium text-foreground">{problem.label}</p>
+              <p className="text-sm sm:text-base font-medium text-foreground text-center">{problem.label}</p>
             </div>
           ))}
         </div>

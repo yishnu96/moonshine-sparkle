@@ -1,8 +1,10 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import PreferredBy from '@/components/PreferredBy';
 import HairProblems from '@/components/HairProblems';
 import TopServices from '@/components/TopServices';
-import SalonIntro from '@/components/SalonIntro';
+import SkinCareServices from '@/components/SkinCareServices';
+import WhyChooseUs from '@/components/WhyChooseUs';
 import HowItWorks from '@/components/HowItWorks';
 import ClientReviews from '@/components/ClientReviews';
 import Stylists from '@/components/Stylists';
@@ -18,9 +20,11 @@ const Index = () => {
       <StructuredData />
       <Header />
       <Hero />
+      <PreferredBy />
       <HairProblems />
       <TopServices />
-      <SalonIntro />
+      <SkinCareServices />
+      <WhyChooseUs />
       <HowItWorks />
       <ClientReviews />
       <Stylists />
