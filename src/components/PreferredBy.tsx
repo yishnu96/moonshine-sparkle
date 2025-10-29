@@ -1,6 +1,12 @@
 import useEmblaCarousel from 'embla-carousel-react';
 import AutoScroll from 'embla-carousel-auto-scroll';
 import { Star } from 'lucide-react';
+import sanchariImg from '../assets/images/sanchari_sengupta.png';
+import laxshImg from '../assets/images/laxsh_raj.png';
+import snehaImg from '../assets/images/dj_sneha.png';
+import parleenImg from '../assets/images/parleen.png';
+import dubaiImg from '../assets/images/dubai.png';
+import nikhikImg from '../assets/images/nikhik.png';
 
 const PreferredBy = () => {
   const [emblaRef] = useEmblaCarousel(
@@ -9,13 +15,13 @@ const PreferredBy = () => {
   );
 
   const clients = [
-    { name: 'Sanchari Sengupta', title: 'Playback Singer', image: '@/assets/images/sanchari_sengupta.png', url: 'https://share.google/t9QsmnTQmPm85OfXo' },
-    { name: 'Lakshya Raj Anand', title: 'Film producer', image: '@/assets/images/laxsh_raj.png', url: 'https://share.google/4eyKno0nbS8Yx5tAN' },
-    { name: 'Sneha Agarwal', title: 'DJ', image: '@/assets/images/dj_sneha.png', url: 'https://www.instagram.com/djsnea'},
-    { name: 'Parleen Singh', title: 'Mindset Coach/ Author', image: '@/assets/images/parleen.png', url: 'https://www.instagram.com/singhparleen'},
-    { name: 'Manjeet kaur', title: 'MISS INDIA/MISS DUBAI', image: '@/assets/images/dubai.png', url: 'https://www.instagram.com/yes.manjeetkaur'},
-    { name: 'Nikhil Singh', title: 'Winner Battleground', image: '@/assets/images/nikhik.png', url: 'https://www.instagram.com/fitwithnikhil09'},
-    { name: 'Nikhil Singh', title: 'Winner Battleground', image: '@/assets/images/nikhik.png', url: 'https://www.instagram.com/fitwithnikhil09'},
+  { name: 'Sanchari Sengupta', title: 'Playback Singer', image: sanchariImg, url: 'https://share.google/t9QsmnTQmPm85OfXo' },
+  { name: 'Lakshya Raj Anand', title: 'Film producer', image: laxshImg, url: 'https://share.google/4eyKno0nbS8Yx5tAN' },
+  { name: 'Sneha Agarwal', title: 'DJ', image: snehaImg, url: 'https://www.instagram.com/djsnea'},
+  { name: 'Parleen Singh', title: 'Mindset Coach/ Author', image: parleenImg, url: 'https://www.instagram.com/singhparleen'},
+  { name: 'Manjeet kaur', title: 'MISS INDIA/MISS DUBAI', image: dubaiImg, url: 'https://www.instagram.com/yes.manjeetkaur'},
+  { name: 'Nikhil Singh', title: 'Winner Battleground', image: nikhikImg, url: 'https://www.instagram.com/fitwithnikhil09'},
+  { name: 'Nikhil Singh', title: 'Winner Battleground', image: nikhikImg, url: 'https://www.instagram.com/fitwithnikhil09'},
 
   ];
 
