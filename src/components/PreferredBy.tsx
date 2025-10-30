@@ -7,6 +7,7 @@ import snehaImg from '../assets/images/dj_sneha.png';
 import parleenImg from '../assets/images/parleen.png';
 import dubaiImg from '../assets/images/dubai.png';
 import nikhikImg from '../assets/images/nikhik.png';
+import sajilImg from '../assets/images/kandwala.png';
 
 const PreferredBy = () => {
   const [emblaRef] = useEmblaCarousel(
@@ -21,7 +22,7 @@ const PreferredBy = () => {
   { name: 'Parleen Singh', title: 'Mindset Coach/ Author', image: parleenImg, url: 'https://www.instagram.com/singhparleen'},
   { name: 'Manjeet kaur', title: 'MISS INDIA/MISS DUBAI', image: dubaiImg, url: 'https://www.instagram.com/yes.manjeetkaur'},
   { name: 'Nikhil Singh', title: 'Winner Battleground', image: nikhikImg, url: 'https://www.instagram.com/fitwithnikhil09'},
-  { name: 'Nikhil Singh', title: 'Winner Battleground', image: nikhikImg, url: 'https://www.instagram.com/fitwithnikhil09'},
+  { name: 'Sajil Khandelwal', title: 'Businessman', image: sajilImg, url: 'https://www.instagram.com/sajilkhandelwal'},
 
   ];
 
