@@ -1,21 +1,27 @@
-import { CheckCircle2, Leaf, Eye, Heart } from 'lucide-react';
+import { CheckCircle2, Leaf, Shield, Heart } from 'lucide-react';
+import { Button } from './ui/button';
 
 const WhyChooseUs = () => {
   const reasons = [
     {
       icon: CheckCircle2,
-      title: 'Deep-dive consultancy',
-      description: 'We dive deep into your hair and skin story — so we tailor every detail',
+      title: 'Expert Consultancy',
+      description: 'Most clients are delighted by our perfect analysis. We understand your needs and deliver exactly what you envision.',
     },
     {
       icon: Heart,
       title: 'Calming Environment',
-      description: 'A calm, inclusive space. We make you feel relaxed, restored, and ready',
+      description: 'Clients love the peaceful atmosphere we create. You will feel truly relaxed and rejuvenated during your visit.',
     },
     {
-      icon: Eye,
+      icon: Leaf,
       title: 'Transparent Products',
-      description: 'We show you the products. We explain what’s inside them. You always know what’s going on',
+      description: 'We not only tell you what products we use, but also explain why and how they work for your specific needs.',
+    },
+    {
+      icon: Shield,
+      title: 'Complete After Care',
+      description: 'We provide scheduled aftercare guidance. Your satisfaction and continued well-being are our top priorities.',
     },
   ];
 
@@ -31,26 +37,39 @@ const WhyChooseUs = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-10">
           {reasons.map((reason, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center p-6 lg:p-8 bg-card rounded-2xl shadow-soft hover:shadow-hover transition-all duration-300 hover:-translate-y-1 animate-fade-up"
+              className="group bg-card rounded-2xl p-6 sm:p-8 shadow-soft hover:shadow-hover transition-all duration-300 hover:-translate-y-1 animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <reason.icon className="w-7 h-7 lg:w-8 lg:h-8 text-primary" strokeWidth={1.5} />
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 sm:mb-5 group-hover:bg-primary/20 transition-colors">
+                <reason.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
               </div>
               
-              <h3 className="text-lg lg:text-xl font-playfair font-semibold text-foreground mb-3">
+              <h3 className="text-lg sm:text-xl font-playfair font-semibold text-foreground mb-3">
                 {reason.title}
               </h3>
               
-              <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 {reason.description}
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="text-center">
+          <Button
+            onClick={() => {
+              const element = document.getElementById('booking');
+              element?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            size="lg"
+            className="bg-primary hover:bg-accent text-primary-foreground font-semibold px-8 py-6 text-lg rounded-xl shadow-medium hover:shadow-hover transition-all"
+          >
+            Schedule Your Consultation
+          </Button>
         </div>
       </div>
     </section>

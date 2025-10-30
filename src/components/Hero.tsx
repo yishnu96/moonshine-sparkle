@@ -46,13 +46,23 @@ const Hero = () => {
           </Button>
 
           {/* Rating badges */}
-          <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
-            <div className="flex items-center gap-1">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm sm:text-base text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <img 
+                src="https://akam.cdn.jdmagicbox.com/images/icontent/jdrwd/jd_vertical_logo.svg" 
+                alt="JustDial" 
+                className="w-5 h-5"
+              />
               <Star className="w-4 h-4 text-primary fill-primary" />
               <span className="font-medium">4.9 Rating on JustDial</span>
             </div>
-            <span>|</span>
-            <div className="flex items-center gap-1">
+            <div className="hidden sm:block w-1 h-1 rounded-full bg-muted-foreground" />
+            <div className="flex items-center gap-2">
+              <img 
+                src="https://www.google.com/favicon.ico" 
+                alt="Google" 
+                className="w-5 h-5"
+              />
               <Star className="w-4 h-4 text-primary fill-primary" />
               <span className="font-medium">4.9 Rating on Google</span>
             </div>

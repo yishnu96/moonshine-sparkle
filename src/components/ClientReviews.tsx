@@ -78,11 +78,15 @@ const ClientReviews = () => {
           <Button
             variant="outline"
             size="lg"
-            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-            onClick={() => window.open('https://instagram.com/moonstudio', '_blank')}
+            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground inline-flex items-center gap-2"
+            onClick={() => window.open('https://g.page/r/CSOTIiLv5ERBEBM/review', '_blank')}
           >
-            <ExternalLink className="w-4 h-4 mr-2" />
-            See more on Instagram
+            <img 
+              src="https://www.google.com/favicon.ico" 
+              alt="Google" 
+              className="w-5 h-5"
+            />
+            View All Reviews on Google
           </Button>
         </div>
       </div>

@@ -1,3 +1,5 @@
+import { Instagram } from 'lucide-react';
+import { Button } from './ui/button';
 import hero1 from '@/assets/hero-1.jpg';
 import hero2 from '@/assets/hero-2.jpg';
 import hero3 from '@/assets/hero-3.jpg';
@@ -102,6 +104,18 @@ const Gallery = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <Button
+            variant="outline"
+            size="lg"
+            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground inline-flex items-center gap-2"
+            onClick={() => window.open('https://instagram.com/moonstudio', '_blank')}
+          >
+            <Instagram className="w-5 h-5" />
+            See More on Instagram
+          </Button>
         </div>
       </div>
     </section>
