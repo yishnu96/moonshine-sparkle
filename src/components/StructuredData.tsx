@@ -7,7 +7,7 @@ const StructuredData = () => {
       "@type": "HairSalon",
       "name": "Moon Studios",
       "description": "Certified stylists. 5000+ happy clients. Hygiene-first salon offering Nanoplastia, Olaplex, Balayage, and facials in Andheri East.",
-      "image": "https://lovable.dev/opengraph-image-p98pqg.png",
+      "image": "/src/assets/favicon/favicon-32x32.png",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Andheri East",
