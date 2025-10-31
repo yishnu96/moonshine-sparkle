@@ -23,10 +23,10 @@ const Index = () => {
       <TopServices />
       <SkinCareServices />
       <WhyChooseUs />
-      <HowItWorks />
+      <HowItWorks className="px-[15px]" />
       <ClientReviews />
       <Gallery />
-      <Stylists />
+      <Stylists className="px-0" />
       <BookingForm />
       <Location />
       <Footer />
