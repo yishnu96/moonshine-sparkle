@@ -10,39 +10,52 @@ import serviceOlaplex from '@/assets/service-olaplex.jpg';
 const Gallery = () => {
   const transformations = [
     { 
-      before: 'https://placehold.co/600x600/e0e0e0/666?text=Before+1',
+      before: 'https://placehold.co/500x700/e0e0e0/666?text=Before+1',
       after: hero1, 
       alt: 'Hair transformation with balayage highlights',
       type: 'image'
     },
     { 
-      before: 'https://placehold.co/600x600/e0e0e0/666?text=Before+2',
+      before: 'https://placehold.co/500x700/e0e0e0/666?text=Before+2',
       after: hero2, 
       alt: 'Professional styling result',
       type: 'image'
     },
     { 
-      before: 'https://placehold.co/600x600/e0e0e0/666?text=Before+3',
+      before: 'https://placehold.co/500x700/e0e0e0/666?text=Before+3',
       after: hero3, 
       alt: 'Perfect hair color treatment',
       type: 'image'
     },
     { 
-      before: 'https://placehold.co/600x600/e0e0e0/666?text=Before+4',
+      before: 'https://placehold.co/500x700/e0e0e0/666?text=Before+4',
       after: serviceNanoplastia, 
       alt: 'Nanoplastia smoothening treatment',
       type: 'image'
     },
     { 
-      before: 'https://placehold.co/600x600/e0e0e0/666?text=Before+5',
+      before: 'https://placehold.co/500x700/e0e0e0/666?text=Before+5',
       after: serviceColoring, 
       alt: 'Hair coloring with highlights',
       type: 'image'
     },
     { 
-      before: 'https://placehold.co/600x600/e0e0e0/666?text=Before+6',
+      before: 'https://placehold.co/500x700/e0e0e0/666?text=Before+6',
       after: serviceOlaplex, 
       alt: 'Olaplex bond repair treatment',
+      type: 'image'
+    },
+    { 
+      before: 'https://placehold.co/500x700/e0e0e0/666?text=Before+Video',
+      after: 'https://placehold.co/500x700/e0e0e0/666?text=After+Video',
+      alt: 'Hair styling transformation video',
+      type: 'video',
+      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4'
+    },
+    { 
+      before: 'https://placehold.co/500x700/e0e0e0/666?text=Before+7',
+      after: hero1, 
+      alt: 'Beautiful hair color result',
       type: 'image'
     },
   ];
@@ -59,11 +72,11 @@ const Gallery = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {transformations.map((item, index) => (
             <div
               key={index}
-              className="group relative aspect-square overflow-hidden rounded-2xl shadow-soft hover:shadow-hover transition-all duration-300 cursor-pointer animate-fade-up"
+              className="group relative aspect-[5/7] overflow-hidden rounded-2xl shadow-soft hover:shadow-hover transition-all duration-300 cursor-pointer animate-fade-up"
               style={{ animationDelay: `${index * 50}ms` }}
             >
               {item.type === 'image' ? (
@@ -79,7 +92,7 @@ const Gallery = () => {
                   <img
                     src={item.after}
                     alt={`After - ${item.alt}`}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
                   {/* Before/After Labels */}
@@ -91,15 +104,35 @@ const Gallery = () => {
                   </div>
                 </>
               ) : (
-                <video
-                  src={item.after}
-                  className="w-full h-full object-cover"
-                  loop
-                  muted
-                  playsInline
-                  onMouseEnter={(e) => e.currentTarget.play()}
-                  onMouseLeave={(e) => e.currentTarget.pause()}
-                />
+                <>
+                  {/* Before Video Thumbnail */}
+                  <img
+                    src={item.before}
+                    alt={`Before - ${item.alt}`}
+                    className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
+                    loading="lazy"
+                  />
+                  {/* After Video */}
+                  <video
+                    src={item.videoUrl}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loop
+                    muted
+                    playsInline
+                    onMouseEnter={(e) => e.currentTarget.play()}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.pause();
+                      e.currentTarget.currentTime = 0;
+                    }}
+                  />
+                  {/* Before/After Labels for Video */}
+                  <div className="absolute top-3 left-3 bg-background/90 text-foreground px-3 py-1 rounded-full text-xs font-semibold transition-opacity duration-300 group-hover:opacity-0">
+                    Before
+                  </div>
+                  <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    After
+                  </div>
+                </>
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>

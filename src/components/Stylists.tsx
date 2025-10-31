@@ -33,7 +33,7 @@ const Stylists = () => {
               className="group bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-hover transition-all duration-300 hover:-translate-y-1 text-center animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="aspect-[3/4] overflow-hidden">
+              <div className="aspect-[4/5] overflow-hidden">
                 <img
                   src={stylist.image}
                   alt={`${stylist.name} - ${stylist.role}`}
