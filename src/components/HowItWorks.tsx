@@ -64,7 +64,7 @@ const HowItWorks = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 relative">
             {steps.map((step, index) => (
               <div
                 key={index}

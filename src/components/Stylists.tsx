@@ -26,14 +26,14 @@ const Stylists = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-3xl mx-auto">
           {stylists.map((stylist, index) => (
             <div
               key={index}
               className="group bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-hover transition-all duration-300 hover:-translate-y-1 text-center animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="aspect-[4/5] overflow-hidden">
+              <div className="aspect-[3/4] overflow-hidden">
                 <img
                   src={stylist.image}
                   alt={`${stylist.name} - ${stylist.role}`}
@@ -41,7 +41,7 @@ const Stylists = () => {
                 />
               </div>
               
-              <div className="p-5">
+              <div className="p-3 sm:p-4 md:p-5">
                 <h3 className="text-xl font-playfair font-semibold text-foreground mb-1">
                   {stylist.name}
                 </h3>
