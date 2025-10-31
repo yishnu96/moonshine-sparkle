@@ -114,7 +114,7 @@ const Gallery = () => {
       </div>
 
       <div className="text-center mt-10">
-        <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground inline-flex items-center gap-2" onClick={() => window.open('https://www.instagram.com/moon_studios_21', '_blank')}>
+        <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground inline-flex items-center gap-2" onClick={() => window.open('https://www.instagram.com/moonstudiossalon', '_blank')}>
           <Instagram className="w-5 h-5" />
           See More
         </Button>

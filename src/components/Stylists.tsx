@@ -1,4 +1,4 @@
-import stylistMonica from '@/assets/stylist-monica.jpg';
+import stylistMonica from '@/assets/monica_image.jpg';
 import stylistShehzad from '@/assets/stylist-shehzad.jpg';
 const Stylists = () => {
   const stylists = [{

@@ -1,8 +1,13 @@
+# Moon Studios - The Family Salon
+# https://moonstudiossalon.in
+
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
@@ -12,3 +17,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemaps
+Sitemap: https://moonstudiossalon.in/sitemap.xml
