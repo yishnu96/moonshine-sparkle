@@ -1,5 +1,5 @@
 import stylistMonica from '@/assets/monica_image.jpg';
-import stylistShehzad from '@/assets/stylist-shehzad.jpg';
+import stylistShehzad from '@/assets/sadzam.jpg';
 const Stylists = () => {
   const stylists = [{
     name: 'Monica',
