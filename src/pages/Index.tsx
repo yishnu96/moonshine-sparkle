@@ -13,10 +13,8 @@ import BookingForm from '@/components/BookingForm';
 import Location from '@/components/Location';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
-
 const Index = () => {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <StructuredData />
       <Header />
       <Hero />
@@ -27,13 +25,11 @@ const Index = () => {
       <WhyChooseUs />
       <HowItWorks />
       <ClientReviews />
-      <Gallery />
+      <Gallery className="px-0 mx-0 py-0" />
       <Stylists />
       <BookingForm />
       <Location />
-      <Footer />
-    </div>
-  );
+      <Footer className="px-0" />
+    </div>;
 };
-
 export default Index;
