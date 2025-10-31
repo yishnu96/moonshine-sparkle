@@ -1,28 +1,30 @@
 import { Instagram } from 'lucide-react';
 import { Button } from './ui/button';
 
-import serviceNanoplastia from '@/assets/service-nanoplastia.jpg';
-import serviceColoring from '@/assets/service-coloring.jpg';
-import serviceOlaplex from '@/assets/service-olaplex.jpg';
-
-
 import before1 from '@/assets/gallery/1_b.jpg';
 import after1 from '@/assets/gallery/1_a.jpg';
 
 import before2 from '@/assets/gallery/1761652646179.jpg';
 import after2 from '@/assets/gallery/1761652646175.jpg';
 
-import before3 from '@/assets/gallery/20240405_150336.mp4';
-import after3 from '@/assets/gallery/20240415_000510.mp4';
+import before3 from '@/assets/gallery/image_mare_before.jpg';
+import after3 from '@/assets/gallery/image_male_after.jpg';
 
-import before4 from '@/assets/gallery/before-4.jpg';
-import before5 from '@/assets/gallery/before-5.jpg';
-import before6 from '@/assets/gallery/before-6.jpg';
-import before7 from '@/assets/gallery/before-7.jpg';
-import hero1 from '@/assets/hero-1.jpg';
-import hero2 from '@/assets/hero-2.jpg';
-import hero3 from '@/assets/hero-3.jpg';
-import { after } from 'node:test';
+import before4 from '@/assets/gallery/female_hair_b.jpg';
+import after4 from '@/assets/gallery/female_hair_after.jpg';
+
+import before5 from '@/assets/gallery/f_color_b.jpg';
+import after5 from '@/assets/gallery/f_color_af.jpg';
+
+import before6 from '@/assets/gallery/f_face_b.jpg';
+import after6 from '@/assets/gallery/f_face_af.jpg';
+
+import before7 from '@/assets/gallery/f_hair_one_before.jpg';
+import after7 from '@/assets/gallery/f_hair_one_after.jpg';
+
+import before8 from '@/assets/gallery/last_one.jpg';
+import after8 from '@/assets/gallery/last_one_after.jpg';
+
 const Gallery = () => {
   const transformations = [{
     before: before1,
@@ -38,30 +40,30 @@ const Gallery = () => {
     before: before3,
     after: after3,
     alt: 'Perfect hair color treatment',
-    type: 'video'
+    type: 'image'
   }, {
     before: before4,
-    after: serviceNanoplastia,
+    after: after4,
     alt: 'Nanoplastia smoothening treatment',
     type: 'image'
   }, {
     before: before5,
-    after: serviceColoring,
+    after: after5,
     alt: 'Hair coloring with highlights',
     type: 'image'
   }, {
     before: before6,
-    after: serviceOlaplex,
+    after: after6,
     alt: 'Olaplex bond repair treatment',
     type: 'image'
   }, {
-    before: before4,
-    after: hero2,
-    alt: 'Hair styling transformation video',
-    type: 'video',
-  }, {
     before: before7,
-    after: hero1,
+    after: after7,
+    alt: 'Hair styling transformation video',
+    type: 'image',
+  }, {
+    before: before8,
+    after: after8,
     alt: 'Beautiful hair color result',
     type: 'image'
   }];
