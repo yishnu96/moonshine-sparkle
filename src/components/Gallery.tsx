@@ -6,45 +6,52 @@ import hero3 from '@/assets/hero-3.jpg';
 import serviceNanoplastia from '@/assets/service-nanoplastia.jpg';
 import serviceColoring from '@/assets/service-coloring.jpg';
 import serviceOlaplex from '@/assets/service-olaplex.jpg';
+import before1 from '@/assets/gallery/before-1.jpg';
+import before2 from '@/assets/gallery/before-2.jpg';
+import before3 from '@/assets/gallery/before-3.jpg';
+import before4 from '@/assets/gallery/before-4.jpg';
+import before5 from '@/assets/gallery/before-5.jpg';
+import before6 from '@/assets/gallery/before-6.jpg';
+import before7 from '@/assets/gallery/before-7.jpg';
 const Gallery = () => {
   const transformations = [{
-    before: 'https://placehold.co/500x700/e0e0e0/666?text=Before+1',
+    before: before1,
     after: hero1,
     alt: 'Hair transformation with balayage highlights',
     type: 'image'
   }, {
-    before: 'https://placehold.co/500x700/e0e0e0/666?text=Before+2',
+    before: before2,
     after: hero2,
     alt: 'Professional styling result',
     type: 'image'
   }, {
-    before: 'https://placehold.co/500x700/e0e0e0/666?text=Before+3',
+    before: before3,
     after: hero3,
     alt: 'Perfect hair color treatment',
     type: 'image'
   }, {
-    before: 'https://placehold.co/500x700/e0e0e0/666?text=Before+4',
+    before: before4,
     after: serviceNanoplastia,
     alt: 'Nanoplastia smoothening treatment',
     type: 'image'
   }, {
-    before: 'https://placehold.co/500x700/e0e0e0/666?text=Before+5',
+    before: before5,
     after: serviceColoring,
     alt: 'Hair coloring with highlights',
     type: 'image'
   }, {
-    before: 'https://placehold.co/500x700/e0e0e0/666?text=Before+6',
+    before: before6,
     after: serviceOlaplex,
     alt: 'Olaplex bond repair treatment',
     type: 'image'
   }, {
-    before: 'https://placehold.co/500x700/e0e0e0/666?text=Before+Video',
-    after: 'https://placehold.co/500x700/e0e0e0/666?text=After+Video',
+    before: before4,
+    after: hero2,
     alt: 'Hair styling transformation video',
     type: 'video',
     videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4'
   }, {
-    before: 'https://placehold.co/500x700/e0e0e0/666?text=Before+7',
+    before: before7,
     after: hero1,
     alt: 'Beautiful hair color result',
     type: 'image'

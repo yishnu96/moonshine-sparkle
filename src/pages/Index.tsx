@@ -25,11 +25,11 @@ const Index = () => {
       <WhyChooseUs />
       <HowItWorks />
       <ClientReviews />
-      <Gallery className="px-0 mx-0 py-0" />
+      <Gallery />
       <Stylists />
       <BookingForm />
       <Location />
-      <Footer className="px-0" />
+      <Footer />
     </div>;
 };
 export default Index;
