@@ -43,7 +43,7 @@ const WhyChooseUs = () => {
             </div>)}
         </div>
 
-        <div className="text-center">
+        <div className="text-center space-y-4">
           <Button onClick={() => {
           const element = document.getElementById('booking');
           element?.scrollIntoView({
@@ -52,6 +52,19 @@ const WhyChooseUs = () => {
         }} size="lg" className="bg-primary hover:bg-accent text-primary-foreground font-semibold px-8 py-6 text-lg rounded-xl shadow-medium hover:shadow-hover transition-all">
             Schedule Your Consultation
           </Button>
+          
+          <p className="text-sm text-muted-foreground">
+            Want to know who'll style you? {' '}
+            <button 
+              onClick={() => {
+                const element = document.getElementById('stylists');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="text-primary hover:text-accent font-semibold underline transition-colors"
+            >
+              Meet our expert stylists
+            </button>
+          </p>
         </div>
       </div>
     </section>;

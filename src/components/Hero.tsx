@@ -1,11 +1,21 @@
 import { Star, Shield, Users } from 'lucide-react';
 import { Button } from './ui/button';
+import { useNavigate } from 'react-router-dom';
 import hero1 from '@/assets/hero-1.jpg';
 import hero2 from '@/assets/hero-2.jpg';
 import hero3 from '@/assets/hero-3.jpg';
 const Hero = () => {
+  const navigate = useNavigate();
+  
   const scrollToBooking = () => {
     const element = document.getElementById('booking');
+    element?.scrollIntoView({
+      behavior: 'smooth'
+    });
+  };
+  
+  const scrollToGallery = () => {
+    const element = document.getElementById('gallery');
     element?.scrollIntoView({
       behavior: 'smooth'
     });
@@ -36,9 +46,14 @@ const Hero = () => {
             </div>
           </div>
 
-          <Button onClick={scrollToBooking} size="lg" className="bg-primary hover:bg-accent text-primary-foreground font-semibold px-8 sm:px-10 h-12 sm:h-14 text-base sm:text-lg rounded-xl shadow-medium hover:shadow-hover transition-all mb-4">
-            Book Your Visit
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-4">
+            <Button onClick={scrollToBooking} size="lg" className="bg-primary hover:bg-accent text-primary-foreground font-semibold px-8 sm:px-10 h-12 sm:h-14 text-base sm:text-lg rounded-xl shadow-medium hover:shadow-hover transition-all">
+              Book Your Visit
+            </Button>
+            <Button onClick={() => navigate('/services')} variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-8 sm:px-10 h-12 sm:h-14 text-base sm:text-lg rounded-xl">
+              Explore Our Services
+            </Button>
+          </div>
 
           {/* Rating badges */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm sm:text-base text-muted-foreground">
@@ -101,14 +116,20 @@ const Hero = () => {
           }, {
             img: hero3,
             rotation: '-rotate-1'
-          }].map((item, index) => <div key={index} className={`${item.rotation} hover:rotate-0 transition-all duration-300 hover:scale-105 animate-fade-up`} style={{
+          }].map((item, index) => <div key={index} className={`${item.rotation} hover:rotate-0 transition-all duration-300 hover:scale-105 animate-fade-up cursor-pointer`} style={{
             animationDelay: `${index * 100}ms`
-          }}>
+          }} onClick={scrollToGallery}>
                 <div className="relative overflow-hidden rounded-2xl shadow-medium hover:shadow-hover aspect-[3/4] bg-card">
                   <img src={item.img} alt={`Hair transformation ${index + 1}`} className="w-full h-full object-cover" loading={index === 0 ? 'eager' : 'lazy'} />
                 </div>
               </div>)}
           </div>
+          
+          <p className="text-center mt-6 text-sm text-muted-foreground">
+            <button onClick={scrollToGallery} className="hover:text-primary transition-colors underline">
+              View more transformations in our gallery
+            </button>
+          </p>
         </div>
       </div>
     </section>;

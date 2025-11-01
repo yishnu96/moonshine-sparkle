@@ -61,11 +61,36 @@ const ClientReviews = () => {
             </div>)}
         </div>
 
-        <div className="text-center">
-          <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground inline-flex items-center gap-2" onClick={() => window.open('https://maps.app.goo.gl/2UPypwux2XpX57jE6', '_blank')}>
-            <MapPin className="w-5 h-5" />
-            View All Reviews
-          </Button>
+        <div className="text-center space-y-4">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground inline-flex items-center gap-2" onClick={() => window.open('https://maps.app.goo.gl/2UPypwux2XpX57jE6', '_blank')}>
+              <MapPin className="w-5 h-5" />
+              View All Reviews
+            </Button>
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-accent text-primary-foreground font-semibold"
+              onClick={() => {
+                const element = document.getElementById('booking');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Book Your Appointment
+            </Button>
+          </div>
+          
+          <p className="text-sm text-muted-foreground">
+            Join thousands of satisfied clients. {' '}
+            <button 
+              onClick={() => {
+                const element = document.getElementById('gallery');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="text-primary hover:text-accent font-semibold underline transition-colors"
+            >
+              See their transformations
+            </button>
+          </p>
         </div>
       </div>
     </section>;

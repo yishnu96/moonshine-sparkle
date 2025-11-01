@@ -1,5 +1,9 @@
 import { Wind, Zap, Droplet, AlertCircle, Scissors, TrendingDown } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
 const HairProblems = () => {
+  const navigate = useNavigate();
+  
   const problems = [{
     icon: Wind,
     label: 'Frizz'
@@ -19,6 +23,7 @@ const HairProblems = () => {
     icon: TrendingDown,
     label: 'Hair Thinning'
   }];
+  
   return <section className="py-16 px-4  lg:px-8 bg-secondary/30">
       <div className="container mx-auto max-w-4xl text-center px-0">
         <h2 className="text-2xl sm:text-4xl font-playfair font-semibold text-foreground mb-10">
@@ -36,10 +41,18 @@ const HairProblems = () => {
             </div>)}
         </div>
         
-        <p className="text-lg text-muted-foreground font-medium">
-          Let’s Solve It Together
+        <p className="text-lg text-muted-foreground font-medium mb-6">
+          Let's Solve It Together
         </p>
+        
+        <button 
+          onClick={() => navigate('/services')}
+          className="text-primary hover:text-accent font-semibold underline transition-colors"
+        >
+          Discover our specialized hair treatments and solutions
+        </button>
       </div>
     </section>;
 };
+
 export default HairProblems;
