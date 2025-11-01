@@ -16,12 +16,18 @@ const Location = () => {
             <iframe src={mapUrl} width="100%" height="100%" style={{
             border: 0
           }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Moon Studios Location Map" />
-            <a href="https://maps.app.goo.gl/YqntQGMKfKekQMN69" target="_blank" rel="noopener noreferrer" className="absolute inset-0 flex items-center justify-center bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <button 
+              onClick={() => {
+                const url = 'https://maps.app.goo.gl/YqntQGMKfKekQMN69';
+                window.open(url, '_blank', 'noopener,noreferrer');
+              }}
+              className="absolute inset-0 flex items-center justify-center bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
               <div className="text-center">
                 <MapPin className="w-12 h-12 text-primary mx-auto mb-2" />
                 <p className="text-foreground font-semibold">Click to open in Google Maps</p>
               </div>
-            </a>
+            </button>
           </div>
 
           {/* Contact Info */}
@@ -88,7 +94,14 @@ const Location = () => {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6">
-              <Button onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=Moon+Studio+Andheri+East+Mumbai', '_blank')} size="lg" className="flex-1 bg-primary hover:bg-accent text-primary-foreground font-semibold px-6 sm:px-8 h-11 sm:h-14 text-sm sm:text-lg rounded-xl shadow-medium hover:shadow-hover transition-all py-[10px]">
+              <Button 
+                onClick={() => {
+                  const url = 'https://www.google.com/maps/search/?api=1&query=Moon+Studio+Andheri+East+Mumbai';
+                  window.open(url, '_blank', 'noopener,noreferrer');
+                }} 
+                size="lg" 
+                className="flex-1 bg-primary hover:bg-accent text-primary-foreground font-semibold px-6 sm:px-8 h-11 sm:h-14 text-sm sm:text-lg rounded-xl shadow-medium hover:shadow-hover transition-all py-[10px]"
+              >
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Get Directions
               </Button>

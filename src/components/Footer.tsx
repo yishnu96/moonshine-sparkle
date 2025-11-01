@@ -41,22 +41,22 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-foreground mb-4">Follow Us</h4>
             <div className="flex gap-4">
-              <a
-                href="https://instagram.com/moonstudiossalon"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => {
+                  window.open('https://instagram.com/moonstudiossalon', '_blank', 'noopener,noreferrer');
+                }}
                 className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all"
               >
                 <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.facebook.com/profile.php?id=61579161101740"
-                target="_blank"
-                rel="noopener noreferrer"
+              </button>
+              <button
+                onClick={() => {
+                  window.open('https://www.facebook.com/profile.php?id=61579161101740', '_blank', 'noopener,noreferrer');
+                }}
                 className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all"
               >
                 <Facebook className="w-5 h-5" />
-              </a>
+              </button>
               <a
                 href="tel:+919004832184"
                 target="_blank"

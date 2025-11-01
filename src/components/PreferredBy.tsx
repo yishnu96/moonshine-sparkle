@@ -70,7 +70,12 @@ const PreferredBy = () => {
           <div className="flex gap-8">
             {[...clients, ...clients].map((client, index) => <div key={index} className="flex-[0_0_200px] min-w-0">
                 <div className="rounded-2xl p-8 duration-300 text-center h-full flex flex-col items-center justify-center py-0 px-0">
-                  <a href={client.url} target="_blank" rel="noopener noreferrer">
+                  <button 
+                    onClick={() => {
+                      window.open(client.url, '_blank', 'noopener,noreferrer');
+                    }}
+                    className="w-full text-left"
+                  >
                     <div className="w-24 h-24 rounded-full overflow-hidden mb-4 mx-auto border-4 border-primary/20">
                       <img src={client.image} alt={client.name} className="w-full h-full object-cover" />
                     </div>
@@ -80,7 +85,7 @@ const PreferredBy = () => {
                     <p className="text-muted-foreground text-sm">
                       {client.title}
                     </p>
-                  </a>
+                  </button>
                 </div>
               </div>)}
           </div>
