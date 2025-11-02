@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Scissors, Sparkles, Hand, Droplet, Activity, User, Phone, Calendar } from 'lucide-react';
+import { Scissors, Sparkles, Hand, Droplet, Activity, User, Phone, Calendar, Diamond } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useNavigate } from 'react-router-dom';
@@ -8,19 +8,39 @@ import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 
 // Import service images
-import kidsHaircutImg from '@/assets/services/kids-haircut.jpg';
-import fringeCutImg from '@/assets/services/fringe-cut.jpg';
-import normalHaircutImg from '@/assets/services/normal-haircut.jpg';
-import advanceHaircutImg from '@/assets/services/advance-haircut.jpg';
-import hairWashBlowdryImg from '@/assets/services/hair-wash-blowdry.jpg';
-import hairSpaImg from '@/assets/services/hair-spa.jpg';
-import threadingImg from '@/assets/services/threading.jpg';
+import kidsHaircutImg from '@/assets/services/kids_haircut.png';
+import fringeCutImg from '@/assets/services/Fringe_Flicks_Bangs.png';
+import normalHaircutImg from '@/assets/services/normal_hircut.png';
+import advanceHaircutImg from '@/assets/services/Advance_Haircut.png';
+import hairWashBlowdryImg from '@/assets/services/blow_hair.png';
+import hairSpaImg from '@/assets/services/hair_spa.png';
+import haircolorImg from '@/assets/services/haircolour.png';
+import hairWashBlastdryImg from '@/assets/services/blast.png';
+
+import threadingImg from '@/assets/services/threading.png';
+import lipThreadingImg from '@/assets/services/lip_threading.png';
+import forheadThreadingImg from '@/assets/services/fourhead_threading.png';
+import chinThreadingImg from '@/assets/services/chin_threading.png';
+import faceThreadingImg from '@/assets/services/face_threading.png';
+import cleannUpImg from '@/assets/services/cleanup.png';      
+import fruitFacialImg from '@/assets/services/fruit_facial.png';
+import charcoalFacialImg from '@/assets/services/charcoal_fecial.png';
+import LotusFacialImg from '@/assets/services/lotus_facial.png';
+import o3FacialImg from '@/assets/services/o3_facial.png';
+import DiamondFacialImg from '@/assets/services//dimonnd_facial.png';
 import facialCleanupImg from '@/assets/services/facial-cleanup.jpg';
 import facialTreatmentImg from '@/assets/services/facial-treatment.jpg';
-import manicureImg from '@/assets/services/manicure.jpg';
-import pedicureImg from '@/assets/services/pedicure.jpg';
-import waxingImg from '@/assets/services/waxing.jpg';
-import massageImg from '@/assets/services/massage.jpg';
+import manicureImg from '@/assets/services/manicure.png';
+import pedicureImg from '@/assets/services/pedicure.png';
+
+import waxingImg from '@/assets/services/waxing.png';
+import massageImg from '@/assets/services/massage.png';
+import manUnderArmWaxingImg from '@/assets/services/underarm_wax.png';
+import manLegWaxImg from '@/assets/services/legs_man_wax.png';
+import manfrontImg from '@/assets/services/man_front_wax.png';
+import manBackImg from '@/assets/services/back_wax_man.png';  
+
+
 import mensGroomingImg from '@/assets/services/mens-grooming.jpg';
 type Service = {
   id: string;
@@ -99,7 +119,7 @@ const Services = () => {
       id: 'hair-wash-blast',
       name: 'Hair Wash & Blow Blast',
       description: 'Quick refresh with volume.',
-      image: hairWashBlowdryImg
+      image: hairWashBlastdryImg
     }, {
       id: 'hair-wash-dry',
       name: 'Hair Wash & Blow Dry',
@@ -109,7 +129,7 @@ const Services = () => {
       id: 'hair-color',
       name: 'Hair Color & Treatment',
       description: 'Full color service with care.',
-      image: normalHaircutImg
+      image: haircolorImg
     }, {
       id: 'hair-spa',
       name: 'Hair Spa',
@@ -130,67 +150,67 @@ const Services = () => {
       id: 'upper-lip-thread',
       name: 'Upper Lip Threading',
       description: 'Quick and clean hair removal.',
-      image: threadingImg
+      image: lipThreadingImg
     }, {
       id: 'forehead-thread',
       name: 'Forehead Threading',
       description: 'Smooth forehead finish.',
-      image: threadingImg
+      image: forheadThreadingImg
     }, {
       id: 'chin-thread',
       name: 'Chin Threading',
       description: 'Gentle chin hair removal.',
-      image: threadingImg
+      image: chinThreadingImg
     }, {
       id: 'face-sides-thread',
       name: 'Face Sides Threading',
       description: 'Side facial hair removal.',
-      image: threadingImg
+      image: faceThreadingImg
     }, {
       id: 'full-face-thread',
       name: 'Full Face Threading',
       description: 'Complete facial threading.',
-      image: threadingImg
+      image: faceThreadingImg
     }, {
       id: 'normal-cleanup',
       name: 'Normal Clean-Up',
       description: 'Essential facial cleaning.',
-      image: facialCleanupImg
+      image: cleannUpImg
     }, {
       id: 'advance-cleanup',
       name: 'Advanced Clean-Up',
       description: 'Deep cleanse with treatment.',
-      image: facialCleanupImg
+      image: cleannUpImg
     }, {
       id: 'fruit-facial',
       name: 'Regular Facial - Fruit/Papaya',
       description: 'Natural fruit-based facial.',
-      image: facialTreatmentImg
+      image: fruitFacialImg
     }, {
       id: 'charcoal-facial',
       name: 'Regular Facial - Charcoal',
       description: 'Deep cleansing charcoal.',
-      image: facialTreatmentImg
+      image: charcoalFacialImg
     }, {
       id: 'lotus-facial',
       name: 'Advance Facial - Lotus/VLCC',
       description: 'Premium spa facial.',
-      image: facialTreatmentImg
+      image: LotusFacialImg
     }, {
       id: 'cheryls-facial',
       name: 'Advance Facial - Cheryls/Ozone',
       description: 'Luxury brand treatment.',
-      image: facialTreatmentImg
+      image: LotusFacialImg
     }, {
       id: 'o3-facial',
       name: 'Advance Facial - O3+',
       description: 'Advanced oxygen therapy.',
-      image: facialTreatmentImg
+      image: o3FacialImg
     }, {
       id: 'diamond-facial',
       name: 'Organic Facial - Diamond Insta Glow',
       description: 'Instant radiance boost.',
-      image: facialTreatmentImg
+      image: DiamondFacialImg
     }, {
       id: 'papaya-facial',
       name: 'Organic Facial - Papaya Wrinkle Care',
@@ -387,42 +407,42 @@ const Services = () => {
       id: 'men-ua-wax',
       name: 'Men - Underarms',
       description: 'Underarm waxing.',
-      image: waxingImg
+      image: manUnderArmWaxingImg
     }, {
       id: 'men-half-legs',
       name: 'Men - Half Legs',
       description: 'Lower leg waxing.',
-      image: waxingImg
+      image: manLegWaxImg
     }, {
       id: 'men-full-legs',
       name: 'Men - Full Legs',
       description: 'Complete leg waxing.',
-      image: waxingImg
+      image: manLegWaxImg
     }, {
       id: 'men-fh-ua',
       name: 'Men - Full Hands & Underarms',
       description: 'Arms and underarms.',
-      image: waxingImg
+      image: manLegWaxImg
     }, {
       id: 'men-fh',
       name: 'Men - Full Hands',
       description: 'Complete arm waxing.',
-      image: waxingImg
+      image: manLegWaxImg
     }, {
       id: 'men-back',
       name: 'Men - Back',
       description: 'Back hair removal.',
-      image: waxingImg
+      image: manBackImg
     }, {
       id: 'men-front',
       name: 'Men - Front',
       description: 'Chest hair removal.',
-      image: waxingImg
+      image: manfrontImg
     }, {
       id: 'men-body',
       name: 'Men - Full Body',
       description: 'Complete body waxing.',
-      image: waxingImg
+      image: manBackImg
     }]
   }, {
     id: 'massage-wellness',
@@ -617,7 +637,7 @@ const Services = () => {
 
                       {/* Mobile Layout - Horizontal with Image on Left */}
                       <div className="md:hidden flex gap-4 p-4">
-                        {service.image && <div className="flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden">
+                        {service.image && <div className="flex-shrink-0 w-30 h-24 rounded-lg overflow-hidden">
                             <img src={service.image} alt={service.name} className="w-full h-full object-cover" />
                           </div>}
                         <div className="flex-1 flex flex-col justify-between min-w-0">
