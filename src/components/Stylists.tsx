@@ -1,15 +1,15 @@
 import stylistMonica from '@/assets/monica_image.png';
-import stylistShehzad from '@/assets/sadam.jpg';
+import stylistShehzad from '@/assets/sazada2.jpg';
 const Stylists = () => {
   const stylists = [{
     name: 'Monica',
     role: 'Owner',
-    description: 'Mastering every detail of the experience',
+    description: 'Detail-focused, strong in management, and quick at finding root causes in skin and hair issues.',
     image: stylistMonica
   }, {
     name: 'Shehzad',
     role: 'Lead Stylist',
-    description: 'Dubai-trained, problem-solver extraordinaire, creative cuts.',
+    description: 'Internationally experienced, sharp problem-solver, known for creative, precise cuts.',
     image: stylistShehzad
   }];
   return <section id="stylists" className="py-20 px-4  lg:px-8">
