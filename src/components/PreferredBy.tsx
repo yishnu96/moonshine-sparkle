@@ -79,10 +79,10 @@ const PreferredBy = () => {
                     <div className="w-24 h-24 rounded-full overflow-hidden mb-4 mx-auto border-4 border-primary/20">
                       <img src={client.image} alt={client.name} className="w-full h-full object-cover" />
                     </div>
-                    <h3 className="text-xl font-playfair font-semibold text-foreground mb-2">
+                    <h3 className="text-xl font-playfair text-center font-semibold text-foreground mb-2">
                       {client.name}
                     </h3>
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-muted-foreground text-center text-sm">
                       {client.title}
                     </p>
                   </button>
