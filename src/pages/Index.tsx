@@ -32,7 +32,7 @@ const Index = () => {
     }
   }, []);
 
-  return <div className="min-h-screen">
+  return <div className="moon min-h-screen pb-[88px] md:pb-0">
       <StructuredData />
       <Header />
       <Hero />

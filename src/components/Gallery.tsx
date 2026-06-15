@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Instagram } from 'lucide-react';
 import { Button } from './ui/button';
+import { Icon } from './Icon';
+import { trackEvent } from '@/lib/analytics';
 
 import before1 from '@/assets/gallery/1_b.jpg';
 import after1 from '@/assets/gallery/1_a.jpg';
@@ -73,54 +75,95 @@ const Gallery = () => {
     return () => observer.disconnect();
   }, []);
 
-  return (
-    <section ref={sectionRef} id="gallery" data-analytics-section="gallery" data-analytics-label="Gallery" data-analytics-section-view="true" className="py-20 px-4  lg:px-8 bg-secondary/20">
-      <div className="container max-w-7xl mx-auto px-0">
-        <div className={`scroll-fade-up ${isVisible ? 'visible' : ''}`}>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-semibold text-foreground mb-3">
-            See Transformations You'll Love
-          </h2>
-          <p className="text-muted-foreground">
-            Follow us on Instagram for more stunning results
-          </p>
-        </div>
+  const handleInstagramClick = () => {
+    trackEvent('outbound_click', {
+      section_name: 'gallery',
+      cta_label: 'See More',
+      platform: 'instagram',
+      destination_url: 'https://www.instagram.com/moonstudiossalon',
+    });
+    window.open('https://www.instagram.com/moonstudiossalon', '_blank');
+  };
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {transformations.map((item, index) => (
-            <div
-              key={index}
-              className={`scroll-scale ${isVisible ? 'visible' : ''}`}
-              style={{ transitionDelay: `${index * 60}ms` }}
-            >
-              <div className="relative aspect-square overflow-hidden rounded-2xl shadow-soft hover:shadow-hover transition-all duration-300">
-                <div className="flex h-full w-full">
-                  <div className="relative w-1/2 h-full overflow-hidden">
-                    <img src={item.before} alt={`Before - ${item.alt}`} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-                    <div className="absolute top-3 left-3 bg-background/90 text-foreground px-2 py-1 rounded-full text-xs font-semibold">
-                      Before
+  return (
+    <>
+      {/* ORIGINAL DESKTOP GALLERY */}
+      <section ref={sectionRef} id="gallery" data-analytics-section="gallery" data-analytics-label="Gallery" data-analytics-section-view="true" className="hidden md:block py-20 px-4 lg:px-8 bg-secondary/20">
+        <div className="container max-w-7xl mx-auto px-0">
+          <div className={`scroll-fade-up ${isVisible ? 'visible' : ''}`}>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-semibold text-foreground mb-3">
+              See Transformations You'll Love
+            </h2>
+            <p className="text-muted-foreground">
+              Follow us on Instagram for more stunning results
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {transformations.map((item, index) => (
+              <div
+                key={index}
+                className={`scroll-scale ${isVisible ? 'visible' : ''}`}
+                style={{ transitionDelay: `${index * 60}ms` }}
+              >
+                <div className="relative aspect-square overflow-hidden rounded-2xl shadow-soft hover:shadow-hover transition-all duration-300">
+                  <div className="flex h-full w-full">
+                    <div className="relative w-1/2 h-full overflow-hidden">
+                      <img src={item.before} alt={`Before - ${item.alt}`} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                      <div className="absolute top-3 left-3 bg-background/90 text-foreground px-2 py-1 rounded-full text-xs font-semibold">
+                        Before
+                      </div>
+                    </div>
+                    <div className="relative w-1/2 h-full overflow-hidden">
+                      <img src={item.after} alt={`After - ${item.alt}`} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                      <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-2 py-1 rounded-full text-xs font-semibold">
+                        After
+                      </div>
                     </div>
                   </div>
-                  <div className="relative w-1/2 h-full overflow-hidden">
-                    <img src={item.after} alt={`After - ${item.alt}`} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-                    <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-2 py-1 rounded-full text-xs font-semibold">
-                      After
-                    </div>
-                  </div>
+                  <div className="absolute top-0 left-1/2 h-full w-0.5 bg-white/50 -translate-x-1/2" />
                 </div>
-                <div className="absolute top-0 left-1/2 h-full w-0.5 bg-white/50 -translate-x-1/2" />
               </div>
+            ))}
+          </div>
+
+          <div className={`text-center mt-10 scroll-fade-up ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '500ms' }}>
+            <Button variant="outline" size="lg" data-analytics-event="outbound_click" data-analytics-section="gallery" data-analytics-label="See More" data-analytics-platform="instagram" data-analytics-destination="https://www.instagram.com/moonstudiossalon" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground inline-flex items-center gap-2" onClick={handleInstagramClick}>
+              <Instagram className="w-5 h-5" />
+              See More
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* PROTOTYPE MOBILE GALLERY */}
+      <section className="block md:hidden band band-soft" id="gallery" data-analytics-section="gallery" data-analytics-label="Gallery" data-analytics-section-view="true">
+        <div className="band-head">
+          <h2>See Transformations You'll Love</h2>
+          <div className="sub">Real before &amp; afters from real clients. Follow us for more.</div>
+        </div>
+        <div className="ga-grid">
+          {transformations.map((t, i) => (
+            <div className="ba" key={i}>
+              <div className="half">
+                <img src={t.before} alt={`Before — ${t.alt}`} loading="lazy" />
+                <span className="lbl b">Before</span>
+              </div>
+              <div className="half">
+                <img src={t.after} alt={`After — ${t.alt}`} loading="lazy" />
+                <span className="lbl a">After</span>
+              </div>
+              <span className="divide" />
             </div>
           ))}
         </div>
-
-        <div className={`text-center mt-10 scroll-fade-up ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '500ms' }}>
-          <Button variant="outline" size="lg" data-analytics-event="outbound_click" data-analytics-section="gallery" data-analytics-label="See More" data-analytics-platform="instagram" data-analytics-destination="https://www.instagram.com/moonstudiossalon" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground inline-flex items-center gap-2" onClick={() => window.open('https://www.instagram.com/moonstudiossalon', '_blank')}>
-            <Instagram className="w-5 h-5" />
-            See More
-          </Button>
+        <div className="rev-actions">
+          <button className="outline-btn" onClick={handleInstagramClick}>
+            <span style={{ width: 16, height: 16, display: 'inline-flex' }}><Icon name="instagram" /></span> See More on Instagram
+          </button>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

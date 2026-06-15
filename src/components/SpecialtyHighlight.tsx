@@ -1,6 +1,9 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import { Button } from './ui/button';
+import { Icon } from './Icon';
+import { trackEvent } from '@/lib/analytics';
+import { useToast } from '@/hooks/use-toast';
 import serviceNanoplastia from '@/assets/service-nanoplastia.jpg';
 import serviceColoring from '@/assets/service-coloring.jpg';
 import before4 from '@/assets/gallery/f_color_b.jpg';
@@ -39,23 +42,11 @@ const specialties = [
   }
 ];
 
-const SpecialtyHighlight = () => {
+const SpecialtyHighlight: React.FC = () => {
+  const { toast } = useToast();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.15 }
-    );
-    const el = document.getElementById('specialty');
-    if (el) observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
 
   const goNext = useCallback(() => {
     if (isTransitioning) return;
@@ -101,166 +92,168 @@ const SpecialtyHighlight = () => {
 
   const current = specialties[activeIndex];
 
-  return (
-    <section
-      id="specialty"
-      data-analytics-section="specialty"
-      data-analytics-label="Specialty Highlight"
-      data-analytics-section-view="true"
-      className={`py-0 bg-primary/[0.03] overflow-hidden transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
-      aria-label="Featured Treatments"
-    >
-      <div className="relative">
-        {/* Navigation arrows */}
-        <button
-          onClick={goPrev}
-          data-analytics-event="carousel_navigate"
-          data-analytics-section="specialty"
-          data-analytics-label="Previous treatment"
-          data-analytics-direction="previous"
-          aria-label="Previous treatment"
-          className={`absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 bg-background/90 backdrop-blur-sm rounded-full p-2.5 shadow-medium hover:bg-background transition-all cursor-pointer group scroll-fade-up ${isVisible ? 'visible' : ''}`}
-          style={{ transitionDelay: '100ms' }}
-        >
-          <ChevronLeft className="w-5 h-5 text-foreground group-hover:scale-110 transition-transform" />
-        </button>
-        <button
-          onClick={goNext}
-          data-analytics-event="carousel_navigate"
-          data-analytics-section="specialty"
-          data-analytics-label="Next treatment"
-          data-analytics-direction="next"
-          aria-label="Next treatment"
-          className={`absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 bg-background/90 backdrop-blur-sm rounded-full p-2.5 shadow-medium hover:bg-background transition-all cursor-pointer group scroll-fade-up ${isVisible ? 'visible' : ''}`}
-          style={{ transitionDelay: '200ms' }}
-        >
-          <ChevronRight className="w-5 h-5 text-foreground group-hover:scale-110 transition-transform" />
-        </button>
+  const waLink = "https://wa.me/919004832184?text=Hi%20Moon%20Studios!%20I'd%20love%20to%20book%20a%20free%20Nanoplastia%20%2F%20Balayage%20consultation%20%E2%80%94%20when's%20your%20next%20available%20slot%3F";
 
-        {/* Slide wrapper */}
-        <div
-          className="transition-opacity duration-500 ease-out"
-          style={{ opacity: isTransitioning ? 0 : 1 }}
-          onPointerDown={() => { if (timerRef.current) clearTimeout(timerRef.current); }}
-          onPointerUp={() => { timerRef.current = setTimeout(goNext, 8000); }}
-        >
-          <div className="container max-w-7xl mx-auto px-4">
-            {/* Badge */}
-            <div className={`scroll-fade-up ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '100ms' }}>
-              <div className="flex items-center gap-2 mb-3">
-                <span className="inline-flex items-center gap-1.5 bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide">
-                  <current.icon className="w-3 h-3" />
-                  {current.badge}
-                </span>
+  const handleMobileCtaClick = () => {
+    trackEvent('booking_start', {
+      section_name: 'specialty',
+      booking_method: 'whatsapp',
+      service_name: 'Nanoplastia / Balayage consultation',
+      destination_url: waLink,
+    });
+    toast({
+      description: "Opening WhatsApp...",
+    });
+  };
+
+  return (
+    <>
+      {/* ORIGINAL DESKTOP SPECIALTY SLIDER */}
+      <section
+        id="specialty"
+        data-analytics-section="specialty"
+        data-analytics-label="Specialty Highlight"
+        data-analytics-section-view="true"
+        className="hidden md:block bg-primary/[0.03] overflow-hidden"
+        aria-label="Featured Treatments"
+      >
+        <div className="relative py-16 px-4 lg:px-8">
+          <button
+            onClick={goPrev}
+            data-analytics-event="carousel_navigate"
+            data-analytics-section="specialty"
+            data-analytics-label="Previous treatment"
+            data-analytics-direction="previous"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-card shadow-soft border flex items-center justify-center text-foreground/70 hover:text-primary hover:shadow-medium hover:scale-105 active:scale-95 transition-all cursor-pointer"
+            aria-label="Previous treatment"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            onClick={goNext}
+            data-analytics-event="carousel_navigate"
+            data-analytics-section="specialty"
+            data-analytics-label="Next treatment"
+            data-analytics-direction="next"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-card shadow-soft border flex items-center justify-center text-foreground/70 hover:text-primary hover:shadow-medium hover:scale-105 active:scale-95 transition-all cursor-pointer"
+            aria-label="Next treatment"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          <div className="container mx-auto max-w-6xl relative">
+            <div className={`transition-all duration-500 ease-in-out ${isTransitioning ? 'opacity-0 scale-98 translate-y-2' : 'opacity-100 scale-100 translate-y-0'}`}>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                <div className="lg:col-span-6 space-y-6 text-left">
+                  <span className="inline-flex items-center gap-1.5 bg-primary/10 text-primary px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide">
+                    <current.icon className="w-3.5 h-3.5" />
+                    {current.badge}
+                  </span>
+                  
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-playfair font-semibold text-foreground leading-tight whitespace-pre-line">
+                    {current.title}
+                  </h2>
+
+                  <div className="space-y-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
+                    {current.body.map((paragraph, idx) => (
+                      <p key={idx}>{paragraph}</p>
+                    ))}
+                  </div>
+
+                  <div className="pt-2">
+                    <Button
+                      onClick={scrollToBooking}
+                      data-analytics-event="cta_click"
+                      data-analytics-section="specialty"
+                      data-analytics-label={current.cta}
+                      data-analytics-cta-type="scroll_to_booking"
+                      size="lg"
+                      className="bg-primary hover:bg-accent text-primary-foreground font-semibold px-8 py-6 rounded-xl shadow-medium hover:shadow-hover transition-all w-full sm:w-auto"
+                    >
+                      {current.cta}
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-6 space-y-6">
+                  <div className="bg-card rounded-3xl p-4 sm:p-6 shadow-medium border border-border/40">
+                    <div className="flex gap-4">
+                      <div className="w-1/2 space-y-2">
+                        <div className="relative overflow-hidden rounded-2xl aspect-[3/4] shadow-soft bg-muted">
+                          <img src={current.beforeAfter.before} alt="Before treatment" className="w-full h-full object-cover" loading="lazy" />
+                          <span className="absolute bottom-3 left-3 bg-background/90 backdrop-blur-sm px-2.5 py-1 rounded-lg text-xs font-bold text-foreground">Before</span>
+                        </div>
+                      </div>
+                      <div className="w-1/2 space-y-2">
+                        <div className="relative overflow-hidden rounded-2xl aspect-[3/4] shadow-soft bg-muted">
+                          <img src={current.beforeAfter.after} alt="After treatment" className="w-full h-full object-cover" loading="lazy" />
+                          <span className="absolute bottom-3 right-3 bg-primary text-primary-foreground px-2.5 py-1 rounded-lg text-xs font-bold">After</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-              {/* Left — Visuals */}
-              <div className="space-y-4">
-                <div className={`scroll-scale ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '200ms' }}>
-                  <div className="grid grid-cols-2 gap-2 rounded-2xl overflow-hidden">
-                    <div className="relative aspect-[3/4]">
-                      <img src={current.beforeAfter.before} alt={`Before ${current.id}`} className="w-full h-full object-cover" loading="lazy" />
-                      <div className="absolute top-3 left-3 bg-background/90 text-foreground px-2.5 py-1 rounded-full text-xs font-semibold">Before</div>
-                    </div>
-                    <div className="relative aspect-[3/4]">
-                      <img src={current.beforeAfter.after} alt={`After ${current.id}`} className="w-full h-full object-cover" loading="lazy" />
-                      <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-2.5 py-1 rounded-full text-xs font-semibold">After</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className={`scroll-fade-up ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '350ms' }}>
-                  <div className="rounded-2xl overflow-hidden aspect-[2/1]">
-                    <img
-                      src={current.image}
-                      alt={current.id === 'nanoplastia' ? 'Nanoplastia treatment at Moon Studios' : 'Balayage coloring at Moon Studios'}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Right — Story */}
-              <div className="flex flex-col justify-center">
-                <h2 className={`scroll-fade-left text-3xl sm:text-4xl lg:text-5xl font-playfair font-semibold text-foreground mb-6 leading-tight whitespace-pre-line ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '200ms' }}>
-                  {current.title}
-                </h2>
-
-                <div className="space-y-4">
-                  {current.body.map((paragraph, index) => (
-                    <p
-                      key={index}
-                      className={`scroll-fade-left text-base sm:text-lg text-muted-foreground leading-relaxed ${isVisible ? 'visible' : ''}`}
-                      style={{ transitionDelay: `${300 + index * 100}ms` }}
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
-
-                <div className={`scroll-fade-up mt-8 ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '600ms' }}>
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <Button onClick={scrollToBooking} data-analytics-event="cta_click" data-analytics-section="specialty" data-analytics-label={current.cta} data-analytics-cta-type="scroll_to_booking" data-analytics-service={current.id} size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 h-auto text-base rounded-full">
-                      {current.cta}
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
-                    <Button onClick={scrollToBooking} data-analytics-event="cta_click" data-analytics-section="specialty" data-analytics-label="Is This Right for You?" data-analytics-cta-type="scroll_to_booking" data-analytics-service={current.id} variant="outline" size="lg" className="border-primary/30 text-primary hover:bg-primary/5 px-8 py-6 h-auto text-base rounded-full">
-                      Is This Right for You?
-                    </Button>
-                  </div>
-                  <div className="flex items-center gap-4 mt-4 text-sm text-muted-foreground">
-                    <span className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 bg-green-500 rounded-full" aria-hidden="true" />
-                      Free consultation
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 bg-green-500 rounded-full" aria-hidden="true" />
-                      No advance payment
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 bg-green-500 rounded-full" aria-hidden="true" />
-                      Flexible rescheduling
-                    </span>
-                  </div>
-                </div>
-              </div>
+            <div className="flex justify-center gap-2 mt-8 lg:mt-12">
+              {specialties.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => goTo(idx)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all cursor-pointer ${idx === activeIndex ? 'bg-primary w-8' : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'}`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Dots */}
-        <div className={`flex items-center justify-center gap-3 py-6 scroll-fade-up ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '400ms' }}>
-          {specialties.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goTo(index)}
-              data-analytics-event="carousel_navigate"
-              data-analytics-section="specialty"
-              data-analytics-label={specialties[index].id}
-              data-analytics-direction="direct"
-              aria-label={`Show ${specialties[index].id}`}
-              className={`transition-all duration-300 rounded-full border-2 cursor-pointer ${
-                index === activeIndex
-                  ? 'w-8 h-3 bg-primary border-primary'
-                  : 'w-3 h-3 bg-muted-foreground/20 border-muted-foreground/20 hover:bg-muted-foreground/40'
-              }`}
-            />
-          ))}
+      {/* PROTOTYPE MOBILE SPECIALTY SECTION */}
+      <section className="block md:hidden band" id="specialty" data-analytics-section="specialty" data-analytics-section-view="true" style={{ padding: '24px 0 4px' }}>
+        <div className="spot">
+          <span className="pill">
+            <span style={{ width: 13, height: 13, display: 'inline-flex' }}>
+              <Icon name="sparkles" />
+            </span>{' '}
+            Why clients drive past 10 salons
+          </span>
+          <div className="imgs" style={{ marginTop: 12 }}>
+            <div>
+              <img src={serviceNanoplastia} alt="Hair before Nanoplastia treatment" />
+              <span className="tag-ba">Before</span>
+            </div>
+            <div>
+              <img src={serviceColoring} alt="Hair after balayage and Nanoplastia" />
+              <span className="tag-ba">After</span>
+            </div>
+          </div>
+          <h3>
+            Nanoplastia &amp; Balayage —
+            <br />
+            the treatments we're known for
+          </h3>
+          <p>
+            We do 70+ services, but these two are what clients <em>remember</em>. Nanoplastia rebuilds your hair from the
+            inside — frizz-free, healthy, lasting months. Book a free consultation and we'll be honest about what your
+            hair actually needs.
+          </p>
+          <a
+            className="spotcta"
+            href={waLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleMobileCtaClick}
+          >
+            <span style={{ width: 19, height: 19, display: 'inline-flex' }}>
+              <Icon name="whatsapp" />
+            </span>
+            Book a Free Consultation
+          </a>
         </div>
-
-        {/* Auto-slide progress */}
-        <div className={`h-1 bg-muted/10 scroll-fade-up ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '500ms' }}>
-          <div
-            className="h-full bg-primary/30 transition-all [transition-duration:8000ms] ease-linear"
-            key={activeIndex}
-            style={{ width: '100%' }}
-          />
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

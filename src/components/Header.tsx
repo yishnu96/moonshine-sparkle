@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Phone } from 'lucide-react';
+import { Icon } from './Icon';
+import { trackEvent } from '@/lib/analytics';
 
-const Header = () => {
+const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -36,6 +38,16 @@ const Header = () => {
     }
   };
 
+  const handleCall = () => {
+    trackEvent('phone_call_click', {
+      section_name: 'header',
+      contact_method: 'phone',
+      cta_label: 'Call Header',
+      destination_url: 'tel:+919004832184',
+    });
+    window.location.href = 'tel:+919004832184';
+  };
+
   useEffect(() => {
     if (location.state?.scrollTo) {
       setTimeout(() => {
@@ -46,64 +58,130 @@ const Header = () => {
   }, [location]);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-background/95 backdrop-blur-md shadow-soft'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="container mx-auto px-4  lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo */}
-          <Link to="/" className="flex-shrink-0">
-            <h4 className="text-xl sm:text-2xl font-playfair font-bold text-foreground">
-              Moon Studios
-            </h4>
-          </Link>
+    <>
+      {/* ORIGINAL DESKTOP HEADER */}
+      <header
+        className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-background/95 backdrop-blur-md shadow-soft'
+            : 'bg-transparent'
+        }`}
+      >
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-20">
+            <Link to="/" className="flex-shrink-0">
+              <h4 className="text-xl sm:text-2xl font-playfair font-bold text-foreground">
+                Moon Studios
+              </h4>
+            </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
-            {['Services', 'Process', 'Reviews', 'Gallery', 'Contact'].map((item) => (
-              <button
-                key={item}
-                onClick={() => handleNavClick(item)}
-                data-analytics-event="nav_click"
+            <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+              {['Services', 'Process', 'Reviews', 'Gallery', 'Contact'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => handleNavClick(item)}
+                  data-analytics-event="nav_click"
+                  data-analytics-section="header"
+                  data-analytics-label={item}
+                  data-analytics-destination={item === 'Services' ? '/services' : item.toLowerCase()}
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors cursor-pointer"
+                >
+                  {item}
+                </button>
+              ))}
+            </nav>
+
+            <div className="flex items-center gap-2 sm:gap-3">
+              <a
+                href="tel:+919004832184"
+                onClick={handleCall}
+                aria-label="Call Moon Studios"
+                title="Call Now"
+                data-analytics-event="phone_call_click"
                 data-analytics-section="header"
-                data-analytics-label={item}
-                data-analytics-destination={item === 'Services' ? '/services' : item.toLowerCase()}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                data-analytics-label="Call Header"
+                className="hidden md:flex w-[46px] h-[46px] rounded-full items-center justify-center flex-shrink-0 bg-primary/[0.08] text-primary border-[1.5px] border-primary/45 hover:scale-[1.08] active:scale-[0.94] transition-transform"
               >
-                {item}
-              </button>
-            ))}
-          </nav>
-
-          {/* Quick CTA Buttons */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            <a
-              href="tel:+919004832184"
-              data-analytics-section="header"
-              className="hidden md:flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
-            >
-              <Phone className="w-4 h-4" />
-              Call Now
-            </a>
-            <Button
-              onClick={handleBookClick}
-              data-analytics-event="cta_click"
-              data-analytics-section="header"
-              data-analytics-label="Book Your Visit"
-              data-analytics-cta-type="scroll_to_booking"
-              size="sm"
-              className="bg-primary hover:bg-accent text-primary-foreground font-semibold px-5 sm:px-7 h-9 sm:h-11 text-sm sm:text-base rounded-xl shadow-soft hover:shadow-medium transition-all"
-            >
-              Book Your Visit
-            </Button>
+                <Phone className="w-5 h-5" />
+              </a>
+              <a
+                href={`https://wa.me/919004832184?text=${encodeURIComponent("Hi Moon Studios! I'd like to book an appointment — when's your next available slot?")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackEvent('cta_click', {
+                    section_name: 'header',
+                    cta_label: 'WhatsApp Header',
+                    cta_type: 'whatsapp',
+                  })
+                }
+                aria-label="Book on WhatsApp"
+                title="WhatsApp"
+                data-analytics-event="cta_click"
+                data-analytics-section="header"
+                data-analytics-label="WhatsApp Header"
+                className="hidden md:flex w-[46px] h-[46px] rounded-full items-center justify-center flex-shrink-0 bg-[#25D366] text-white shadow-[0_6px_16px_-6px_rgba(37,211,102,0.6)] hover:scale-[1.08] active:scale-[0.94] transition-transform"
+              >
+                <span style={{ width: 20, height: 20, display: 'inline-flex' }}>
+                  <Icon name="whatsapp" />
+                </span>
+              </a>
+              <Button
+                onClick={handleBookClick}
+                data-analytics-event="cta_click"
+                data-analytics-section="header"
+                data-analytics-label="Book Your Visit"
+                data-analytics-cta-type="scroll_to_booking"
+                size="sm"
+                className="bg-primary hover:bg-accent text-primary-foreground font-semibold px-5 sm:px-7 h-9 sm:h-11 text-sm sm:text-base rounded-xl shadow-soft hover:shadow-medium transition-all"
+              >
+                Book Your Visit
+              </Button>
+            </div>
           </div>
         </div>
+      </header>
+
+      {/* PROTOTYPE MOBILE HEADER */}
+      <header className="block md:hidden mhead">
+        <Link to="/" className="logo">
+          Moon Studios
+          <small>The Family Salon</small>
+        </Link>
+        <button className="headcall" onClick={handleCall} aria-label="Call now">
+          <span style={{ width: 14, height: 14, display: 'inline-flex' }}>
+            <Icon name="phone" />
+          </span>
+          Call
+        </button>
+      </header>
+
+      {/* PROTOTYPE MOBILE SEG TAB — Home | All Services */}
+      <div className="seg md:hidden" role="tablist" style={{ marginTop: 10 }}>
+        <button
+          role="tab"
+          aria-selected={location.pathname === '/'}
+          className={location.pathname === '/' ? 'on' : ''}
+          onClick={() => {
+            trackEvent('nav_click', { section_name: 'seg_tab', nav_label: 'Home', destination: '/' });
+            navigate('/');
+          }}
+        >
+          Home
+        </button>
+        <button
+          role="tab"
+          aria-selected={location.pathname === '/services'}
+          className={location.pathname === '/services' ? 'on' : ''}
+          onClick={() => {
+            trackEvent('nav_click', { section_name: 'seg_tab', nav_label: 'All Services', destination: '/services' });
+            navigate('/services');
+          }}
+        >
+          All Services
+        </button>
       </div>
-    </header>
+    </>
   );
 };
 
