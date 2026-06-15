@@ -19,6 +19,7 @@ const DermaGlowFacialAndheriEast = () => {
       <main className="flex-1">
         <section className="bg-gradient-to-br from-primary/5 via-background to-accent/5 px-4 py-10">
           <div className="container mx-auto max-w-4xl text-center">
+            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3">Last Updated: June 2026</p>
             <h1 className="text-4xl md:text-5xl font-playfair font-semibold mb-6">
               Derma Glow Facial in Andheri East
             </h1>

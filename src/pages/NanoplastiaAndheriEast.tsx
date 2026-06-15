@@ -20,6 +20,7 @@ const NanoplastiaAndheriEast = () => {
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-primary/5 via-background to-accent/5 px-0 py-[20px]">
           <div className="container mx-auto max-w-4xl text-center">
+            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3">Last Updated: June 2026</p>
             <h1 className="text-4xl md:text-5xl font-playfair font-semibold mb-6">
               Nanoplastia Hair Treatment in Andheri East
             </h1>
