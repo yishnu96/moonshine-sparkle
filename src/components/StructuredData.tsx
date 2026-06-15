@@ -124,6 +124,22 @@ const StructuredData = () => {
         { "@type": "Place", "name": "Saki Naka" },
         { "@type": "Place", "name": "Ghatkopar" },
         { "@type": "Place", "name": "Kurla" }
+      ],
+      "employee": [
+        {
+          "@type": "Person",
+          "name": "Monica",
+          "jobTitle": "Founder & Head Consultant",
+          "description": "Certified skincare consultant specializing in dermal barrier treatments, Hydra hydration, and organic vegan botanical therapies.",
+          "knowsAbout": ["Dermal Facials", "Organic Skin Therapy", "Salon Management"]
+        },
+        {
+          "@type": "Person",
+          "name": "Shehzad",
+          "jobTitle": "Lead Stylist & Hair Artisan",
+          "description": "Master hair stylist with over 10 years of experience in formaldehyde-free Nanoplastia, Olaplex repair, and custom Balayage color mapping.",
+          "knowsAbout": ["Nanoplastia", "Balayage", "Olaplex Restoration", "Precision Haircuts"]
+        }
       ]
     };
 

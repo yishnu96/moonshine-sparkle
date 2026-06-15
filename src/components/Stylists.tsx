@@ -17,13 +17,13 @@ const Stylists = () => {
 
   const stylists = [{
     name: 'Monica',
-    role: 'Owner',
-    description: 'Detail-focused, strong in management, and quick at finding root causes in skin and hair issues.',
+    role: 'Founder & Head Consultant',
+    description: '8+ years of expertise. Certified skincare consultant specializing in dermal barrier treatments, Hydra hydration, and organic vegan botanical therapies.',
     image: stylistMonica
   }, {
     name: 'Shehzad',
-    role: 'Lead Stylist',
-    description: 'Internationally experienced, sharp problem-solver, known for creative, precise cuts.',
+    role: 'Lead Stylist & Hair Artisan',
+    description: '10+ years of international styling experience. Expert in formaldehyde-free Nanoplastia, Olaplex repair, and custom Balayage color mapping.',
     image: stylistShehzad
   }];
 
