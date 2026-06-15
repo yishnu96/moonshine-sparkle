@@ -20,6 +20,9 @@ const videos: VideoItem[] = [
   { id: 'gLb8TlAVgZY', title: 'The Search is Over', description: 'Finding your "hair home" after years ...' }
 ];
 
+/** YouTube thumbnail URL — uses hqdefault for fast loading */
+const thumbUrl = (id: string) => `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+
 const VideoShowcase: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   // User intent: unmuted by default. Browsers forbid UNMUTED autoplay without a
@@ -30,15 +33,16 @@ const VideoShowcase: React.FC = () => {
   const effectiveMuted = isMuted || !hasInteracted;
   const [isInViewport, setIsInViewport] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const iframeRefs = useRef<Map<number, HTMLIFrameElement>>(new Map());
-  const isMobileRef = useRef(false);
+  // Only ONE desktop iframe at a time (the active slide)
+  const desktopIframeRef = useRef<HTMLIFrameElement | null>(null);
 
   // Mobile inline autoplay state
   const [mobileInViewport, setMobileInViewport] = useState(false);
   const [mobileActiveIndex, setMobileActiveIndex] = useState(0);
   const mobileSectionRef = useRef<HTMLElement>(null);
   const mobileRailRef = useRef<HTMLDivElement>(null);
-  const mobileIframeRefs = useRef<Map<number, HTMLIFrameElement>>(new Map());
+  // Only ONE mobile iframe at a time (the active slide)
+  const mobileIframeRef = useRef<HTMLIFrameElement | null>(null);
   const mobileVidRefs = useRef<Map<number, HTMLElement>>(new Map());
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -50,24 +54,11 @@ const VideoShowcase: React.FC = () => {
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
-  useEffect(() => {
-    const check = () => {
-      isMobileRef.current =
-        'ontouchstart' in window ||
-        (navigator as any).maxTouchPoints > 0 ||
-        window.innerWidth < 768;
-    };
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
-  }, []);
-
   // Unmute as soon as the user interacts (browsers only allow sound after a gesture)
   useEffect(() => {
     if (hasInteracted) return;
     const onInteract = () => setHasInteracted(true);
     const opts = { once: true, passive: true } as AddEventListenerOptions;
-    // Only genuine activation gestures unlock audio (scroll does not count in Chrome)
     window.addEventListener('pointerdown', onInteract, opts);
     window.addEventListener('touchstart', onInteract, opts);
     window.addEventListener('keydown', onInteract, opts);
@@ -86,36 +77,31 @@ const VideoShowcase: React.FC = () => {
     return () => emblaApi.off('select', onSelect);
   }, [emblaApi]);
 
+  // Desktop: detect when section enters the viewport
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => setIsInViewport(entry.isIntersecting),
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
+  // Desktop: pause when section leaves viewport
   useEffect(() => {
-    iframeRefs.current.forEach((iframe, idx) => {
-      if (idx === activeIndex && isInViewport) {
-        iframe.contentWindow?.postMessage(
-          JSON.stringify({ event: 'command', func: 'playVideo', args: [] }),
-          '*',
-        );
-      } else {
-        iframe.contentWindow?.postMessage(
-          JSON.stringify({ event: 'command', func: 'pauseVideo', args: [] }),
-          '*',
-        );
-      }
-    });
-  }, [activeIndex, isInViewport]);
+    if (isInViewport) return; // autoplay=1 in the src handles playing
+    desktopIframeRef.current?.contentWindow?.postMessage(
+      JSON.stringify({ event: 'command', func: 'pauseVideo', args: [] }),
+      '*',
+    );
+  }, [isInViewport]);
 
+  // Mute/unmute the active iframe(s) via postMessage
   useEffect(() => {
-    const all = [...iframeRefs.current.values(), ...mobileIframeRefs.current.values()];
-    all.forEach((iframe) => {
+    const iframes = [desktopIframeRef.current, mobileIframeRef.current].filter(Boolean) as HTMLIFrameElement[];
+    iframes.forEach((iframe) => {
       if (effectiveMuted) {
         iframe.contentWindow?.postMessage(
           JSON.stringify({ event: 'command', func: 'mute', args: [] }),
@@ -156,12 +142,12 @@ const VideoShowcase: React.FC = () => {
           const idx = Number((entry.target as HTMLElement).dataset.idx);
           ratios.set(idx, entry.intersectionRatio);
         });
-        let best = mobileActiveIndex;
+        let best = -1;
         let bestRatio = -1;
         ratios.forEach((r, i) => {
           if (r > bestRatio) { bestRatio = r; best = i; }
         });
-        setMobileActiveIndex(best);
+        if (best >= 0) setMobileActiveIndex(best);
       },
       { root: mobileRailRef.current, threshold: [0.25, 0.5, 0.75, 1] }
     );
@@ -169,19 +155,14 @@ const VideoShowcase: React.FC = () => {
     return () => observer.disconnect();
   }, [mobileInViewport]);
 
-  // Mobile: play the centered video, pause the rest
+  // Mobile: pause when section leaves viewport
   useEffect(() => {
-    mobileIframeRefs.current.forEach((iframe, idx) => {
-      iframe.contentWindow?.postMessage(
-        JSON.stringify({
-          event: 'command',
-          func: idx === mobileActiveIndex && mobileInViewport ? 'playVideo' : 'pauseVideo',
-          args: [],
-        }),
-        '*',
-      );
-    });
-  }, [mobileActiveIndex, mobileInViewport]);
+    if (mobileInViewport) return;
+    mobileIframeRef.current?.contentWindow?.postMessage(
+      JSON.stringify({ event: 'command', func: 'pauseVideo', args: [] }),
+      '*',
+    );
+  }, [mobileInViewport]);
 
   // Keep latest active indices accessible inside the global message listener
   const activeIndexRef = useRef(0);
@@ -214,20 +195,22 @@ const VideoShowcase: React.FC = () => {
       if (!playedSources.current.has(src)) return; // ignore spurious end before play
       playedSources.current.delete(src);
 
-      const activeDesktop = iframeRefs.current.get(activeIndexRef.current);
-      const activeMobile = mobileIframeRefs.current.get(mobileActiveIndexRef.current);
+      // Desktop auto-advance
+      if (desktopIframeRef.current && src === desktopIframeRef.current.contentWindow) {
+        emblaApi?.scrollNext(); // Embla loop:true handles wrapping
+      }
 
-      if (activeDesktop && src === activeDesktop.contentWindow) {
-        emblaApi?.scrollNext();
-      } else if (activeMobile && src === activeMobile.contentWindow) {
+      // Mobile auto-advance with circular loop
+      if (mobileIframeRef.current && src === mobileIframeRef.current.contentWindow) {
         const next = (mobileActiveIndexRef.current + 1) % videos.length;
         const el = mobileVidRefs.current.get(next);
         const rail = mobileRailRef.current;
         if (el && rail) {
+          const isLooping = next === 0;
           const railRect = rail.getBoundingClientRect();
           const elRect = el.getBoundingClientRect();
           const delta = elRect.left - railRect.left - (rail.clientWidth - el.clientWidth) / 2;
-          rail.scrollBy({ left: delta, behavior: 'smooth' });
+          rail.scrollBy({ left: delta, behavior: isLooping ? 'instant' : 'smooth' });
         }
       }
     };
@@ -243,6 +226,10 @@ const VideoShowcase: React.FC = () => {
       '*',
     );
   };
+
+  /** Build the YouTube embed src — autoplay=1 so it plays immediately on load */
+  const embedSrc = (videoId: string, controls: boolean) =>
+    `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&mute=${effectiveMuted ? 1 : 0}&controls=${controls ? 1 : 0}&rel=0&playsinline=1&modestbranding=1`;
 
   return (
     <>
@@ -276,21 +263,39 @@ const VideoShowcase: React.FC = () => {
               <div className="flex gap-4">
                 {videos.map((video, index) => {
                   const isActive = index === activeIndex;
+                  const shouldLoadIframe = isActive && isInViewport;
                   return (
                     <div key={video.id} className="flex-[0_0_100%] sm:flex-[0_0_80%] md:flex-[0_0_60%] lg:flex-[0_0_50%] min-w-0 transition-opacity duration-300">
                       <div className={cn(
                         'bg-card rounded-2xl overflow-hidden shadow-soft border border-border/40 transition-all duration-300 relative group aspect-[9/16] max-h-[600px] mx-auto',
                         isActive ? 'scale-100 opacity-100' : 'scale-95 opacity-50 pointer-events-none'
                       )}>
-                        <iframe
-                          ref={el => { if (el) iframeRefs.current.set(index, el); }}
-                          onLoad={(e) => startListening(e.currentTarget)}
-                          src={`https://www.youtube.com/embed/${video.id}?enablejsapi=1&autoplay=0&mute=1&controls=1&rel=0&playsinline=1&modestbranding=1`}
-                          title={video.title}
-                          className="w-full h-full object-cover"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        />
+                        {shouldLoadIframe ? (
+                          <iframe
+                            key={`desktop-${video.id}`}
+                            ref={el => { desktopIframeRef.current = el; }}
+                            onLoad={(e) => startListening(e.currentTarget)}
+                            src={embedSrc(video.id, true)}
+                            title={video.title}
+                            className="w-full h-full object-cover"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          />
+                        ) : (
+                          <div className="w-full h-full relative">
+                            <img
+                              src={thumbUrl(video.id)}
+                              alt={video.title}
+                              className="w-full h-full object-cover"
+                              loading="lazy"
+                            />
+                            <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                              <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                                <LucidePlay className="w-6 h-6 text-rose-600 ml-1" />
+                              </div>
+                            </div>
+                          </div>
+                        )}
 
                         {isActive && (
                           <div className="absolute top-4 right-4 z-10 flex gap-2">
@@ -378,6 +383,7 @@ const VideoShowcase: React.FC = () => {
         <div className="vid-rail" ref={mobileRailRef}>
           {videos.map((v, index) => {
             const isActive = index === mobileActiveIndex;
+            const shouldLoadIframe = isActive && mobileInViewport;
             return (
               <div
                 key={v.id}
@@ -388,16 +394,33 @@ const VideoShowcase: React.FC = () => {
                 data-analytics-label={v.title}
               >
                 <div className="vid-thumb">
-                  <iframe
-                    ref={(el) => { if (el) mobileIframeRefs.current.set(index, el); }}
-                    onLoad={(e) => startListening(e.currentTarget)}
-                    src={`https://www.youtube.com/embed/${v.id}?enablejsapi=1&autoplay=0&mute=1&controls=0&rel=0&playsinline=1&modestbranding=1`}
-                    title={v.title}
-                    className="w-full h-full pointer-events-none"
-                    style={{ border: 0 }}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
+                  {shouldLoadIframe ? (
+                    <iframe
+                      key={`mobile-${v.id}`}
+                      ref={el => { mobileIframeRef.current = el; }}
+                      onLoad={(e) => startListening(e.currentTarget)}
+                      src={embedSrc(v.id, false)}
+                      title={v.title}
+                      className="w-full h-full pointer-events-none"
+                      style={{ border: 0 }}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <div className="w-full h-full relative">
+                      <img
+                        src={thumbUrl(v.id)}
+                        alt={v.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                        <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                          <LucidePlay className="w-5 h-5 text-rose-600 ml-0.5" />
+                        </div>
+                      </div>
+                    </div>
+                  )}
                   {isActive && (
                     <button
                       onClick={() => { setHasInteracted(true); setIsMuted(!effectiveMuted); }}

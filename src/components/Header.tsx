@@ -33,7 +33,9 @@ const Header: React.FC = () => {
     if (location.pathname !== '/') {
       navigate('/', { state: { scrollTo: 'booking' } });
     } else {
-      const element = document.getElementById('booking');
+      const isMobile = window.innerWidth < 768;
+      const targetId = isMobile ? 'booking' : 'booking-desktop';
+      const element = document.getElementById(targetId);
       element?.scrollIntoView({ behavior: 'smooth' });
     }
   };
@@ -51,7 +53,12 @@ const Header: React.FC = () => {
   useEffect(() => {
     if (location.state?.scrollTo) {
       setTimeout(() => {
-        const element = document.getElementById(location.state.scrollTo);
+        let targetId = location.state.scrollTo;
+        if (targetId === 'booking') {
+          const isMobile = window.innerWidth < 768;
+          targetId = isMobile ? 'booking' : 'booking-desktop';
+        }
+        const element = document.getElementById(targetId);
         element?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     }

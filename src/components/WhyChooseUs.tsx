@@ -48,7 +48,7 @@ const WhyChooseUs: React.FC = () => {
           </div>
 
           <div className="text-center space-y-4">
-            <Button onClick={() => scrollToId('booking')} data-analytics-event="cta_click" data-analytics-section="why_choose_us" data-analytics-label="Schedule Your Consultation" data-analytics-cta-type="scroll_to_booking" size="lg" className="bg-primary hover:bg-accent text-primary-foreground font-semibold px-8 py-6 text-lg rounded-xl shadow-medium hover:shadow-hover transition-all cursor-pointer">
+            <Button onClick={() => scrollToId('booking-desktop')} data-analytics-event="cta_click" data-analytics-section="why_choose_us" data-analytics-label="Schedule Your Consultation" data-analytics-cta-type="scroll_to_booking" size="lg" className="bg-primary hover:bg-accent text-primary-foreground font-semibold px-8 py-6 text-lg rounded-xl shadow-medium hover:shadow-hover transition-all cursor-pointer">
               Schedule Your Consultation
             </Button>
             
@@ -68,7 +68,7 @@ const WhyChooseUs: React.FC = () => {
           </div>
         </div>
       </section>
-
+ 
       {/* PROTOTYPE MOBILE WHY CHOOSE US */}
       <section className="block md:hidden band band-soft" id="why" data-analytics-section="why_choose_us" data-analytics-section-view="true">
         <div className="band-head">
@@ -86,9 +86,10 @@ const WhyChooseUs: React.FC = () => {
             </div>
           ))}
         </div>
-        <div className="rev-actions" style={{ paddingTop: 14, display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'center' }}>
+        <div className="rev-actions" style={{ paddingTop: 14, display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'center', paddingLeft: 16, paddingRight: 16 }}>
           <button
             className="outline-btn solid"
+            style={{ width: '100%', maxWidth: '320px', padding: '0 24px' }}
             onClick={() => scrollToId('booking')}
             data-analytics-event="cta_click"
             data-analytics-section="why_choose_us"

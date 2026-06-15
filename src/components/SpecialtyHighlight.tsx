@@ -81,7 +81,9 @@ const SpecialtyHighlight: React.FC = () => {
   }, [goNext]);
 
   const scrollToBooking = () => {
-    const el = document.getElementById('booking');
+    const isMobile = window.innerWidth < 768;
+    const targetId = isMobile ? 'booking' : 'booking-desktop';
+    const el = document.getElementById(targetId);
     if (el) {
       const offset = 100;
       const elementPosition = el.getBoundingClientRect().top;

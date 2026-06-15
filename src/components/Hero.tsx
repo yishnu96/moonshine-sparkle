@@ -18,7 +18,9 @@ const Hero: React.FC = () => {
       label: 'Book Your Visit',
       cta_type: 'scroll_to_booking',
     });
-    const element = document.getElementById('booking');
+    const isMobile = window.innerWidth < 768;
+    const targetId = isMobile ? 'booking' : 'booking-desktop';
+    const element = document.getElementById(targetId);
     element?.scrollIntoView({ behavior: 'smooth' });
   };
   

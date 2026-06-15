@@ -170,7 +170,7 @@ const BookingForm = () => {
     <>
       {/* ORIGINAL DESKTOP BOOKING FORM */}
       <section
-        id="booking"
+        id="booking-desktop"
         ref={sectionRef}
         data-analytics-section="booking"
         data-analytics-label="Booking Form"

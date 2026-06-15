@@ -23,7 +23,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Family Salon in Andheri East, Marol, Mumbai | Moon Studios</title>
-    
+
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/favicon/favicon-32x32.png">
@@ -36,18 +36,27 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow" />
     <meta http-equiv="X-Robots-Tag" content="index, follow" />
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://moonstudiossalon.in/" />
 
     <!-- Alternate language versions -->
     <link rel="alternate" hreflang="en" href="https://moonstudiossalon.in/" />
     <link rel="alternate" hreflang="x-default" href="https://moonstudiossalon.in/" />
-    
+
     <!-- Fonts preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- YouTube preconnect — starts DNS+TLS early so videos load instantly -->
+    <link rel="preconnect" href="https://www.youtube-nocookie.com">
+    <link rel="preconnect" href="https://i.ytimg.com">
+    <link rel="preconnect" href="https://img.youtube.com">
+    <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
+    <link rel="dns-prefetch" href="https://i.ytimg.com">
+    <!-- Preload first video thumbnail so it shows instantly -->
+    <link rel="preload" as="image" href="https://img.youtube.com/vi/gMn0cAUdfrE/hqdefault.jpg">
 
     <!-- Open Graph meta tags -->
     <meta property="og:title" content="Family Salon in Andheri East, Marol, Mumbai | Moon Studios" />
@@ -159,34 +168,13 @@
         ]
       },
       "areaServed": [
-        {
-          "@type": "Place",
-          "name": "Andheri East"
-        },
-        {
-          "@type": "Place",
-          "name": "Marol"
-        },
-        {
-          "@type": "Place",
-          "name": "Chakala"
-        },
-        {
-          "@type": "Place",
-          "name": "Powai"
-        },
-        {
-          "@type": "Place",
-          "name": "Saki Naka"
-        },
-        {
-          "@type": "Place",
-          "name": "Ghatkopar"
-        },
-        {
-          "@type": "Place",
-          "name": "Kurla"
-        }
+        { "@type": "Place", "name": "Andheri East" },
+        { "@type": "Place", "name": "Marol" },
+        { "@type": "Place", "name": "Chakala" },
+        { "@type": "Place", "name": "Powai" },
+        { "@type": "Place", "name": "Saki Naka" },
+        { "@type": "Place", "name": "Ghatkopar" },
+        { "@type": "Place", "name": "Kurla" }
       ]
     }
     </script>
@@ -197,7 +185,7 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W5MQ8DCS"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

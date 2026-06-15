@@ -72,7 +72,7 @@ const ClientReviews: React.FC = () => {
                 data-analytics-label="Book Your Appointment"
                 data-analytics-cta-type="scroll_to_booking"
                 className="bg-primary hover:bg-accent text-primary-foreground font-semibold cursor-pointer"
-                onClick={() => scrollToId('booking')}
+                onClick={() => scrollToId('booking-desktop')}
               >
                 Book Your Appointment
               </Button>
