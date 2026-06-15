@@ -132,14 +132,14 @@ const Hero: React.FC = () => {
           <div className="kick">The Family Salon · Andheri East</div>
           <h1>Your Neighbourhood<br />Family Salon</h1>
           <p>Specialist results, treated like family. Walk in, and walk out feeling like <em>you</em> again.</p>
-          <div className="ratingrow">
+          <div className="ratingrow flex">
             <span className="r">
               <span style={{ display: 'inline-flex', gap: 1, color: '#f5a623', width: 65, height: 13 }}>
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Icon key={i} name="star" />
                 ))}
               </span>{' '}
-              <b>4.9</b> Google
+              <b>4.9</b> <img src={googleLogo} alt="Google" className="h-4" />
             </span>
             <span className="r">
               <span style={{ display: 'inline-flex', gap: 1, color: '#f5a623', width: 65, height: 13 }}>
@@ -147,7 +147,7 @@ const Hero: React.FC = () => {
                   <Icon key={i} name="star" />
                 ))}
               </span>{' '}
-              <b>4.9</b> JustDial
+              <b>4.9</b> <img src="https://akam.cdn.jdmagicbox.com/images/icontent/jdrwd/jdlogosvg.svg" alt="JustDial" className="h-3" />
             </span>
           </div>
         </section>

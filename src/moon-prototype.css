@@ -388,6 +388,9 @@
 /* —— Loved by the Stylish —— */
 .celeb-rail { display:flex; gap:14px; overflow-x:auto; padding:16px 18px 6px; scrollbar-width:none; scroll-snap-type:x mandatory; }
 .celeb-rail::-webkit-scrollbar { display:none; }
+/* Embla auto-scroll variant: transform-driven, so no native scroll/snap */
+.celeb-rail.celeb-rail--embla { overflow-x:visible; scroll-snap-type:none; }
+.celeb-rail.celeb-rail--embla .celeb { scroll-snap-align:none; }
 .celeb { flex:0 0 auto; width:118px; text-align:center; background:transparent; border:0; cursor:pointer;
   font-family:inherit; scroll-snap-align:start; transition: transform .12s var(--ease); }
 .celeb:active { transform: scale(0.95); }

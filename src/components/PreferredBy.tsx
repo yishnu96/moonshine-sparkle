@@ -10,9 +10,19 @@ import parleenImg from '../assets/images/parleen.png';
 import dubaiImg from '../assets/images/dubai.png';
 import nikhikImg from '../assets/images/nikhik.png';
 import sajilImg from '../assets/images/kandwala.png';
+import raginiImg from '../assets/images/ragini.png';
 
 const PreferredBy: React.FC = () => {
   const [emblaRef] = useEmblaCarousel({
+    loop: true,
+    dragFree: false
+  }, [AutoScroll({
+    playOnInit: true,
+    speed: 1,
+    stopOnInteraction: false
+  })]);
+
+  const [emblaRefMobile] = useEmblaCarousel({
     loop: true,
     dragFree: false
   }, [AutoScroll({
@@ -26,6 +36,7 @@ const PreferredBy: React.FC = () => {
   const celebs = [
     { name: 'Sanchari Sengupta', title: 'Playback Singer', img: sanchariImg, url: 'https://share.google/t9QsmnTQmPm85OfXo' },
     { name: 'Lakshya Raj Anand', title: 'Film Producer', img: laxshImg, url: 'https://share.google/4eyKno0nbS8Yx5tAN' },
+    { name: 'Ragini Dwivedi', title: 'Actress', img: raginiImg, url: 'https://share.google/yM8pnSrv7pAx6KrQN' },
     { name: 'Sneha Agarwal', title: 'DJ', img: snehaImg, url: 'https://www.instagram.com/djsnea' },
     { name: 'Parleen Singh', title: 'Mindset Coach / Author', img: parleenImg, url: 'https://www.instagram.com/singhparleen' },
     { name: 'Manjeet Kaur', title: 'Miss India / Miss Dubai', img: dubaiImg, url: 'https://www.instagram.com/yes.manjeetkaur' },
@@ -69,9 +80,12 @@ const PreferredBy: React.FC = () => {
                       <h3 className="text-xl font-playfair text-center font-semibold text-foreground mb-2">
                         {client.name}
                       </h3>
-                      <p className="text-muted-foreground text-center text-sm">
+                      <p className="text-muted-foreground text-center text-sm mb-3">
                         {client.title}
                       </p>
+                      <div className="ext flex items-center justify-center gap-1 text-primary text-sm font-medium">
+                        View profile <Icon name="arrow" className="w-4 h-4 inline-flex flex-none" />
+                      </div>
                     </button>
                   </div>
                 </div>
@@ -91,24 +105,26 @@ const PreferredBy: React.FC = () => {
           </h2>
           <div className="sub">Celebrities • Professionals • Moms • Dads • Leaders</div>
         </div>
-        <div className="celeb-rail">
-          {celebs.map((c) => (
-            <button
-              key={c.name}
-              className="celeb"
-              onClick={() => openUrl(c.url)}
-              data-analytics-event="outbound_click"
-              data-analytics-section="preferred_by"
-              data-analytics-label={c.name}
-              data-analytics-platform={c.url.includes('instagram.com') ? 'instagram' : 'google_profile'}
-              data-analytics-destination={c.url}
-            >
-              <div className="ph"><img src={c.img} alt={c.name} loading="lazy" /></div>
-              <div className="nm">{c.name}</div>
-              <div className="ti">{c.title}</div>
-              <div className="ext">View profile <Icon name="arrow" /></div>
-            </button>
-          ))}
+        <div className="overflow-hidden" ref={emblaRefMobile}>
+          <div className="celeb-rail celeb-rail--embla">
+            {[...celebs, ...celebs].map((c, index) => (
+              <button
+                key={index}
+                className="celeb"
+                onClick={() => openUrl(c.url)}
+                data-analytics-event="outbound_click"
+                data-analytics-section="preferred_by"
+                data-analytics-label={c.name}
+                data-analytics-platform={c.url.includes('instagram.com') ? 'instagram' : 'google_profile'}
+                data-analytics-destination={c.url}
+              >
+                <div className="ph"><img src={c.img} alt={c.name} loading="lazy" /></div>
+                <div className="nm">{c.name}</div>
+                <div className="ti">{c.title}</div>
+                <div className="ext">View profile <Icon name="arrow" /></div>
+              </button>
+            ))}
+          </div>
         </div>
       </section>
     </>

@@ -22,12 +22,24 @@ const videos: VideoItem[] = [
 
 const VideoShowcase: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isMuted, setIsMuted] = useState(true);
+  // User intent: unmuted by default. Browsers forbid UNMUTED autoplay without a
+  // gesture, so we start muted for autoplay and unmute on first interaction.
+  const [isMuted, setIsMuted] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const [volume, setVolume] = useState(100);
+  const effectiveMuted = isMuted || !hasInteracted;
   const [isInViewport, setIsInViewport] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const iframeRefs = useRef<Map<number, HTMLIFrameElement>>(new Map());
   const isMobileRef = useRef(false);
+
+  // Mobile inline autoplay state
+  const [mobileInViewport, setMobileInViewport] = useState(false);
+  const [mobileActiveIndex, setMobileActiveIndex] = useState(0);
+  const mobileSectionRef = useRef<HTMLElement>(null);
+  const mobileRailRef = useRef<HTMLDivElement>(null);
+  const mobileIframeRefs = useRef<Map<number, HTMLIFrameElement>>(new Map());
+  const mobileVidRefs = useRef<Map<number, HTMLElement>>(new Map());
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'center',
@@ -49,6 +61,22 @@ const VideoShowcase: React.FC = () => {
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
   }, []);
+
+  // Unmute as soon as the user interacts (browsers only allow sound after a gesture)
+  useEffect(() => {
+    if (hasInteracted) return;
+    const onInteract = () => setHasInteracted(true);
+    const opts = { once: true, passive: true } as AddEventListenerOptions;
+    // Only genuine activation gestures unlock audio (scroll does not count in Chrome)
+    window.addEventListener('pointerdown', onInteract, opts);
+    window.addEventListener('touchstart', onInteract, opts);
+    window.addEventListener('keydown', onInteract, opts);
+    return () => {
+      window.removeEventListener('pointerdown', onInteract);
+      window.removeEventListener('touchstart', onInteract);
+      window.removeEventListener('keydown', onInteract);
+    };
+  }, [hasInteracted]);
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -86,8 +114,9 @@ const VideoShowcase: React.FC = () => {
   }, [activeIndex, isInViewport]);
 
   useEffect(() => {
-    iframeRefs.current.forEach((iframe) => {
-      if (isMuted) {
+    const all = [...iframeRefs.current.values(), ...mobileIframeRefs.current.values()];
+    all.forEach((iframe) => {
+      if (effectiveMuted) {
         iframe.contentWindow?.postMessage(
           JSON.stringify({ event: 'command', func: 'mute', args: [] }),
           '*',
@@ -103,7 +132,117 @@ const VideoShowcase: React.FC = () => {
         );
       }
     });
-  }, [isMuted, volume]);
+  }, [effectiveMuted, volume]);
+
+  // Mobile: detect when the section enters the viewport
+  useEffect(() => {
+    const el = mobileSectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setMobileInViewport(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Mobile: track which video is most centered in the rail
+  useEffect(() => {
+    if (!mobileInViewport) return;
+    const ratios = new Map<number, number>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const idx = Number((entry.target as HTMLElement).dataset.idx);
+          ratios.set(idx, entry.intersectionRatio);
+        });
+        let best = mobileActiveIndex;
+        let bestRatio = -1;
+        ratios.forEach((r, i) => {
+          if (r > bestRatio) { bestRatio = r; best = i; }
+        });
+        setMobileActiveIndex(best);
+      },
+      { root: mobileRailRef.current, threshold: [0.25, 0.5, 0.75, 1] }
+    );
+    mobileVidRefs.current.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [mobileInViewport]);
+
+  // Mobile: play the centered video, pause the rest
+  useEffect(() => {
+    mobileIframeRefs.current.forEach((iframe, idx) => {
+      iframe.contentWindow?.postMessage(
+        JSON.stringify({
+          event: 'command',
+          func: idx === mobileActiveIndex && mobileInViewport ? 'playVideo' : 'pauseVideo',
+          args: [],
+        }),
+        '*',
+      );
+    });
+  }, [mobileActiveIndex, mobileInViewport]);
+
+  // Keep latest active indices accessible inside the global message listener
+  const activeIndexRef = useRef(0);
+  const mobileActiveIndexRef = useRef(0);
+  useEffect(() => { activeIndexRef.current = activeIndex; }, [activeIndex]);
+  useEffect(() => { mobileActiveIndexRef.current = mobileActiveIndex; }, [mobileActiveIndex]);
+
+  // Auto-advance to the next video when the current one finishes (desktop + mobile)
+  const playedSources = useRef<WeakSet<Window>>(new WeakSet());
+  useEffect(() => {
+    const onMessage = (e: MessageEvent) => {
+      if (typeof e.origin === 'string' && !e.origin.includes('youtube')) return;
+      let data: any;
+      try {
+        data = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+      } catch {
+        return;
+      }
+      const state =
+        data?.info?.playerState ?? (data?.event === 'onStateChange' ? data?.info : undefined);
+      if (state === undefined || !e.source) return;
+      const src = e.source as Window;
+
+      // Mark a source as "played" so we only honour ENDED after real playback
+      if (state === 1) {
+        playedSources.current.add(src);
+        return;
+      }
+      if (state !== 0) return; // 0 = ENDED
+      if (!playedSources.current.has(src)) return; // ignore spurious end before play
+      playedSources.current.delete(src);
+
+      const activeDesktop = iframeRefs.current.get(activeIndexRef.current);
+      const activeMobile = mobileIframeRefs.current.get(mobileActiveIndexRef.current);
+
+      if (activeDesktop && src === activeDesktop.contentWindow) {
+        emblaApi?.scrollNext();
+      } else if (activeMobile && src === activeMobile.contentWindow) {
+        const next = (mobileActiveIndexRef.current + 1) % videos.length;
+        const el = mobileVidRefs.current.get(next);
+        const rail = mobileRailRef.current;
+        if (el && rail) {
+          const railRect = rail.getBoundingClientRect();
+          const elRect = el.getBoundingClientRect();
+          const delta = elRect.left - railRect.left - (rail.clientWidth - el.clientWidth) / 2;
+          rail.scrollBy({ left: delta, behavior: 'smooth' });
+        }
+      }
+    };
+    window.addEventListener('message', onMessage);
+    return () => window.removeEventListener('message', onMessage);
+  }, [emblaApi]);
+
+  // Establish the YouTube postMessage "listening" handshake so the embed
+  // broadcasts state changes (needed for auto-advance on video end).
+  const startListening = (iframe: HTMLIFrameElement | null) => {
+    iframe?.contentWindow?.postMessage(
+      JSON.stringify({ event: 'listening', channel: 'widget' }),
+      '*',
+    );
+  };
 
   return (
     <>
@@ -145,7 +284,8 @@ const VideoShowcase: React.FC = () => {
                       )}>
                         <iframe
                           ref={el => { if (el) iframeRefs.current.set(index, el); }}
-                          src={`https://www.youtube.com/embed/${video.id}?enablejsapi=1&autoplay=0&mute=1&controls=1&rel=0&playsinline=1&modestbranding=1&loop=1&playlist=${video.id}`}
+                          onLoad={(e) => startListening(e.currentTarget)}
+                          src={`https://www.youtube.com/embed/${video.id}?enablejsapi=1&autoplay=0&mute=1&controls=1&rel=0&playsinline=1&modestbranding=1`}
                           title={video.title}
                           className="w-full h-full object-cover"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -155,16 +295,16 @@ const VideoShowcase: React.FC = () => {
                         {isActive && (
                           <div className="absolute top-4 right-4 z-10 flex gap-2">
                             <button
-                              onClick={() => setIsMuted(!isMuted)}
+                              onClick={() => { setHasInteracted(true); setIsMuted(!effectiveMuted); }}
                               className="w-10 h-10 rounded-full bg-background/80 backdrop-blur-md flex items-center justify-center text-foreground hover:bg-background transition-all shadow-soft cursor-pointer"
-                              aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+                              aria-label={effectiveMuted ? 'Unmute video' : 'Mute video'}
                             >
-                              {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                              {effectiveMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
                             </button>
                           </div>
                         )}
 
-                        {isActive && !isMuted && (
+                        {isActive && !effectiveMuted && (
                           <div className="absolute top-16 right-4 z-10 bg-background/80 backdrop-blur-md px-3 py-2 rounded-xl flex items-center gap-2 shadow-soft">
                             <input
                               type="range"
@@ -174,6 +314,7 @@ const VideoShowcase: React.FC = () => {
                               onChange={(e) => {
                                 const v = parseInt(e.target.value);
                                 setVolume(v);
+                                setHasInteracted(true);
                                 if (v > 0 && isMuted) setIsMuted(false);
                               }}
                               className="w-20 h-1 accent-primary cursor-pointer"
@@ -223,7 +364,7 @@ const VideoShowcase: React.FC = () => {
       </section>
 
       {/* PROTOTYPE MOBILE VIDEO SHOWCASE */}
-      <section className="block md:hidden band" id="videos" data-analytics-section="videos" data-analytics-section-view="true">
+      <section ref={mobileSectionRef} className="block md:hidden band" id="videos" data-analytics-section="videos" data-analytics-section-view="true">
         <div className="band-head">
           <span className="eyebrow">
             <span style={{ width: 12, height: 12, display: 'inline-flex' }}>
@@ -232,35 +373,48 @@ const VideoShowcase: React.FC = () => {
             See What We Do
           </span>
           <h2>Watch The Vibes</h2>
-          <div className="sub">Real transformations, real moments — tap to watch our favourite clips.</div>
+          <div className="sub">Real transformations, real moments — swipe to explore our favourite clips.</div>
         </div>
-        <div className="vid-rail">
-          {videos.map((v) => (
-            <a
-              key={v.id}
-              className="vid"
-              href={`https://www.youtube.com/watch?v=${v.id}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-analytics-event="video_play"
-              data-analytics-section="videos"
-              data-analytics-label={v.title}
-              data-analytics-destination={`https://www.youtube.com/watch?v=${v.id}`}
-            >
-              <div className="vid-thumb">
-                <img src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt={v.title} loading="lazy" />
-                <div className="vid-play">
-                  <span>
-                    <Icon name="play" />
-                  </span>
+        <div className="vid-rail" ref={mobileRailRef}>
+          {videos.map((v, index) => {
+            const isActive = index === mobileActiveIndex;
+            return (
+              <div
+                key={v.id}
+                className="vid"
+                data-idx={index}
+                ref={(el) => { if (el) mobileVidRefs.current.set(index, el); }}
+                data-analytics-section="videos"
+                data-analytics-label={v.title}
+              >
+                <div className="vid-thumb">
+                  <iframe
+                    ref={(el) => { if (el) mobileIframeRefs.current.set(index, el); }}
+                    onLoad={(e) => startListening(e.currentTarget)}
+                    src={`https://www.youtube.com/embed/${v.id}?enablejsapi=1&autoplay=0&mute=1&controls=0&rel=0&playsinline=1&modestbranding=1`}
+                    title={v.title}
+                    className="w-full h-full pointer-events-none"
+                    style={{ border: 0 }}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                  {isActive && (
+                    <button
+                      onClick={() => { setHasInteracted(true); setIsMuted(!effectiveMuted); }}
+                      className="absolute top-2 right-2 z-10 w-9 h-9 rounded-full bg-background/80 backdrop-blur-md flex items-center justify-center text-foreground shadow-soft cursor-pointer"
+                      aria-label={effectiveMuted ? 'Unmute video' : 'Mute video'}
+                    >
+                      {effectiveMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                    </button>
+                  )}
+                </div>
+                <div className="vid-cap">
+                  <h4>{v.title}</h4>
+                  <p>{v.description}</p>
                 </div>
               </div>
-              <div className="vid-cap">
-                <h4>{v.title}</h4>
-                <p>{v.description}</p>
-              </div>
-            </a>
-          ))}
+            );
+          })}
         </div>
         <div className="yt-cta">
           <a
