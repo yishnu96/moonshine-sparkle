@@ -80,10 +80,10 @@ graph TD
 Use this checklist to ensure all trust signals are displayed and crawlable:
 
 * [x] **Privacy Policy & Terms pages** (Completed: Added [PrivacyPolicy.tsx](file:///E:/moon_studios/moonshine-sparkle/src/pages/PrivacyPolicy.tsx) and [TermsOfService.tsx](file:///E:/moon_studios/moonshine-sparkle/src/pages/TermsOfService.tsx))
-* [ ] **Safety & Sterilization Policy**: Add a section on facial and tool sterilization protocols to the Skincare/Facial pages.
-* [ ] **Patch Test Policy**: Clearly state patch-testing guidelines for chemical hair treatments (Nanoplastia, Balayage) and active facials.
-* [ ] **Review Verification**: Link reviews directly to Google Maps or include a trust badge.
-* [ ] **Guarantees**: State a customer satisfaction or adjustment policy (e.g. "Complimentary adjustments within 7 days of hair coloring if not fully satisfied").
+* [x] **Safety & Sterilization Policy**: Added [SafetyTrustPolicies.tsx](file:///E:/moon_studios/moonshine-sparkle/src/components/SafetyTrustPolicies.tsx) and integrated it across all advanced treatment and facial pages.
+* [x] **Patch Test Policy**: Clearly defined patch test requirements inside [SafetyTrustPolicies.tsx](file:///E:/moon_studios/moonshine-sparkle/src/components/SafetyTrustPolicies.tsx) for chemical hair and skin therapies.
+* [x] **Review Verification**: Connected reviews directly to the Google Maps business listing.
+* [x] **Guarantees**: Implemented a 7-day client satisfaction guarantee inside [SafetyTrustPolicies.tsx](file:///E:/moon_studios/moonshine-sparkle/src/components/SafetyTrustPolicies.tsx).
 
 ---
 

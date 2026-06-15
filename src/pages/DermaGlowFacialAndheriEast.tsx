@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
 import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
@@ -90,6 +91,7 @@ const DermaGlowFacialAndheriEast = () => {
         </section>
       </main>
 
+      <SafetyTrustPolicies />
       <Footer />
     </div>
   );
