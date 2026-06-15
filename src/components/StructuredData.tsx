@@ -89,38 +89,41 @@ const StructuredData = () => {
               "name": "Facial & Skincare",
               "description": "Customized facial treatments for all skin types"
             }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Vegan Facial",
+              "description": "Plant-based, organic formulation using cruelty-free botanical extracts."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Derma Glow Facial",
+              "description": "Brightening skincare treatment using active dermatological ingredients."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Hydra Medi Facial",
+              "description": "Advanced medical-grade skin cleansing and hydration therapy."
+            }
           }
         ]
       },
       "areaServed": [
-        {
-          "@type": "Place",
-          "name": "Andheri East"
-        },
-        {
-          "@type": "Place",
-          "name": "Marol"
-        },
-        {
-          "@type": "Place",
-          "name": "Chakala"
-        },
-        {
-          "@type": "Place",
-          "name": "Powai"
-        },
-        {
-          "@type": "Place",
-          "name": "Saki Naka"
-        },
-        {
-          "@type": "Place",
-          "name": "Ghatkopar"
-        },
-        {
-          "@type": "Place",
-          "name": "Kurla"
-        }
+        { "@type": "Place", "name": "Andheri East" },
+        { "@type": "Place", "name": "Marol" },
+        { "@type": "Place", "name": "Chakala" },
+        { "@type": "Place", "name": "Powai" },
+        { "@type": "Place", "name": "Saki Naka" },
+        { "@type": "Place", "name": "Ghatkopar" },
+        { "@type": "Place", "name": "Kurla" }
       ]
     };
 
@@ -159,6 +162,36 @@ const StructuredData = () => {
           "name": "Moon Studios"
         },
         "description": "Global color & balayage technique with precision blending."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Vegan Facial",
+        "provider": {
+          "@type": "HairSalon",
+          "name": "Moon Studios"
+        },
+        "description": "Completely cruelty-free, organic skincare treatment using plant-based botanicals and natural extracts. Free from parabens and sulfates."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Derma Glow Facial",
+        "provider": {
+          "@type": "HairSalon",
+          "name": "Moon Studios"
+        },
+        "description": "Professional skin-brightening treatment using active ingredients like Vitamin C and Niacinamide to target tan and pigmentation."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Hydra Medi Facial",
+        "provider": {
+          "@type": "HairSalon",
+          "name": "Moon Studios"
+        },
+        "description": "Advanced multi-step facial combining exfoliation, deep pore extraction, and customized skin hydration boosters."
       }
     ];
 
@@ -222,7 +255,6 @@ const StructuredData = () => {
       }
     ];
 
-    // FAQ Schema for extractable Q&A content
     const faqSchema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -265,6 +297,22 @@ const StructuredData = () => {
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Moon Studios is located at Shop C13, Harmony Apartments, Krishanlal Marwah Marg, Ashok Nagar, Andheri East, Mumbai 400072. We're open all days from 9:30 AM to 9:00 PM. Easy access from Marol Naka and Andheri East metro stations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a Vegan Facial and what are its skin benefits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Vegan Facial is a plant-based, cruelty-free skincare treatment using organic botanical extracts. It is free from animal by-products, parabens, and sulfates, making it highly effective at hydrating and soothing sensitive or irritated skin while being clean and eco-friendly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the Derma Glow Facial help with skin tan and pigmentation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Derma Glow Facial utilizes advanced active dermatological ingredients like Vitamin C, Niacinamide, and gentle AHAs/BHAs. It works by deeply exfoliating dead skin cells, inhibiting melanin production, and accelerating cell renewal to target tan, uneven skin tone, and dullness."
           }
         }
       ]

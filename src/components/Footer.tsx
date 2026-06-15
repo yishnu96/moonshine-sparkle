@@ -39,6 +39,8 @@ const SEOLinkMap: Record<string, string> = {
   'hydra-medi-facial': '/hydra-medi-facial-andheri-east',
   'olaplex-hair-treatment': '/olaplex-hair-treatment-andheri-east',
   'manicure-and-pedicure': '/manicure-pedicure-mumbai',
+  'vegan-facial': '/vegan-facial-andheri-east',
+  'derma-glow-facial': '/derma-glow-facial-andheri-east',
 };
 
 const Footer = () => {
@@ -78,6 +80,8 @@ const Footer = () => {
     { label: 'Salon Near Powai', href: '/salon-near-powai' },
     { label: 'Salon Near Ghatkopar', href: '/salon-near-ghatkopar' },
     { label: 'Salon Near Kurla', href: '/salon-near-kurla' },
+    { label: 'Vegan Facial Andheri East', href: '/vegan-facial-andheri-east' },
+    { label: 'Derma Glow Facial Andheri', href: '/derma-glow-facial-andheri-east' },
   ];
 
   const openSection = (id: string) => {
@@ -367,7 +371,13 @@ const Footer = () => {
             );
           })}
         </div>
-        <div className="foot-copy">© {new Date().getFullYear()} Moon Studios. All rights reserved. Crafted with care.</div>
+        <div className="foot-copy flex flex-wrap justify-center items-center gap-x-4 gap-y-1">
+          <span>© {new Date().getFullYear()} Moon Studios. All rights reserved. Crafted with care.</span>
+          <span className="hidden sm:inline text-muted-foreground/40">|</span>
+          <Link to="/privacy-policy" className="hover:underline hover:text-primary transition-colors text-[11px]">Privacy Policy</Link>
+          <span className="hidden sm:inline text-muted-foreground/40">|</span>
+          <Link to="/terms-of-service" className="hover:underline hover:text-primary transition-colors text-[11px]">Terms of Service</Link>
+        </div>
       </footer>
     </>
   );

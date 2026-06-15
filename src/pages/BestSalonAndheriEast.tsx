@@ -2,25 +2,14 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
-import { useEffect } from 'react';
+import { useSEO } from '@/hooks/useSEO';
 
 const BestSalonAndheriEast = () => {
-  useEffect(() => {
-    document.title = 'Best Family Salon in Andheri East, Marol | Moon Studios';
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'Moon Studios is a warm, family-friendly salon in Andheri East and Marol, Mumbai for women, men, and kids. Explore haircuts, Balayage, Nanoplastia, Hydra Medi Facial, Olaplex, and grooming with 545+ Google reviews.'
-      );
-    }
-
-    const canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (canonicalLink) {
-      canonicalLink.setAttribute('href', 'https://moonstudiossalon.in/best-salon-andheri-east');
-    }
-  }, []);
+  useSEO({
+    title: 'Best Salon in Andheri East & Marol, Mumbai | Moon Studios',
+    description: 'Moon Studios is a warm, family-friendly salon in Andheri East (serving broader Andheri and Marol), Mumbai for women, men, and kids. precision haircuts, Balayage, Nanoplastia, facials, and grooming.',
+    canonicalUrl: 'https://moonstudiossalon.in/best-salon-andheri-east'
+  });
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -32,7 +21,7 @@ const BestSalonAndheriEast = () => {
           <div className="container mx-auto max-w-4xl text-center">
             <p className="text-sm uppercase tracking-[0.2em] text-primary mb-4">Andheri East and Marol</p>
             <h1 className="text-4xl md:text-5xl font-playfair font-semibold mb-6">
-              A Trusted Family Salon in Andheri East
+              Best Family Salon in Andheri (East)
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
               Moon Studios brings together warmth, hygiene, and technical expertise for women, men, and kids in

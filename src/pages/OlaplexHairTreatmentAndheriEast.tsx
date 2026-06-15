@@ -2,25 +2,14 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
-import { useEffect } from 'react';
+import { useSEO } from '@/hooks/useSEO';
 
 const OlaplexHairTreatmentAndheriEast = () => {
-  useEffect(() => {
-    document.title = 'Olaplex Hair Treatment in Andheri East | Moon Studios';
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'Get Olaplex hair treatment in Andheri East at Moon Studios. Bond-repair care for damaged, colored, or chemically treated hair with trusted consultation and a warm family salon experience in Marol, Mumbai.'
-      );
-    }
-
-    const canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (canonicalLink) {
-      canonicalLink.setAttribute('href', 'https://moonstudiossalon.in/olaplex-hair-treatment-andheri-east');
-    }
-  }, []);
+  useSEO({
+    title: 'Olaplex Hair Treatment in Andheri East | Moon Studios',
+    description: 'Get Olaplex hair treatment in Andheri East at Moon Studios. Bond-repair care for damaged, colored, or chemically treated hair with trusted consultation and a warm family salon experience in Marol, Mumbai.',
+    canonicalUrl: 'https://moonstudiossalon.in/olaplex-hair-treatment-andheri-east'
+  });
 
   return (
     <div className="min-h-screen flex flex-col">

@@ -3,20 +3,14 @@ import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { Hand, Sparkles, Clock } from 'lucide-react';
-import { useEffect } from 'react';
+import { useSEO } from '@/hooks/useSEO';
 
 const ManicurePedicureMumbai = () => {
-  useEffect(() => {
-    document.title = 'Best Manicure & Pedicure in Andheri East, Mumbai | Moon Studios';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Premium manicure and pedicure services in Andheri East, Mumbai. Choose from Normal, Herbal, Spa, and Pedilogix treatments. Starting from ₹499. Book your hand and foot care appointment today.');
-    }
-    const canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (canonicalLink) {
-      canonicalLink.setAttribute('href', 'https://moonstudiossalon.in/manicure-pedicure-mumbai');
-    }
-  }, []);
+  useSEO({
+    title: 'Best Manicure & Pedicure in Andheri East, Mumbai | Moon Studios',
+    description: 'Premium manicure and pedicure services in Andheri East, Mumbai. Choose from Normal, Herbal, Spa, and Pedilogix treatments. Starting from ₹499. Book your hand and foot care appointment today.',
+    canonicalUrl: 'https://moonstudiossalon.in/manicure-pedicure-mumbai'
+  });
 
   return (
     <div className="min-h-screen flex flex-col">

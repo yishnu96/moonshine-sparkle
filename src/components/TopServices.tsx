@@ -3,29 +3,26 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Icon } from './Icon';
 import { trackEvent } from '@/lib/analytics';
-import serviceNanoplastia from '@/assets/service-nanoplastia.jpg';
-import serviceColoring from '@/assets/service-coloring.jpg';
-import serviceOlaplex from '@/assets/service-olaplex.jpg';
-import serviceHaircut from '@/assets/service-haircut.jpg';
+import { getServiceImage } from '@/utils/serviceImages';
 
 const TopServices: React.FC = () => {
   const navigate = useNavigate();
 
   const desktopServices = [
-    { title: 'Haircuts', description: "The kind of cut that makes people ask who does your hair — styles for men, women, and kids.", image: serviceHaircut },
-    { title: 'Hair Coloring', description: 'Subtle highlights that catch the light, bold color that turns heads — looks like it was made for you.', image: serviceColoring },
-    { title: 'Hair Spa', description: "Dry, dull, or damaged hair gets deep nourishment — walks out softer, calmer, alive.", image: serviceOlaplex },
-    { title: 'Advanced Treatments', description: 'Nanoplastia, Botox, Keratin — advanced smoothing and repair treatments that actually last.', image: serviceNanoplastia }
+    { title: 'Haircuts', description: "The kind of cut that makes people ask who does your hair — styles for men, women, and kids.", image: getServiceImage('normal-haircut') },
+    { title: 'Hair Coloring', description: 'Subtle highlights that catch the light, bold color that turns heads — looks like it was made for you.', image: getServiceImage('hair-color') },
+    { title: 'Hair Spa', description: "Dry, dull, or damaged hair gets deep nourishment — walks out softer, calmer, alive.", image: getServiceImage('hair-spa') },
+    { title: 'Advanced Treatments', description: 'Nanoplastia, Botox, Keratin — advanced smoothing and repair treatments that actually last.', image: getServiceImage('advance-haircut-wash') }
   ];
 
   const mobileServices = [
-    { id: 't-haircut', name: 'Haircuts', cat: 'hair', dur: '~45 min', img: serviceHaircut,
+    { id: 't-haircut', name: 'Haircuts', cat: 'hair', dur: '~45 min', img: getServiceImage('normal-haircut'),
       blurb: 'The kind of cut that makes people ask who does your hair — men, women, kids.' },
-    { id: 't-color', name: 'Hair Coloring', cat: 'hair', dur: '~2 hrs', img: serviceColoring,
+    { id: 't-color', name: 'Hair Coloring', cat: 'hair', dur: '~2 hrs', img: getServiceImage('hair-color'),
       blurb: 'Subtle highlights that catch the light, or bold colour that turns heads.' },
-    { id: 't-spa', name: 'Hair Spa', cat: 'hair', dur: '~60 min', img: serviceOlaplex,
+    { id: 't-spa', name: 'Hair Spa', cat: 'hair', dur: '~60 min', img: getServiceImage('hair-spa'),
       blurb: 'Dry, dull or damaged hair gets deep nourishment — softer, calmer, alive.' },
-    { id: 't-treatment', name: 'Advanced Treatments', cat: 'hair', dur: '~2.5 hrs', img: serviceNanoplastia,
+    { id: 't-treatment', name: 'Advanced Treatments', cat: 'hair', dur: '~2.5 hrs', img: getServiceImage('advance-haircut-wash'),
       blurb: 'Nanoplastia, Botox, Keratin — advanced smoothing and repair that actually lasts.' },
   ];
 

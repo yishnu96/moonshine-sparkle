@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useSEO } from '@/hooks/useSEO';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import PreferredBy from '@/components/PreferredBy';
@@ -15,24 +15,14 @@ import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 
 const Index = () => {
-  useEffect(() => {
-    document.title = 'Family Salon in Andheri East, Marol, Mumbai | Moon Studios';
+  useSEO({
+    title: 'Family Salon in Andheri East, Marol, Mumbai | Moon Studios',
+    description: 'Moon Studios is a warm, family-friendly salon in Andheri East and Marol, Mumbai for women, men, and kids. Book haircuts, Balayage, Nanoplastia, Hydra Medi Facial, Olaplex, facials, grooming, and more.',
+    canonicalUrl: 'https://moonstudiossalon.in/'
+  });
 
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'Moon Studios is a warm, family-friendly salon in Andheri East and Marol, Mumbai for women, men, and kids. Book haircuts, Balayage, Nanoplastia, Hydra Medi Facial, Olaplex, facials, grooming, and more.'
-      );
-    }
-
-    const canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (canonicalLink) {
-      canonicalLink.setAttribute('href', 'https://moonstudiossalon.in/');
-    }
-  }, []);
-
-  return <div className="moon min-h-screen pb-[88px] md:pb-0">
+  return (
+    <div className="moon min-h-screen pb-[88px] md:pb-0">
       <StructuredData />
       <Header />
       <Hero />
@@ -47,6 +37,8 @@ const Index = () => {
       <BookingForm />
       <Location />
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;

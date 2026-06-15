@@ -2,20 +2,14 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
-import { useEffect } from 'react';
+import { useSEO } from '@/hooks/useSEO';
 
 const FamilySalonMarolMumbai = () => {
-  useEffect(() => {
-    document.title = 'Family Salon in Marol Mumbai | Moon Studios';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Moon Studios is the premier family salon in Marol, Mumbai offering haircuts, coloring, treatments, and grooming services for all ages. Trusted by 500+ families with 545 Google reviews.');
-    }
-    const canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (canonicalLink) {
-      canonicalLink.setAttribute('href', 'https://moonstudiossalon.in/family-salon-marol-mumbai');
-    }
-  }, []);
+  useSEO({
+    title: 'Family Salon in Marol Mumbai | Moon Studios',
+    description: 'Moon Studios is the premier family salon in Marol, Mumbai offering haircuts, coloring, treatments, and grooming services for all ages. Trusted by 500+ families with 545 Google reviews.',
+    canonicalUrl: 'https://moonstudiossalon.in/family-salon-marol-mumbai'
+  });
 
   return (
     <div className="min-h-screen flex flex-col">

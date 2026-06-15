@@ -2,25 +2,14 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
-import { useEffect } from 'react';
+import { useSEO } from '@/hooks/useSEO';
 
 const SalonNearPowai = () => {
-  useEffect(() => {
-    document.title = 'Salon Near Powai for Hair, Facial and Family Services | Moon Studios';
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'Looking for a salon near Powai? Moon Studios in Andheri East is a trusted family salon for haircuts, Balayage, Nanoplastia, Hydra Medi Facial, Olaplex, and grooming, with a warm service experience and strong Google reviews.'
-      );
-    }
-
-    const canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (canonicalLink) {
-      canonicalLink.setAttribute('href', 'https://moonstudiossalon.in/salon-near-powai');
-    }
-  }, []);
+  useSEO({
+    title: 'Salon Near Powai for Hair, Facial & Family Services | Moon Studios',
+    description: 'Looking for a premium salon near Powai? Moon Studios in Andheri East is just 10 minutes away via Saki Vihar Road or JVLR. Haircuts, Balayage, Nanoplastia, Hydra Facials, and family grooming near Hiranandani Gardens and IIT Bombay.',
+    canonicalUrl: 'https://moonstudiossalon.in/salon-near-powai'
+  });
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -35,9 +24,7 @@ const SalonNearPowai = () => {
               Looking for a Salon Near Powai?
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Moon Studios is in Andheri East near Marol and is a practical choice for clients coming from Powai who
-              want dependable haircut, color, facial, and advanced treatment services in a salon that feels warm and
-              genuinely welcoming.
+              Moon Studios is located in Andheri East near Marol, just 10–12 minutes away from Powai via Saki Vihar Road or JVLR. We are a practical and trusted choice for clients coming from Hiranandani Gardens, IIT Bombay, Rambaug, and Chandivali who want dependable haircut, color, facial, and advanced treatment services in a salon that feels warm and genuinely welcoming.
             </p>
             <Button onClick={() => (window.location.href = 'tel:+919004832184')} size="lg" className="bg-primary hover:bg-primary/90">
               Call for Directions

@@ -2,20 +2,14 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
-import { useEffect } from 'react';
+import { useSEO } from '@/hooks/useSEO';
 
 const BalayageSalonAndheri = () => {
-  useEffect(() => {
-    document.title = 'Balayage Salon in Andheri East | Moon Studios';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Get the best Balayage hair color in Andheri East at Moon Studios. Expert colorists create natural, sun-kissed highlights that grow out beautifully. Book your Balayage consultation today.');
-    }
-    const canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (canonicalLink) {
-      canonicalLink.setAttribute('href', 'https://moonstudiossalon.in/balayage-salon-andheri');
-    }
-  }, []);
+  useSEO({
+    title: 'Balayage Salon in Andheri East | Moon Studios',
+    description: 'Get the best Balayage hair color in Andheri East at Moon Studios. Expert colorists create natural, sun-kissed highlights that grow out beautifully. Book your Balayage consultation today.',
+    canonicalUrl: 'https://moonstudiossalon.in/balayage-salon-andheri'
+  });
 
   return (
     <div className="min-h-screen flex flex-col">

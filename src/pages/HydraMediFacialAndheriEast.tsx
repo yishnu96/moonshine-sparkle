@@ -2,25 +2,14 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
-import { useEffect } from 'react';
+import { useSEO } from '@/hooks/useSEO';
 
 const HydraMediFacialAndheriEast = () => {
-  useEffect(() => {
-    document.title = 'Hydra Medi Facial in Andheri East | Moon Studios';
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'Book Hydra Medi Facial in Andheri East at Moon Studios. Deep cleansing, hydration, glow-focused care, and a warm salon experience in Marol for women, men, and family appointments.'
-      );
-    }
-
-    const canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (canonicalLink) {
-      canonicalLink.setAttribute('href', 'https://moonstudiossalon.in/hydra-medi-facial-andheri-east');
-    }
-  }, []);
+  useSEO({
+    title: 'Hydra Medi Facial in Andheri East | Moon Studios',
+    description: 'Book Hydra Medi Facial in Andheri East at Moon Studios. Deep cleansing, hydration, glow-focused care, and a warm salon experience in Marol for women, men, and family appointments.',
+    canonicalUrl: 'https://moonstudiossalon.in/hydra-medi-facial-andheri-east'
+  });
 
   return (
     <div className="min-h-screen flex flex-col">

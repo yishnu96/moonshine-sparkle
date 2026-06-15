@@ -20,6 +20,10 @@ const OlaplexHairTreatmentAndheriEast = lazy(() => import("./pages/OlaplexHairTr
 const SalonNearPowai = lazy(() => import("./pages/SalonNearPowai"));
 const SalonNearGhatkopar = lazy(() => import("./pages/SalonNearGhatkopar"));
 const SalonNearKurla = lazy(() => import("./pages/SalonNearKurla"));
+const VeganFacialAndheriEast = lazy(() => import("./pages/VeganFacialAndheriEast"));
+const DermaGlowFacialAndheriEast = lazy(() => import("./pages/DermaGlowFacialAndheriEast"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 
 const queryClient = new QueryClient();
 
@@ -44,6 +48,10 @@ const App = () => (
             <Route path="/salon-near-powai" element={<SalonNearPowai />} />
             <Route path="/salon-near-ghatkopar" element={<SalonNearGhatkopar />} />
             <Route path="/salon-near-kurla" element={<SalonNearKurla />} />
+            <Route path="/vegan-facial-andheri-east" element={<VeganFacialAndheriEast />} />
+            <Route path="/derma-glow-facial-andheri-east" element={<DermaGlowFacialAndheriEast />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

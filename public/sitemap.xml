@@ -85,4 +85,32 @@
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
+
+    <url>
+        <loc>https://moonstudiossalon.in/vegan-facial-andheri-east</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://moonstudiossalon.in/derma-glow-facial-andheri-east</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://moonstudiossalon.in/privacy-policy</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <url>
+        <loc>https://moonstudiossalon.in/terms-of-service</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+    </url>
 </urlset>

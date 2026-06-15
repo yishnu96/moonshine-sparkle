@@ -4,8 +4,7 @@ import { Button } from './ui/button';
 import { Icon } from './Icon';
 import { trackEvent } from '@/lib/analytics';
 import { useToast } from '@/hooks/use-toast';
-import serviceNanoplastia from '@/assets/service-nanoplastia.jpg';
-import serviceColoring from '@/assets/service-coloring.jpg';
+import { getServiceImage } from '@/utils/serviceImages';
 import before4 from '@/assets/gallery/f_color_b.jpg';
 import after5 from '@/assets/gallery/f_color_af.jpg';
 import before3 from '@/assets/gallery/1761652646179.jpg';
@@ -23,7 +22,7 @@ const specialties = [
     ],
     cta: 'Book a Free Consultation',
     beforeAfter: { before: before3, after: after2 },
-    image: serviceNanoplastia,
+    image: getServiceImage('nanoplastia'),
     icon: Sparkles
   },
   {
@@ -37,7 +36,7 @@ const specialties = [
     ],
     cta: 'Book a Free Consultation',
     beforeAfter: { before: before4, after: after5 },
-    image: serviceColoring,
+    image: getServiceImage('balayage'),
     icon: Sparkles
   }
 ];
@@ -223,11 +222,11 @@ const SpecialtyHighlight: React.FC = () => {
           </span>
           <div className="imgs" style={{ marginTop: 12 }}>
             <div>
-              <img src={serviceNanoplastia} alt="Hair before Nanoplastia treatment" />
+              <img src={getServiceImage('nanoplastia')} alt="Hair before Nanoplastia treatment" />
               <span className="tag-ba">Before</span>
             </div>
             <div>
-              <img src={serviceColoring} alt="Hair after balayage and Nanoplastia" />
+              <img src={getServiceImage('balayage')} alt="Hair after balayage and Nanoplastia" />
               <span className="tag-ba">After</span>
             </div>
           </div>

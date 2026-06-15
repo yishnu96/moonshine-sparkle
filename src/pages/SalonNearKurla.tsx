@@ -2,25 +2,14 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
-import { useEffect } from 'react';
+import { useSEO } from '@/hooks/useSEO';
 
 const SalonNearKurla = () => {
-  useEffect(() => {
-    document.title = 'Salon Near Kurla for Hair and Beauty Services | Moon Studios';
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'Searching for a salon near Kurla? Moon Studios in Andheri East offers family salon services, haircuts, Balayage, Nanoplastia, Hydra Medi Facial, Olaplex, and grooming in a warm, review-backed setting.'
-      );
-    }
-
-    const canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (canonicalLink) {
-      canonicalLink.setAttribute('href', 'https://moonstudiossalon.in/salon-near-kurla');
-    }
-  }, []);
+  useSEO({
+    title: 'Salon Near Kurla for Hair and Beauty Services | Moon Studios',
+    description: 'Searching for a salon near Kurla? Moon Studios in Andheri East offers family salon services, haircuts, Balayage, Nanoplastia, Hydra Medi Facial, Olaplex, and grooming in a warm, review-backed setting.',
+    canonicalUrl: 'https://moonstudiossalon.in/salon-near-kurla'
+  });
 
   return (
     <div className="min-h-screen flex flex-col">
