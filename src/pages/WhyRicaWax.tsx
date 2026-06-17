@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
+import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -13,6 +14,7 @@ const WhyRicaWax = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <StructuredData />
       <Header />
 
       <main className="flex-1">
@@ -68,7 +70,7 @@ const WhyRicaWax = () => {
               <h2 className="text-3xl font-playfair font-semibold mt-10 mb-4">The Main Skin Benefits of Rica</h2>
               <ul className="list-disc list-inside space-y-3 text-muted-foreground mb-8">
                 <li>
-                  <strong>Virtually Pain-Free:</strong> Because it doesn\'t tug or pull the skin barrier, the pain factor is reduced by up to 50% compared to honey wax.
+                  <strong>Virtually Pain-Free:</strong> Because it doesn&apos;t tug or pull the skin barrier, the pain factor is reduced by up to 50% compared to honey wax.
                 </li>
                 <li>
                   <strong>No Red Bumps or Strawberry Legs:</strong> The natural pre-wax and post-wax lotions soothe the hair follicles instantly, preventing the formation of red bumps or irritated pores.
@@ -80,6 +82,27 @@ const WhyRicaWax = () => {
                   <strong>Tan Removal:</strong> It acts as a gentle skin exfoliator, lifting dead skin cells and environmental tan to reveal bright, smooth skin.
                 </li>
               </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQs */}
+        <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-playfair font-semibold mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Why can&apos;t you wash off Rica wax with water?</h3>
+                <p className="text-muted-foreground">
+                  Rica is a liposoluble wax, meaning it is oil-soluble rather than water-soluble. It can only be dissolved and cleaned using a post-wax oil (usually enriched with Aloe Vera or Argan oil), which also helps soothe and hydrate the skin.
+                </p>
+              </div>
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Is Rica wax suitable for sensitive facial skin?</h3>
+                <p className="text-muted-foreground">
+                  Yes. Rica wax is excellent for facial waxing as it has natural anti-inflammatory properties and does not pull the skin, making it much safer for sensitive facial areas compared to regular wax.
+                </p>
+              </div>
             </div>
           </div>
         </section>

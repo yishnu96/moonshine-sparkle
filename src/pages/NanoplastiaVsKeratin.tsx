@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
+import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -13,6 +14,7 @@ const NanoplastiaVsKeratin = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <StructuredData />
       <Header />
 
       <main className="flex-1">
@@ -89,6 +91,27 @@ const NanoplastiaVsKeratin = () => {
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Keratin is a better option if you want to <strong>retain your hair\'s natural volume and body</strong>. If you love your curls but want them defined, smooth, and free of frizz without making them pin-straight, Keratin is the way to go. It is also excellent for fine hair that might look too flat after an intense straight treatment.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQs */}
+        <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-playfair font-semibold mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Which treatment is safer for damaged hair?</h3>
+                <p className="text-muted-foreground">
+                  Nanoplastia is 100% formaldehyde-free and rebuilds hair from within using organic acids, making it safer for long-term hair health. However, for extremely compromised or mushy bleached hair, we recommend a bond-repair treatment (like Olaplex) first to rebuild strength.
+                </p>
+              </div>
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Can I color my hair after these treatments?</h3>
+                <p className="text-muted-foreground">
+                  Yes, but we recommend waiting at least 2 weeks after a Keratin or Nanoplastia treatment before coloring to avoid color lifting or weakening the smoothing effect of the acids.
+                </p>
+              </div>
             </div>
           </div>
         </section>

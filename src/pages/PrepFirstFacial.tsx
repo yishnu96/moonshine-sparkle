@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
+import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -13,6 +14,7 @@ const PrepFirstFacial = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <StructuredData />
       <Header />
 
       <main className="flex-1">
@@ -83,6 +85,27 @@ const PrepFirstFacial = () => {
               <p className="text-muted-foreground leading-relaxed mb-6">
                 After your facial, your skin will be freshly hydrated and vulnerable. For the next 24 hours, avoid heavy makeup, steam rooms, saunas, and intense workouts that cause heavy sweating. Let your skin breathe and absorb the nutrient-dense serums.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQs */}
+        <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-playfair font-semibold mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Should I wash my face before coming in for a facial?</h3>
+                <p className="text-muted-foreground">
+                  Yes, but keep it simple. You can wash your face with a gentle cleanser. Avoid using scrubs or chemical exfoliants, as we will perform a deep, professional exfoliation during the session anyway.
+                </p>
+              </div>
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Is it normal to break out after a facial?</h3>
+                <p className="text-muted-foreground">
+                  Yes, it is common to experience a temporary &apos;purge&apos; where deep impurities rise to the surface. This typically clears up within a few days, revealing smoother, healthier skin underneath.
+                </p>
+              </div>
             </div>
           </div>
         </section>

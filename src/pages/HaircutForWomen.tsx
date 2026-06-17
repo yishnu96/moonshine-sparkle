@@ -1,18 +1,20 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
+import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
 
 const HaircutForWomen = () => {
   useSEO({
-    title: 'Women\'s Haircut & Styling in Andheri East, Mumbai | Moon Studios',
+    title: "Women's Haircut & Styling in Andheri East, Mumbai | Moon Studios",
     description: 'Get a professional haircut for women in Andheri East at Moon Studios. From layers and lob cuts to bangs and deep conditioning trims. Free hair consultation included.',
     canonicalUrl: 'https://moonstudiossalon.in/haircut-for-women'
   });
 
   return (
     <div className="min-h-screen flex flex-col">
+      <StructuredData />
       <Header />
 
       <main className="flex-1">
@@ -21,7 +23,7 @@ const HaircutForWomen = () => {
           <div className="container mx-auto max-w-4xl text-center">
             <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3">Popular Services</p>
             <h1 className="text-4xl md:text-5xl font-playfair font-semibold mb-6">
-              Women\'s Haircuts & Styling
+              Women&apos;s Haircuts & Styling
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
               Your hair is your signature. Whether you want a complete style makeover, face-framing layers, or a clean trim to remove split ends, we deliver precision cuts that work with your hair texture and face shape.
@@ -35,7 +37,7 @@ const HaircutForWomen = () => {
             <div>
               <h2 className="text-3xl font-playfair font-semibold mb-4">Our Styling Philosophy</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                At Moon Studios, we don\'t believe in one-size-fits-all cuts. Every women\'s haircut begins with a detailed, honest consultation. We discuss your daily routine, how much styling time you have, your hair type (fine, coarse, wavy, curly), and what shape will best highlight your features.
+                At Moon Studios, we don&apos;t believe in one-size-fits-all cuts. Every women&apos;s haircut begins with a detailed, honest consultation. We discuss your daily routine, how much styling time you have, your hair type (fine, coarse, wavy, curly), and what shape will best highlight your features.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 We use high-quality styling shears, advanced sectioning techniques, and professional post-cut blowouts to ensure your hair looks as good when you wash it at home as it does in our salon.
@@ -50,6 +52,27 @@ const HaircutForWomen = () => {
                 <li><strong>Fringe, Flicks & Bangs:</strong> Frame your eyes and forehead without losing length.</li>
                 <li><strong>Classic Trim & Split-End Removal:</strong> Maintain length while restoring structural health.</li>
               </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQs */}
+        <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-playfair font-semibold mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">How often should women get their hair cut?</h3>
+                <p className="text-muted-foreground">
+                  To maintain your shape and prevent split ends, we recommend getting a trim every 6 to 8 weeks. If you are growing out your hair, you can stretch this to 10 to 12 weeks, but a micro-trim is still helpful to keep the ends healthy.
+                </p>
+              </div>
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Does a haircut include a wash and blow-dry?</h3>
+                <p className="text-muted-foreground">
+                  Yes, at Moon Studios, all our women&apos;s haircuts include a relaxing hair wash with premium shampoo, deep conditioning, a professional haircut, and a customized blow-dry styling session.
+                </p>
+              </div>
             </div>
           </div>
         </section>

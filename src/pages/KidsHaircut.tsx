@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
+import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -13,6 +14,7 @@ const KidsHaircut = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <StructuredData />
       <Header />
 
       <main className="flex-1">
@@ -21,10 +23,10 @@ const KidsHaircut = () => {
           <div className="container mx-auto max-w-4xl text-center">
             <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3">Popular Services</p>
             <h1 className="text-4xl md:text-5xl font-playfair font-semibold mb-6">
-              Gentle Kids\' Haircuts
+              Gentle Kids&apos; Haircuts
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Getting a haircut shouldn\'t be stressful for you or your child. Our stylists are patient, friendly, and experienced in making children feel comfortable while delivering quick, clean, and cute cuts.
+              Getting a haircut shouldn&apos;t be stressful for you or your child. Our stylists are patient, friendly, and experienced in making children feel comfortable while delivering quick, clean, and cute cuts.
             </p>
           </div>
         </section>
@@ -35,10 +37,10 @@ const KidsHaircut = () => {
             <div>
               <h2 className="text-3xl font-playfair font-semibold mb-4">A Patient, Stress-Free Approach</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                We know that kids can get wiggly or scared during a salon visit. That\'s why we never rush. Our team takes the time to chat with your little one, introduce them to the tools, and make the experience fun.
+                We know that kids can get wiggly or scared during a salon visit. That&apos;s why we never rush. Our team takes the time to chat with your little one, introduce them to the tools, and make the experience fun.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Whether it\'s their very first haircut or a regular trim for school, we ensure a clean, neat style that\'s easy for parents to maintain at home.
+                Whether it&apos;s their very first haircut or a regular trim for school, we ensure a clean, neat style that&apos;s easy for parents to maintain at home.
               </p>
             </div>
             <div>
@@ -54,6 +56,27 @@ const KidsHaircut = () => {
           </div>
         </section>
 
+        {/* FAQs */}
+        <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-playfair font-semibold mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">At what age should a child get their first haircut?</h3>
+                <p className="text-muted-foreground">
+                  Most children get their first haircut between 1 to 2 years old, when their hair starts getting in their eyes or looks uneven. However, there is no right or wrong time—it entirely depends on how fast their hair grows.
+                </p>
+              </div>
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">How can I prepare my child for their first haircut?</h3>
+                <p className="text-muted-foreground">
+                  We recommend talking to your child about the haircut beforehand, bringing a change of clothes in case they dislike the cape, and choosing a time when they are well-fed and rested (avoiding nap times).
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="py-20 px-4 bg-primary text-center">
           <div className="container mx-auto max-w-2xl">
@@ -64,7 +87,7 @@ const KidsHaircut = () => {
               Book a comfortable, quick haircut session for your little one at Moon Studios. Call us to schedule a child-friendly slot.
             </p>
             <Button onClick={() => (window.location.href = 'tel:+919004832184')} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone" size="lg" className="bg-white text-primary hover:bg-white/90">
-              Book a Kid\'s Haircut
+              Book a Kid&apos;s Haircut
             </Button>
           </div>
         </section>

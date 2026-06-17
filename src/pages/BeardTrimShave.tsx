@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
+import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -13,6 +14,7 @@ const BeardTrimShave = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <StructuredData />
       <Header />
 
       <main className="flex-1">
@@ -50,6 +52,27 @@ const BeardTrimShave = () => {
                 <li><strong>Beard Colouring:</strong> Natural-looking dye to cover patches or grey hair.</li>
                 <li><strong>Skin Hydration Add-on:</strong> Post-shave cooling massage for sensitive skin.</li>
               </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQs */}
+        <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-playfair font-semibold mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">How often should I get my beard trimmed?</h3>
+                <p className="text-muted-foreground">
+                  To maintain a sharp outline and keep flyaways under control, we recommend a professional beard trim and line-up every 1 to 2 weeks. If you are growing it out, a trim every 3 to 4 weeks helps keep the shape neat.
+                </p>
+              </div>
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">How do you prevent razor burns during a clean shave?</h3>
+                <p className="text-muted-foreground">
+                  We use a multi-step prep process: a warm steam towel to open pores and soften the beard, pre-shave oil to create a protective barrier, premium lathering cream, and a fresh single-use blade. We finish with a cold towel and alcohol-free soothing balm.
+                </p>
+              </div>
             </div>
           </div>
         </section>

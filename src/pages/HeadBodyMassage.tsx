@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
+import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -13,6 +14,7 @@ const HeadBodyMassage = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <StructuredData />
       <Header />
 
       <main className="flex-1">
@@ -50,6 +52,27 @@ const HeadBodyMassage = () => {
                 <li><strong>Head Massage:</strong> Scalp massage to release mental fatigue and tension.</li>
                 <li><strong>Foot & Shoulder Massage:</strong> Quick, effective relief for tired extremities.</li>
               </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQs */}
+        <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-playfair font-semibold mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">What should I wear during a body massage?</h3>
+                <p className="text-muted-foreground">
+                  For a full-body oil massage, our salon provides clean disposable undergarments to protect your clothing from oil stains. Your comfort is our highest priority, and you are fully draped with sheets during the treatment.
+                </p>
+              </div>
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">How often should I get a massage?</h3>
+                <p className="text-muted-foreground">
+                  To manage chronic back stiffness or work stress, we recommend booking a massage session once every 2 to 4 weeks. For general relaxation and blood circulation, a monthly session is highly beneficial.
+                </p>
+              </div>
             </div>
           </div>
         </section>

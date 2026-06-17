@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
+import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -13,6 +14,7 @@ const HairColourHighlights = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <StructuredData />
       <Header />
 
       <main className="flex-1">
@@ -54,6 +56,27 @@ const HairColourHighlights = () => {
           </div>
         </section>
 
+        {/* FAQs */}
+        <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-playfair font-semibold mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Does hair color cause damage to my hair?</h3>
+                <p className="text-muted-foreground">
+                  With modern salon-grade formulations and ammonia-free colors, damage is minimal. For bleaching and high-lift highlights, we recommend adding Olaplex treatment to rebuild hair bonds and protect structural integrity during processing.
+                </p>
+              </div>
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">How long does a global hair color session take?</h3>
+                <p className="text-muted-foreground">
+                  A standard global hair color or root touch-up takes about 1.5 to 2 hours. If you are getting complex highlighting services like balayage, it can take 3 to 4 hours depending on your hair length and density.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="py-20 px-4 bg-primary text-center">
           <div className="container mx-auto max-w-2xl">
@@ -61,7 +84,7 @@ const HairColourHighlights = () => {
               Ready for a Colour Change?
             </h2>
             <p className="text-lg text-white/90 mb-8">
-              Book a custom colouring consultation at Andheri East\'s favorite studio. Bring reference photos, and let\'s design your perfect shade together.
+              Book a custom colouring consultation at Andheri East&apos;s favorite studio. Bring reference photos, and let&apos;s design your perfect shade together.
             </p>
             <Button onClick={() => (window.location.href = 'tel:+919004832184')} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone" size="lg" className="bg-white text-primary hover:bg-white/90">
               Book Your Consultation

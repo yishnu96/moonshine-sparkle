@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
+import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -13,6 +14,7 @@ const HairSpaBenefits = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <StructuredData />
       <Header />
 
       <main className="flex-1">
@@ -101,6 +103,27 @@ const HairSpaBenefits = () => {
                 <li><strong>Keratin Infusion Spa:</strong> Ideal for highly frizzy, dry, or coarse hair that needs smoothing.</li>
                 <li><strong>Olaplex Bond-Rebuilding:</strong> Best for chemically damaged, bleached, or repeatedly dyed hair that has lost its structural strength.</li>
               </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQs */}
+        <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-playfair font-semibold mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">How often should I get a hair spa?</h3>
+                <p className="text-muted-foreground">
+                  For dry, frizzy, or damaged hair, we recommend getting a hair spa every 3 to 4 weeks. For normal hair maintenance, once a month is perfect to keep it hydrated.
+                </p>
+              </div>
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Does a hair spa stop hair fall?</h3>
+                <p className="text-muted-foreground">
+                  Yes, by deeply nourishing the scalp, opening blocked follicles, and improving blood circulation through targeted massage, a hair spa significantly reduces hair breakage and follicle-level hair fall.
+                </p>
+              </div>
             </div>
           </div>
         </section>

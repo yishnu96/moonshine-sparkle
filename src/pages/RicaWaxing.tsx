@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
+import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -13,6 +14,7 @@ const RicaWaxing = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <StructuredData />
       <Header />
 
       <main className="flex-1">
@@ -50,6 +52,27 @@ const RicaWaxing = () => {
                 <li><strong>Strict Sanitization:</strong> Fully disinfected waxing rooms and tools.</li>
                 <li><strong>Gentle on Sensitive Skin:</strong> 100% colophony-free (no synthetic resins).</li>
               </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQs */}
+        <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-playfair font-semibold mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">How long does hair take to grow back after Rica waxing?</h3>
+                <p className="text-muted-foreground">
+                  Because Rica wax pulls hair directly from the root, your skin remains smooth for 3 to 4 weeks. Over time, consistent Rica waxing weakens the hair follicle, resulting in much finer, softer, and sparser hair regrowth.
+                </p>
+              </div>
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Can I get Rica waxing done on my face?</h3>
+                <p className="text-muted-foreground">
+                  Yes, Rica has specialized gentle formulations (like Aloe Vera or Milk wax) that are designed specifically for sensitive facial skin. They effectively remove facial fuzz and upper lip hair without causing burns or peeling.
+                </p>
+              </div>
             </div>
           </div>
         </section>

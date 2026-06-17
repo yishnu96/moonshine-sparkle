@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
+import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -13,6 +14,7 @@ const AftercareColouredHair = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <StructuredData />
       <Header />
 
       <main className="flex-1">
@@ -83,6 +85,27 @@ const AftercareColouredHair = () => {
                   <strong>For Brunettes & Caramels:</strong> Use a blue shampoo to neutralize brassy orange undertones that naturally occur over time.
                 </li>
               </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQs */}
+        <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-playfair font-semibold mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Why does my hair color fade so fast in the shower?</h3>
+                <p className="text-muted-foreground">
+                  Tap water contains chlorine and minerals, and hot water opens up the hair cuticle which allows the pigment molecules to escape. Washing with cool or lukewarm water and using a sulfate-free shampoo blocks this color loss.
+                </p>
+              </div>
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Can I swim after coloring my hair?</h3>
+                <p className="text-muted-foreground">
+                  Avoid swimming in chlorinated pools or salty ocean water for at least 2 weeks after coloring. Chlorine acts as a bleaching agent and will quickly strip or green-tinge blonde highlights.
+                </p>
+              </div>
             </div>
           </div>
         </section>

@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
+import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -13,6 +14,7 @@ const EyebrowThreading = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <StructuredData />
       <Header />
 
       <main className="flex-1">
@@ -35,7 +37,7 @@ const EyebrowThreading = () => {
             <div>
               <h2 className="text-3xl font-playfair font-semibold mb-4">Shaping with Precision</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Eyebrows are a defining feature. We don\'t rush the process — our specialists measure the arch, length, and thickness of your natural brow line before threading to ensure a balanced, symmetric shape.
+                Eyebrows are a defining feature. We don&apos;t rush the process — our specialists measure the arch, length, and thickness of your natural brow line before threading to ensure a balanced, symmetric shape.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 We use high-grade, antibacterial cotton thread to prevent irritation, and finish every session with a cooling massage using pure aloe vera gel or rosewater to reduce redness.
@@ -50,6 +52,27 @@ const EyebrowThreading = () => {
                 <li><strong>Face Sides Threading:</strong> Subtle removal for clean makeup application.</li>
                 <li><strong>Full Face Threading:</strong> Complete facial hair removal and exfoliation.</li>
               </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQs */}
+        <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-playfair font-semibold mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Is threading better than waxing for eyebrows?</h3>
+                <p className="text-muted-foreground">
+                  Yes, threading is highly recommended for eyebrows because it allows for precision, line-by-line hair removal to create a sharp shape. Unlike waxing, threading does not pull on the delicate skin around the eyes, preventing premature sagging.
+                </p>
+              </div>
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">How long does eyebrow threading last?</h3>
+                <p className="text-muted-foreground">
+                  On average, eyebrow threading lasts between 2 to 4 weeks depending on your individual hair growth rate. To maintain a clean and structured shape, we recommend booking a touch-up every 3 weeks.
+                </p>
+              </div>
             </div>
           </div>
         </section>

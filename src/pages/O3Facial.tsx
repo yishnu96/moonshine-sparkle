@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
+import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -13,6 +14,7 @@ const O3Facial = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <StructuredData />
       <Header />
 
       <main className="flex-1">
@@ -50,6 +52,27 @@ const O3Facial = () => {
                 <li><strong>Deep Moisture Lock:</strong> Infuses hyaluronic acid and botanical nutrients.</li>
                 <li><strong>Safe for Sensitive Skin:</strong> Hypoallergenic, clinical formulations.</li>
               </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQs */}
+        <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-playfair font-semibold mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Who is the O3+ facial best suited for?</h3>
+                <p className="text-muted-foreground">
+                  The O3+ facial is ideal for anyone dealing with dull skin, uneven skin tone, sun tanning, or dark spots. It is highly recommended for all skin types, including sensitive skin, looking for an instant glow before special events.
+                </p>
+              </div>
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">How long does the glow from an O3+ facial last?</h3>
+                <p className="text-muted-foreground">
+                  The immediate brightening and de-tanning effect can be seen instantly and lasts for about 15 to 20 days. To maintain cumulative skin health and radiance, we recommend getting an O3+ facial once a month.
+                </p>
+              </div>
             </div>
           </div>
         </section>

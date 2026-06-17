@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
+import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -13,6 +14,7 @@ const HowLongBalayageLasts = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <StructuredData />
       <Header />
 
       <main className="flex-1">
@@ -83,6 +85,27 @@ const HowLongBalayageLasts = () => {
                     Hard water contains heavy minerals like iron and copper that can deposit on lightened hair, making it look dark and brassy. A shower filter helps protect your colour.
                   </p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQs */}
+        <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-playfair font-semibold mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Can I get balayage if I have dark black hair?</h3>
+                <p className="text-muted-foreground">
+                  Yes! Our colorists specialize in painting caramel, honey, and hazelnut tones onto dark Asian hair to create soft, seamless dimensions that blend naturally and grow out without harsh lines.
+                </p>
+              </div>
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Does balayage damage your hair?</h3>
+                <p className="text-muted-foreground">
+                  Like any lightening treatment, bleach is used, but balayage is painted on the surface and doesn\'t saturate every strand like global highlights. We always integrate bond-builders like Olaplex to protect hair structure.
+                </p>
               </div>
             </div>
           </div>
