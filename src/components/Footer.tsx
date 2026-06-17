@@ -47,6 +47,18 @@ const SEOLinkMap: Record<string, string> = {
   'aftercare-tips-for-coloured-hair': '/aftercare-tips-for-coloured-hair',
   'how-to-prep-for-your-first-facial': '/how-to-prep-for-your-first-facial',
   'why-rica-wax-is-gentler-on-skin': '/why-rica-wax-is-gentler-on-skin',
+  'haircut-for-women': '/haircut-for-women',
+  'haircut-for-men': '/haircut-for-men',
+  'kids-haircut': '/kids-haircut',
+  'hair-colour-highlights': '/hair-colour-highlights',
+  'olaplex-treatment': '/olaplex-hair-treatment-andheri-east',
+  'hydra-facial': '/hydra-medi-facial-andheri-east',
+  'o3-facial': '/o3-facial',
+  'spa-manicure-pedicure': '/manicure-pedicure-mumbai',
+  'rica-waxing': '/rica-waxing',
+  'eyebrow-threading': '/eyebrow-threading',
+  'head-body-massage': '/head-body-massage',
+  'beard-trim-shave': '/beard-trim-shave',
 };
 
 const Footer = () => {

@@ -30,6 +30,15 @@ const HairSpaBenefits = lazy(() => import("./pages/HairSpaBenefits"));
 const AftercareColouredHair = lazy(() => import("./pages/AftercareColouredHair"));
 const PrepFirstFacial = lazy(() => import("./pages/PrepFirstFacial"));
 const WhyRicaWax = lazy(() => import("./pages/WhyRicaWax"));
+const HaircutForWomen = lazy(() => import("./pages/HaircutForWomen"));
+const HaircutForMen = lazy(() => import("./pages/HaircutForMen"));
+const KidsHaircut = lazy(() => import("./pages/KidsHaircut"));
+const HairColourHighlights = lazy(() => import("./pages/HairColourHighlights"));
+const O3Facial = lazy(() => import("./pages/O3Facial"));
+const RicaWaxing = lazy(() => import("./pages/RicaWaxing"));
+const EyebrowThreading = lazy(() => import("./pages/EyebrowThreading"));
+const HeadBodyMassage = lazy(() => import("./pages/HeadBodyMassage"));
+const BeardTrimShave = lazy(() => import("./pages/BeardTrimShave"));
 
 const queryClient = new QueryClient();
 
@@ -64,6 +73,15 @@ const App = () => (
             <Route path="/aftercare-tips-for-coloured-hair" element={<AftercareColouredHair />} />
             <Route path="/how-to-prep-for-your-first-facial" element={<PrepFirstFacial />} />
             <Route path="/why-rica-wax-is-gentler-on-skin" element={<WhyRicaWax />} />
+            <Route path="/haircut-for-women" element={<HaircutForWomen />} />
+            <Route path="/haircut-for-men" element={<HaircutForMen />} />
+            <Route path="/kids-haircut" element={<KidsHaircut />} />
+            <Route path="/hair-colour-highlights" element={<HairColourHighlights />} />
+            <Route path="/o3-facial" element={<O3Facial />} />
+            <Route path="/rica-waxing" element={<RicaWaxing />} />
+            <Route path="/eyebrow-threading" element={<EyebrowThreading />} />
+            <Route path="/head-body-massage" element={<HeadBodyMassage />} />
+            <Route path="/beard-trim-shave" element={<BeardTrimShave />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
