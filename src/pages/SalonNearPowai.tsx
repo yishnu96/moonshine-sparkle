@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
 import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
@@ -59,6 +60,27 @@ const SalonNearPowai = () => {
           </div>
         </section>
 
+        {/* FAQs */}
+        <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-playfair font-semibold mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">How far is Moon Studios from Powai?</h3>
+                <p className="text-muted-foreground">
+                  We are about 10 to 12 minutes away from Powai. You can reach us quickly via Saki Vihar Road or JVLR towards Ashok Nagar in Andheri East.
+                </p>
+              </div>
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Do you offer parking near the salon?</h3>
+                <p className="text-muted-foreground">
+                  Yes, safe visitor parking is available around Harmony Apartments for our salon guests.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="py-20 px-4 bg-primary">
           <div className="container mx-auto max-w-2xl text-center">
             <h2 className="text-3xl md:text-4xl font-playfair font-semibold text-white mb-6">
@@ -74,6 +96,7 @@ const SalonNearPowai = () => {
         </section>
       </main>
 
+      <SafetyTrustPolicies />
       <Footer />
     </div>
   );

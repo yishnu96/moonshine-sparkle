@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
 import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
@@ -60,6 +61,27 @@ const SalonNearKurla = () => {
           </div>
         </section>
 
+        {/* FAQs */}
+        <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-playfair font-semibold mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Is the salon close to Kurla station?</h3>
+                <p className="text-muted-foreground">
+                  We are located in Andheri East, which is about 20 minutes from Kurla by road via LBS Road or the Metro (switching from Kurla to Ghatkopar, then to Marol Naka).
+                </p>
+              </div>
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Do you offer the same rates for clients coming from Kurla?</h3>
+                <p className="text-muted-foreground">
+                  Yes, our transparent, pocket-friendly pricing applies to all clients, and we do not have any hidden charges.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="py-20 px-4 bg-primary">
           <div className="container mx-auto max-w-2xl text-center">
             <h2 className="text-3xl md:text-4xl font-playfair font-semibold text-white mb-6">
@@ -76,6 +98,7 @@ const SalonNearKurla = () => {
         </section>
       </main>
 
+      <SafetyTrustPolicies />
       <Footer />
     </div>
   );

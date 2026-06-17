@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
 import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
@@ -60,6 +61,27 @@ const SalonNearGhatkopar = () => {
           </div>
         </section>
 
+        {/* FAQs */}
+        <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-playfair font-semibold mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">What is the best way to travel from Ghatkopar to the salon?</h3>
+                <p className="text-muted-foreground">
+                  You can take the Metro from Ghatkopar Metro Station to Marol Naka Station, which is just a 2-minute walk from our salon. Alternatively, it is a 15-20 minute drive via LBS Road and Andheri-Kurla Road.
+                </p>
+              </div>
+              <div className="border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-semibold mb-3">Can I book a family appointment in advance?</h3>
+                <p className="text-muted-foreground">
+                  Absolutely. We recommend booking in advance, especially for weekends, so we can align multiple stylists to serve your family members together without long wait times.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="py-20 px-4 bg-primary">
           <div className="container mx-auto max-w-2xl text-center">
             <h2 className="text-3xl md:text-4xl font-playfair font-semibold text-white mb-6">
@@ -76,6 +98,7 @@ const SalonNearGhatkopar = () => {
         </section>
       </main>
 
+      <SafetyTrustPolicies />
       <Footer />
     </div>
   );
