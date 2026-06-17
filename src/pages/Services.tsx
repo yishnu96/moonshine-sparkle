@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils';
 
 import { getServiceImage } from '@/utils/serviceImages';
 
+
 type Service = {
   id: string;
   name: string;
@@ -78,6 +79,8 @@ const DetailSheet = ({ entry, onClose }: { entry: SheetState; onClose: () => voi
               {svc.image && (
                 <div className="relative overflow-hidden" style={{ aspectRatio: '16/10' }}>
                   <img src={svc.image} alt={svc.name} className="w-full h-full object-cover" />
+                  <span aria-hidden className="absolute inset-0 pointer-events-none"
+                    style={{ background: 'linear-gradient(180deg, hsl(var(--primary)/0.08), hsl(var(--accent)/0.18))', mixBlendMode: 'soft-light' }} />
                   <button onClick={onClose} aria-label="Close"
                     className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-md hover:scale-105 active:scale-90 transition-transform z-10">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round">
@@ -187,6 +190,8 @@ const ServiceCard = ({ service, category, onOpen }: {
         <div className="relative overflow-hidden" style={{ aspectRatio: '4/3' }}>
           <img src={service.image} alt={service.name} loading="lazy"
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+          <span aria-hidden className="absolute inset-0 pointer-events-none"
+            style={{ background: 'linear-gradient(180deg, hsl(var(--primary)/0.08), hsl(var(--accent)/0.18))', mixBlendMode: 'soft-light' }} />
           <span className="absolute top-[9px] left-[9px] w-[30px] h-[30px] rounded-[9px] flex items-center justify-center bg-white/86 backdrop-blur-[4px] shadow-[0_2px_6px_hsl(0_0%_0%/0.12)]"
             style={{ color: fgVar }}>
             <span style={{ width: 15, height: 15, display: 'inline-flex' }}><Icon name={category.iconName} /></span>

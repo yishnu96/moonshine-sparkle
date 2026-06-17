@@ -73,6 +73,8 @@ import beardTrim from '@/assets/services/beard-trim.jpg';
 import menHairColor from '@/assets/services/men-hair-color.jpg';
 import beardColor from '@/assets/services/beard-color.jpg';
 import menHairSpa from '@/assets/services/men-hair-spa.jpg';
+import veganFacial from '@/assets/services/facial-treatment.jpg';
+import dermaGlowFacial from '@/assets/services/facial-cleanup.jpg';
 
 export const serviceImages: Record<string, string> = {
   'kids-haircut': kidsHaircut,
@@ -105,6 +107,8 @@ export const serviceImages: Record<string, string> = {
   'red-vine-facial': redVineFacial,
   'oxygen-facial': oxygenFacial,
   'detox-facial': detoxFacial,
+  'vegan-facial': veganFacial,
+  'derma-glow-facial': dermaGlowFacial,
   'hydra-cleanup': hydraCleanup,
   'hydra-facial': hydraFacial,
   'hydra-md': hydraMd,
