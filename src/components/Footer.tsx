@@ -59,6 +59,12 @@ const SEOLinkMap: Record<string, string> = {
   'eyebrow-threading': '/eyebrow-threading',
   'head-body-massage': '/head-body-massage',
   'beard-trim-shave': '/beard-trim-shave',
+  'nanoplastia-in-marol': '/nanoplastia-andheri-east',
+  'balayage-in-marol': '/balayage-salon-andheri',
+  'keratin-treatment-in-andheri-east': '/nanoplastia-vs-keratin-what-to-choose',
+  'keratin-treatment-in-marol': '/nanoplastia-vs-keratin-what-to-choose',
+  'hair-spa-in-andheri-east': '/hair-spa-benefits-for-damaged-hair',
+  'hair-spa-in-marol': '/hair-spa-benefits-for-damaged-hair',
 };
 
 const Footer = () => {
