@@ -12,7 +12,7 @@ const TopServices: React.FC = () => {
     { title: 'Haircuts', description: "The kind of cut that makes people ask who does your hair — styles for men, women, and kids.", image: getServiceImage('normal-haircut') },
     { title: 'Hair Coloring', description: 'Subtle highlights that catch the light, bold color that turns heads — looks like it was made for you.', image: getServiceImage('hair-color') },
     { title: 'Hair Spa', description: "Dry, dull, or damaged hair gets deep nourishment — walks out softer, calmer, alive.", image: getServiceImage('hair-spa') },
-    { title: 'Advanced Treatments', description: 'Nanoplastia, Botox, Keratin — advanced smoothing and repair treatments that actually last.', image: getServiceImage('advance-haircut-wash') }
+    { title: 'Derma Glow Facial', description: 'Professional brightening treatment using targeted active dermatological ingredients to reveal a radiant, even complexion.', image: getServiceImage('derma-glow-facial') }
   ];
 
   const mobileServices = [
@@ -22,8 +22,8 @@ const TopServices: React.FC = () => {
       blurb: 'Subtle highlights that catch the light, or bold colour that turns heads.' },
     { id: 't-spa', name: 'Hair Spa', cat: 'hair', dur: '~60 min', img: getServiceImage('hair-spa'),
       blurb: 'Dry, dull or damaged hair gets deep nourishment — softer, calmer, alive.' },
-    { id: 't-treatment', name: 'Advanced Treatments', cat: 'hair', dur: '~2.5 hrs', img: getServiceImage('advance-haircut-wash'),
-      blurb: 'Nanoplastia, Botox, Keratin — advanced smoothing and repair that actually lasts.' },
+    { id: 't-facial', name: 'Derma Glow Facial', cat: 'skin', dur: '~50 min', img: getServiceImage('derma-glow-facial'),
+      blurb: 'Professional brightening treatment using targeted active dermatological ingredients.' },
   ];
 
   const handleServiceClick = (title: string) => {
@@ -91,8 +91,8 @@ const TopServices: React.FC = () => {
             >
               <div className="card-img">
                 <img src={s.img} alt={s.name} loading="lazy" />
-                <span className="card-cat" style={{ color: 'hsl(var(--cat-hair-fg))' }}>
-                  <Icon name="scissors" />
+                <span className="card-cat" style={{ color: `hsl(var(--cat-${s.cat === 'skin' ? 'skin' : 'hair'}-fg))` }}>
+                  <Icon name={s.cat === 'skin' ? 'sparkles' : 'scissors'} />
                 </span>
               </div>
               <div className="card-body">

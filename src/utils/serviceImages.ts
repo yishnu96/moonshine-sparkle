@@ -73,8 +73,8 @@ import beardTrim from '@/assets/services/beard-trim.jpg';
 import menHairColor from '@/assets/services/men-hair-color.jpg';
 import beardColor from '@/assets/services/beard-color.jpg';
 import menHairSpa from '@/assets/services/men-hair-spa.jpg';
-import veganFacial from '@/assets/services/facial-treatment.jpg';
-import dermaGlowFacial from '@/assets/services/facial-cleanup.jpg';
+import veganFacial from '@/assets/services/vegan-facial.jpg';
+import dermaGlowFacial from '@/assets/services/derma-glow-facial.jpg';
 
 export const serviceImages: Record<string, string> = {
   'kids-haircut': kidsHaircut,
