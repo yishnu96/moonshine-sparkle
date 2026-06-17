@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import FloatingCTA from '@/components/FloatingCTA';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
 import StructuredData from '@/components/StructuredData';
@@ -13,13 +14,13 @@ const FamilySalonMarolMumbai = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col pb-[88px] md:pb-0">
       <StructuredData />
       <Header />
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary/5 via-background to-accent/5 px-0 py-[20px]">
+        <section className="bg-gradient-to-br from-primary/5 via-background to-accent/5 px-4 py-12">
           <div className="container mx-auto max-w-4xl text-center">
             <h1 className="text-4xl md:text-5xl font-playfair font-semibold mb-6">
               Trusted Family Salon in Marol, Mumbai
@@ -75,11 +76,11 @@ const FamilySalonMarolMumbai = () => {
 
         {/* Services for Every Family Member Section */}
         <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
-          <div className="container mx-auto max-w-3xl">
+          <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl md:text-4xl font-playfair font-semibold mb-8 text-center">
               Services for Every Family Member
             </h2>
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
               {/* Kids Section */}
               <div className="border p-6 rounded-lg">
                 <h3 className="text-xl font-semibold mb-4">Kids' Services</h3>
@@ -213,7 +214,7 @@ const FamilySalonMarolMumbai = () => {
 
         {/* Family Packages Section */}
         <section className="py-16 px-4 bg-background">
-          <div className="container mx-auto max-w-2xl">
+          <div className="container mx-auto max-w-4xl">
             <h2 className="text-3xl md:text-4xl font-playfair font-semibold mb-8 text-center">
               Family Salon Packages
             </h2>
@@ -291,6 +292,8 @@ const FamilySalonMarolMumbai = () => {
 
       <SafetyTrustPolicies />
       <Footer />
+    <FloatingCTA />
+
     </div>
   );
 };

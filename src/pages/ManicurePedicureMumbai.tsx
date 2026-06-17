@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import FloatingCTA from '@/components/FloatingCTA';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
@@ -13,13 +14,13 @@ const ManicurePedicureMumbai = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col pb-[88px] md:pb-0">
       <StructuredData />
       <Header />
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary/5 via-background to-accent/5 px-0 py-[20px]">
+        <section className="bg-gradient-to-br from-primary/5 via-background to-accent/5 px-4 py-12">
           <div className="container mx-auto max-w-4xl text-center px-4">
             <p className="text-sm uppercase tracking-wider text-primary mb-4">HAND & FOOT CARE</p>
             <h1 className="text-4xl md:text-5xl font-playfair font-semibold mb-6">
@@ -223,6 +224,8 @@ const ManicurePedicureMumbai = () => {
       </main>
 
       <Footer />
+    <FloatingCTA />
+
     </div>
   );
 };

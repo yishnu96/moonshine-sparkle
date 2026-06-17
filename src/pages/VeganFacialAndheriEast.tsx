@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import FloatingCTA from '@/components/FloatingCTA';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
 import StructuredData from '@/components/StructuredData';
@@ -13,7 +14,7 @@ const VeganFacialAndheriEast = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col pb-[88px] md:pb-0">
       <StructuredData />
       <Header />
 
@@ -93,6 +94,8 @@ const VeganFacialAndheriEast = () => {
 
       <SafetyTrustPolicies />
       <Footer />
+    <FloatingCTA />
+
     </div>
   );
 };

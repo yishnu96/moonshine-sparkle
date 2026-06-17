@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import FloatingCTA from '@/components/FloatingCTA';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
 import StructuredData from '@/components/StructuredData';
@@ -13,13 +14,13 @@ const NanoplastiaAndheriEast = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col pb-[88px] md:pb-0">
       <StructuredData />
       <Header />
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary/5 via-background to-accent/5 px-0 py-[20px]">
+        <section className="bg-gradient-to-br from-primary/5 via-background to-accent/5 px-4 py-12">
           <div className="container mx-auto max-w-4xl text-center">
             <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3">Last Updated: June 2026</p>
             <h1 className="text-4xl md:text-5xl font-playfair font-semibold mb-6">
@@ -95,10 +96,8 @@ const NanoplastiaAndheriEast = () => {
                 <strong>Processing Time:</strong> The treatment processes for 30-50 minutes depending on hair length and thickness.
               </li>
               <li>
-                <li>
                   <strong>Sealing:</strong> Hair is blow-dried and flat-ironed at precise temperatures to seal in the treatment.
                 </li>
-              </li>
               <li>
                 <strong>Final Rinse & Style:</strong> Hair is rinsed, conditioned, and styled to reveal smooth, shiny results.
               </li>
@@ -108,30 +107,30 @@ const NanoplastiaAndheriEast = () => {
 
         {/* Pricing Section */}
         <section className="py-16 px-4 bg-background">
-          <div className="container mx-auto max-w-2xl">
+          <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl md:text-4xl font-playfair font-semibold mb-8 text-center">
               Nanoplastia Pricing
             </h2>
-            <div className="grid gap-6 md:grid-cols-2">
-              <div className="border p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Shoulder Length Hair</h3>
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="border p-6 rounded-lg bg-card shadow-soft hover:shadow-hover transition-all">
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Shoulder Length Hair</h3>
                 <p className="text-2xl font-bold text-primary mb-4">₹3,999</p>
-                <p className="text-muted-foreground">Includes consultation, treatment, wash & style</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">Includes consultation, treatment, wash & style</p>
               </div>
-              <div className="border p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Medium Length Hair</h3>
+              <div className="border p-6 rounded-lg bg-card shadow-soft hover:shadow-hover transition-all">
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Medium Length Hair</h3>
                 <p className="text-2xl font-bold text-primary mb-4">₹4,999</p>
-                <p className="text-muted-foreground">Includes consultation, treatment, wash & style</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">Includes consultation, treatment, wash & style</p>
               </div>
-              <div className="border p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Long Hair</h3>
+              <div className="border p-6 rounded-lg bg-card shadow-soft hover:shadow-hover transition-all">
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Long Hair</h3>
                 <p className="text-2xl font-bold text-primary mb-4">₹5,999</p>
-                <p className="text-muted-foreground">Includes consultation, treatment, wash & style</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">Includes consultation, treatment, wash & style</p>
               </div>
-              <div className="border p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Extra Long Hair</h3>
+              <div className="border p-6 rounded-lg bg-card shadow-soft hover:shadow-hover transition-all">
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Extra Long Hair</h3>
                 <p className="text-2xl font-bold text-primary mb-4">₹6,999</p>
-                <p className="text-muted-foreground">Includes consultation, treatment, wash & style</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">Includes consultation, treatment, wash & style</p>
               </div>
             </div>
             <p className="text-center text-muted-foreground mt-6">
@@ -201,6 +200,8 @@ const NanoplastiaAndheriEast = () => {
 
       <SafetyTrustPolicies />
       <Footer />
+    <FloatingCTA />
+
     </div>
   );
 };

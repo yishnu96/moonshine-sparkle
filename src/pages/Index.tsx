@@ -1,4 +1,5 @@
 import { useSEO } from '@/hooks/useSEO';
+import FloatingCTA from '@/components/FloatingCTA';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import PreferredBy from '@/components/PreferredBy';
@@ -37,6 +38,8 @@ const Index = () => {
       <BookingForm />
       <Location />
       <Footer />
+    <FloatingCTA />
+
     </div>
   );
 };

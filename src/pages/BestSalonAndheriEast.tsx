@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import FloatingCTA from '@/components/FloatingCTA';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
 import StructuredData from '@/components/StructuredData';
@@ -13,7 +14,7 @@ const BestSalonAndheriEast = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col pb-[88px] md:pb-0">
       <StructuredData />
       <Header />
 
@@ -69,24 +70,24 @@ const BestSalonAndheriEast = () => {
         <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
           <div className="container mx-auto max-w-4xl">
             <h2 className="text-3xl font-playfair font-semibold mb-8 text-center">Easy to reach from nearby areas</h2>
-            <div className="grid gap-6 md:grid-cols-3">
-              <div className="border rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-3">Marol and Chakala</h3>
-                <p className="text-muted-foreground">
+            <div className="grid gap-6 grid-cols-1 md:grid-cols-3">
+              <div className="border rounded-lg p-6 bg-card shadow-soft hover:shadow-hover transition-all">
+                <h3 className="text-xl font-semibold mb-3 text-foreground">Marol and Chakala</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   A practical neighborhood choice for regular haircuts, treatments, and family salon visits close to
                   home or office.
                 </p>
               </div>
-              <div className="border rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-3">Powai and Saki Naka</h3>
-                <p className="text-muted-foreground">
+              <div className="border rounded-lg p-6 bg-card shadow-soft hover:shadow-hover transition-all">
+                <h3 className="text-xl font-semibold mb-3 text-foreground">Powai and Saki Naka</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   Many clients travel from nearby eastern suburbs for specialist treatments like Nanoplastia,
                   Balayage, and Hydra Medi Facial.
                 </p>
               </div>
-              <div className="border rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-3">Ghatkopar and Kurla</h3>
-                <p className="text-muted-foreground">
+              <div className="border rounded-lg p-6 bg-card shadow-soft hover:shadow-hover transition-all">
+                <h3 className="text-xl font-semibold mb-3 text-foreground">Ghatkopar and Kurla</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   Convenient for clients who want a trusted salon near Andheri East without compromising on warmth,
                   hygiene, or technical expertise.
                 </p>
@@ -142,6 +143,8 @@ const BestSalonAndheriEast = () => {
 
       <SafetyTrustPolicies />
       <Footer />
+    <FloatingCTA />
+
     </div>
   );
 };

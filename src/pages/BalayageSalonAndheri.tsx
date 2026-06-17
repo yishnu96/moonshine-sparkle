@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import FloatingCTA from '@/components/FloatingCTA';
 import Footer from '@/components/Footer';
 import SafetyTrustPolicies from '@/components/SafetyTrustPolicies';
 import StructuredData from '@/components/StructuredData';
@@ -13,13 +14,13 @@ const BalayageSalonAndheri = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col pb-[88px] md:pb-0">
       <StructuredData />
       <Header />
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary/5 via-background to-accent/5 px-0 py-[20px]">
+        <section className="bg-gradient-to-br from-primary/5 via-background to-accent/5 px-4 py-12">
           <div className="container mx-auto max-w-4xl text-center">
             <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3">Last Updated: June 2026</p>
             <h1 className="text-4xl md:text-5xl font-playfair font-semibold mb-6">
@@ -76,32 +77,32 @@ const BalayageSalonAndheri = () => {
 
         {/* Balayage Techniques Section */}
         <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
-          <div className="container mx-auto max-w-3xl">
+          <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl md:text-4xl font-playfair font-semibold mb-8 text-center">
               Our Balayage Techniques
             </h2>
-            <div className="grid gap-6 md:grid-cols-2">
-              <div className="border p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Classic Balayage</h3>
-                <p className="text-muted-foreground">
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="border p-6 rounded-lg bg-card shadow-soft hover:shadow-hover transition-all">
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Classic Balayage</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   Soft, blended highlights placed throughout the hair for natural dimension.
                 </p>
               </div>
-              <div className="border p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Face-Framing Balayage</h3>
-                <p className="text-muted-foreground">
+              <div className="border p-6 rounded-lg bg-card shadow-soft hover:shadow-hover transition-all">
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Face-Framing Balayage</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   Lighter pieces focused around the face to brighten and illuminate your features.
                 </p>
               </div>
-              <div className="border p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Partial Balayage</h3>
-                <p className="text-muted-foreground">
+              <div className="border p-6 rounded-lg bg-card shadow-soft hover:shadow-hover transition-all">
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Partial Balayage</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   Highlights concentrated on the top and side sections for subtle dimension.
                 </p>
               </div>
-              <div className="border p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Full Balayage</h3>
-                <p className="text-muted-foreground">
+              <div className="border p-6 rounded-lg bg-card shadow-soft hover:shadow-hover transition-all">
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Full Balayage</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   Complete hand-painted color service for maximum impact and dimension.
                 </p>
               </div>
@@ -111,30 +112,30 @@ const BalayageSalonAndheri = () => {
 
         {/* Pricing Section */}
         <section className="py-16 px-4 bg-background">
-          <div className="container mx-auto max-w-2xl">
+          <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl md:text-4xl font-playfair font-semibold mb-8 text-center">
               Balayage Pricing
             </h2>
-            <div className="grid gap-6 md:grid-cols-2">
-              <div className="border p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Partial Balayage</h3>
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="border p-6 rounded-lg bg-card shadow-soft hover:shadow-hover transition-all">
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Partial Balayage</h3>
                 <p className="text-2xl font-bold text-primary mb-4">₹2,999</p>
-                <p className="text-muted-foreground">Top & side sections, includes toner</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">Top & side sections, includes toner</p>
               </div>
-              <div className="border p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Half Head Balayage</h3>
+              <div className="border p-6 rounded-lg bg-card shadow-soft hover:shadow-hover transition-all">
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Half Head Balayage</h3>
                 <p className="text-2xl font-bold text-primary mb-4">₹3,999</p>
-                <p className="text-muted-foreground">Half head coverage, includes toner</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">Half head coverage, includes toner</p>
               </div>
-              <div className="border p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Full Head Balayage</h3>
+              <div className="border p-6 rounded-lg bg-card shadow-soft hover:shadow-hover transition-all">
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Full Head Balayage</h3>
                 <p className="text-2xl font-bold text-primary mb-4">₹4,999</p>
-                <p className="text-muted-foreground">Full coverage, includes toner & treatment</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">Full coverage, includes toner & treatment</p>
               </div>
-              <div className="border p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Balayage + Haircut</h3>
+              <div className="border p-6 rounded-lg bg-card shadow-soft hover:shadow-hover transition-all">
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Balayage + Haircut</h3>
                 <p className="text-2xl font-bold text-primary mb-4">₹5,999</p>
-                <p className="text-muted-foreground">Full Balayage + precision haircut</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">Full Balayage + precision haircut</p>
               </div>
             </div>
             <p className="text-center text-muted-foreground mt-6">
@@ -204,6 +205,8 @@ const BalayageSalonAndheri = () => {
 
       <SafetyTrustPolicies />
       <Footer />
+    <FloatingCTA />
+
     </div>
   );
 };
