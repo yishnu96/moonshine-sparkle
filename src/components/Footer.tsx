@@ -41,6 +41,12 @@ const SEOLinkMap: Record<string, string> = {
   'manicure-and-pedicure': '/manicure-pedicure-mumbai',
   'vegan-facial': '/vegan-facial-andheri-east',
   'derma-glow-facial': '/derma-glow-facial-andheri-east',
+  'nanoplastia-vs-keratin-what-to-choose': '/nanoplastia-vs-keratin-what-to-choose',
+  'how-long-does-balayage-last': '/how-long-does-balayage-last',
+  'hair-spa-benefits-for-damaged-hair': '/hair-spa-benefits-for-damaged-hair',
+  'aftercare-tips-for-coloured-hair': '/aftercare-tips-for-coloured-hair',
+  'how-to-prep-for-your-first-facial': '/how-to-prep-for-your-first-facial',
+  'why-rica-wax-is-gentler-on-skin': '/why-rica-wax-is-gentler-on-skin',
 };
 
 const Footer = () => {
@@ -135,22 +141,22 @@ const Footer = () => {
   return (
     <>
       {/* ORIGINAL DESKTOP FOOTER */}
-      <footer ref={sectionRef} data-analytics-section="footer" data-analytics-label="Footer" data-analytics-section-view="true" className={`hidden md:block bg-secondary/30 py-12 px-4 lg:px-8 border-t border-border scroll-fade-up ${isVisible ? 'visible' : ''}`}>
+      <footer ref={sectionRef} data-analytics-section="footer" data-analytics-label="Footer" data-analytics-section-view="true" className={`hidden md:block bg-secondary/30 py-16 px-4 lg:px-8 border-t border-border scroll-fade-up ${isVisible ? 'visible' : ''}`}>
         <div className="container mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-10">
             {/* Brand */}
-            <div>
+            <div className="lg:col-span-2">
               <h3 className="text-2xl font-playfair font-bold text-foreground mb-3">
                 Moon Studios
               </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
                 A warm, family-friendly salon in Andheri East and Marol for women, men, and kids. Known for expert
                 hair, skin, and grooming services with thoughtful consultation and care.
               </p>
             </div>
 
             {/* Quick Links */}
-            <div>
+            <div className="lg:col-span-1">
               <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
               <ul className="space-y-2">
                 {quickLinks.map((item) => (
@@ -170,24 +176,8 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div>
-              <h4 className="font-semibold text-foreground mb-4">More at Moon Studios</h4>
-              <ul className="space-y-2">
-                {moreLinks.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      to={item.href}
-                      className="text-muted-foreground hover:text-primary transition-colors text-sm"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             {/* Social */}
-            <div>
+            <div className="lg:col-span-1">
               <h4 className="font-semibold text-foreground mb-4">Follow Us</h4>
               <div className="flex gap-4">
                 <button
@@ -282,7 +272,42 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="border-t border-border pt-8 text-center">
+          {/* Categorized SEO Links for Desktop */}
+          <div className="border-t border-border/60 py-10 my-8 grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+            {SEO_GROUPS.map((g) => (
+              <div key={g.title}>
+                <h4 className="font-semibold text-foreground mb-4">{g.title}</h4>
+                <ul className="space-y-2">
+                  {g.links.map((l) => {
+                    const destination = SEOLinkMap[slug(l)];
+                    return (
+                      <li key={l}>
+                        {destination ? (
+                          <Link
+                            to={destination}
+                            onClick={() => trackEvent('nav_click', { section_name: 'footer', cta_label: l, destination_url: destination })}
+                            className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                          >
+                            {l}
+                          </Link>
+                        ) : (
+                          <a
+                            href={'/' + slug(l)}
+                            onClick={(e) => handleSEOClick(e, l)}
+                            className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                          >
+                            {l}
+                          </a>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="border-t border-border/60 pt-8 text-center">
             <p className="text-muted-foreground text-sm">
               © {new Date().getFullYear()} Moon Studios. All rights reserved. Crafted with care.
             </p>

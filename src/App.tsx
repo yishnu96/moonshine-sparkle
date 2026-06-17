@@ -24,6 +24,12 @@ const VeganFacialAndheriEast = lazy(() => import("./pages/VeganFacialAndheriEast
 const DermaGlowFacialAndheriEast = lazy(() => import("./pages/DermaGlowFacialAndheriEast"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const NanoplastiaVsKeratin = lazy(() => import("./pages/NanoplastiaVsKeratin"));
+const HowLongBalayageLasts = lazy(() => import("./pages/HowLongBalayageLasts"));
+const HairSpaBenefits = lazy(() => import("./pages/HairSpaBenefits"));
+const AftercareColouredHair = lazy(() => import("./pages/AftercareColouredHair"));
+const PrepFirstFacial = lazy(() => import("./pages/PrepFirstFacial"));
+const WhyRicaWax = lazy(() => import("./pages/WhyRicaWax"));
 
 const queryClient = new QueryClient();
 
@@ -52,6 +58,12 @@ const App = () => (
             <Route path="/derma-glow-facial-andheri-east" element={<DermaGlowFacialAndheriEast />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/nanoplastia-vs-keratin-what-to-choose" element={<NanoplastiaVsKeratin />} />
+            <Route path="/how-long-does-balayage-last" element={<HowLongBalayageLasts />} />
+            <Route path="/hair-spa-benefits-for-damaged-hair" element={<HairSpaBenefits />} />
+            <Route path="/aftercare-tips-for-coloured-hair" element={<AftercareColouredHair />} />
+            <Route path="/how-to-prep-for-your-first-facial" element={<PrepFirstFacial />} />
+            <Route path="/why-rica-wax-is-gentler-on-skin" element={<WhyRicaWax />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
