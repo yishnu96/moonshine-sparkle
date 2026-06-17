@@ -27,7 +27,7 @@ const SalonNearGhatkopar = () => {
               Moon Studios in Andheri East is a trusted option for clients coming from Ghatkopar who want specialist
               hair and skincare services in a salon known for warmth, hygiene, and careful consultation.
             </p>
-            <Button onClick={() => (window.location.href = 'tel:+919004832184')} size="lg" className="bg-primary hover:bg-primary/90">
+            <Button onClick={() => (window.location.href = 'tel:+919004832184')} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone" size="lg" className="bg-primary hover:bg-primary/90">
               Book a Visit
             </Button>
           </div>
@@ -69,7 +69,7 @@ const SalonNearGhatkopar = () => {
               Call ahead for timing, consultation guidance, and the easiest route to the salon from your side of the
               city.
             </p>
-            <Button onClick={() => (window.location.href = 'tel:+919004832184')} size="lg" className="bg-white text-primary hover:bg-white/90">
+            <Button onClick={() => (window.location.href = 'tel:+919004832184')} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone" size="lg" className="bg-white text-primary hover:bg-white/90">
               Call Moon Studios
             </Button>
           </div>

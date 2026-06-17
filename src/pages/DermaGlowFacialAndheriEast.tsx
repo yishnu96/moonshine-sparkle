@@ -27,7 +27,7 @@ const DermaGlowFacialAndheriEast = () => {
             <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
               If you want visible skin brightening, even tone, and medical-grade care, Moon Studios offers a professional Derma Glow Facial in Andheri East. We utilize active dermatological formulations to deeply exfoliate, repair, and illuminate your skin.
             </p>
-            <Button onClick={() => (window.location.href = 'tel:+919004832184')} size="lg" className="bg-primary hover:bg-primary/90">
+            <Button onClick={() => (window.location.href = 'tel:+919004832184')} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone" size="lg" className="bg-primary hover:bg-primary/90">
               Book Your Facial
             </Button>
           </div>
@@ -84,7 +84,7 @@ const DermaGlowFacialAndheriEast = () => {
             <p className="text-lg text-white/90 mb-8">
               Call Moon Studios to book your Derma Glow Facial or ask our skincare consultants for directions from Powai, Marol, and Chakala.
             </p>
-            <Button onClick={() => (window.location.href = 'tel:+919004832184')} size="lg" className="bg-white text-primary hover:bg-white/90">
+            <Button onClick={() => (window.location.href = 'tel:+919004832184')} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone" size="lg" className="bg-white text-primary hover:bg-white/90">
               Call for a Consultation
             </Button>
           </div>

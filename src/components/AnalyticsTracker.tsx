@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import {
   getAnalyticsPageTitle,
   initializeTrafficSourceTracking,
+  initMixpanel,
   trackEvent,
   trackPageView,
 } from "@/lib/analytics";
@@ -46,6 +47,7 @@ const AnalyticsTracker = () => {
   const observedSectionsRef = useRef<Set<string>>(new Set());
 
   useEffect(() => {
+    initMixpanel();
     initializeTrafficSourceTracking();
   }, []);
 
@@ -103,6 +105,7 @@ const AnalyticsTracker = () => {
       if (href.startsWith("https://wa.me/")) {
         trackEvent("booking_start", {
           booking_method: "whatsapp",
+          booking_type: "quick",
           destination_url: href,
           section_name: closestSection,
           link_text: trackedElement.textContent?.trim(),

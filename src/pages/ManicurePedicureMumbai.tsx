@@ -30,7 +30,7 @@ const ManicurePedicureMumbai = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button
-                onClick={() => window.location.href = 'tel:+919004832184'}
+                onClick={() => window.location.href = 'tel:+919004832184'} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone"
                 size="lg"
                 className="bg-primary hover:bg-primary/90"
               >
@@ -38,6 +38,10 @@ const ManicurePedicureMumbai = () => {
               </Button>
               <Button
                 onClick={() => window.location.href = 'https://wa.me/919004832184?text=Hi%2C%20I%27d%20like%20to%20book%20a%20manicure%2Fpedicure%20appointment%20at%20Moon%20Studios.'}
+                data-analytics-event="booking_start"
+                data-analytics-section="landing_cta"
+                data-analytics-booking-method="whatsapp"
+                data-analytics-booking-type="quick"
                 variant="outline"
                 size="lg"
               >
@@ -118,7 +122,7 @@ const ManicurePedicureMumbai = () => {
                 Book a Manicure + Pedicure combo together at any tier and save ₹199
               </p>
               <Button
-                onClick={() => window.location.href = 'tel:+919004832184'}
+                onClick={() => window.location.href = 'tel:+919004832184'} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone"
                 className="bg-primary hover:bg-primary/90"
               >
                 Book Combo
@@ -195,7 +199,7 @@ const ManicurePedicureMumbai = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button
-                onClick={() => window.location.href = 'tel:+919004832184'}
+                onClick={() => window.location.href = 'tel:+919004832184'} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone"
                 size="lg"
                 className="bg-white text-primary hover:bg-white/90"
               >
@@ -203,6 +207,10 @@ const ManicurePedicureMumbai = () => {
               </Button>
               <Button
                 onClick={() => window.location.href = 'https://wa.me/919004832184?text=Hi%2C%20I%27d%20like%20to%20book%20a%20manicure%2Fpedicure.'}
+                data-analytics-event="booking_start"
+                data-analytics-section="landing_cta"
+                data-analytics-booking-method="whatsapp"
+                data-analytics-booking-type="quick"
                 size="lg"
                 variant="outline"
                 className="text-white border-white hover:bg-white/20"

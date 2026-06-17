@@ -101,12 +101,12 @@ const Header: React.FC = () => {
             <div className="flex items-center gap-2 sm:gap-3">
               <a
                 href="tel:+919004832184"
-                onClick={handleCall}
                 aria-label="Call Moon Studios"
                 title="Call Now"
                 data-analytics-event="phone_call_click"
                 data-analytics-section="header"
                 data-analytics-label="Call Header"
+                data-analytics-contact-method="phone"
                 className="hidden md:flex w-[46px] h-[46px] rounded-full items-center justify-center flex-shrink-0 bg-primary/[0.08] text-primary border-[1.5px] border-primary/45 hover:scale-[1.08] active:scale-[0.94] transition-transform"
               >
                 <Phone className="w-5 h-5" />
@@ -115,18 +115,13 @@ const Header: React.FC = () => {
                 href={`https://wa.me/919004832184?text=${encodeURIComponent("Hi Moon Studios! I'd like to book an appointment — when's your next available slot?")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() =>
-                  trackEvent('cta_click', {
-                    section_name: 'header',
-                    cta_label: 'WhatsApp Header',
-                    cta_type: 'whatsapp',
-                  })
-                }
                 aria-label="Book on WhatsApp"
                 title="WhatsApp"
-                data-analytics-event="cta_click"
+                data-analytics-event="booking_start"
                 data-analytics-section="header"
                 data-analytics-label="WhatsApp Header"
+                data-analytics-booking-method="whatsapp"
+                data-analytics-booking-type="quick"
                 className="hidden md:flex w-[46px] h-[46px] rounded-full items-center justify-center flex-shrink-0 bg-[#25D366] text-white shadow-[0_6px_16px_-6px_rgba(37,211,102,0.6)] hover:scale-[1.08] active:scale-[0.94] transition-transform"
               >
                 <span style={{ width: 20, height: 20, display: 'inline-flex' }}>

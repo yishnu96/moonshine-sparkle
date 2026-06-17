@@ -28,7 +28,7 @@ const HydraMediFacialAndheriEast = () => {
               If you are looking for a Hydra Medi Facial in Andheri East or Marol, Moon Studios offers a calm,
               clean, consultation-led experience focused on hydration, texture, glow, and skin comfort.
             </p>
-            <Button onClick={() => (window.location.href = 'tel:+919004832184')} size="lg" className="bg-primary hover:bg-primary/90">
+            <Button onClick={() => (window.location.href = 'tel:+919004832184')} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone" size="lg" className="bg-primary hover:bg-primary/90">
               Book Your Facial
             </Button>
           </div>
@@ -90,7 +90,7 @@ const HydraMediFacialAndheriEast = () => {
             <p className="text-lg text-white/90 mb-8">
               Call Moon Studios to book your Hydra Medi Facial or ask which facial is best for your skin right now.
             </p>
-            <Button onClick={() => (window.location.href = 'tel:+919004832184')} size="lg" className="bg-white text-primary hover:bg-white/90">
+            <Button onClick={() => (window.location.href = 'tel:+919004832184')} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone" size="lg" className="bg-white text-primary hover:bg-white/90">
               Call for a Consultation
             </Button>
           </div>

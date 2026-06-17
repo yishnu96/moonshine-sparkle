@@ -5,8 +5,10 @@ const FloatingCTA = () => {
   const handleWhatsAppClick = () => {
     const txt = "Hi Moon Studios! I'd like to book an appointment — when's your next available slot?";
     const url = `https://wa.me/919004832184?text=${encodeURIComponent(txt)}`;
-    trackEvent('cta_click', {
+    trackEvent('booking_start', {
       section_name: 'floating_cta',
+      booking_method: 'whatsapp',
+      booking_type: 'quick',
       cta_label: 'Book on WhatsApp',
       destination_url: url,
     });

@@ -28,7 +28,7 @@ const OlaplexHairTreatmentAndheriEast = () => {
               Moon Studios offers Olaplex hair treatment in Andheri East for hair that feels weak, over-processed,
               dull, or stressed after coloring, smoothing, heat styling, or chemical services.
             </p>
-            <Button onClick={() => (window.location.href = 'tel:+919004832184')} size="lg" className="bg-primary hover:bg-primary/90">
+            <Button onClick={() => (window.location.href = 'tel:+919004832184')} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone" size="lg" className="bg-primary hover:bg-primary/90">
               Book Your Olaplex Treatment
             </Button>
           </div>
@@ -90,7 +90,7 @@ const OlaplexHairTreatmentAndheriEast = () => {
               Call Moon Studios and we will help you decide whether Olaplex, Nanoplastia, hair spa, or another
               treatment is the right fit for your hair.
             </p>
-            <Button onClick={() => (window.location.href = 'tel:+919004832184')} size="lg" className="bg-white text-primary hover:bg-white/90">
+            <Button onClick={() => (window.location.href = 'tel:+919004832184')} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone" size="lg" className="bg-white text-primary hover:bg-white/90">
               Call Moon Studios
             </Button>
           </div>

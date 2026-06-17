@@ -26,7 +26,7 @@ const SalonNearPowai = () => {
             <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
               Moon Studios is located in Andheri East near Marol, just 10–12 minutes away from Powai via Saki Vihar Road or JVLR. We are a practical and trusted choice for clients coming from Hiranandani Gardens, IIT Bombay, Rambaug, and Chandivali who want dependable haircut, color, facial, and advanced treatment services in a salon that feels warm and genuinely welcoming.
             </p>
-            <Button onClick={() => (window.location.href = 'tel:+919004832184')} size="lg" className="bg-primary hover:bg-primary/90">
+            <Button onClick={() => (window.location.href = 'tel:+919004832184')} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone" size="lg" className="bg-primary hover:bg-primary/90">
               Call for Directions
             </Button>
           </div>
@@ -67,7 +67,7 @@ const SalonNearPowai = () => {
             <p className="text-lg text-white/90 mb-8">
               Call Moon Studios for the quickest route, availability, and service guidance before you visit.
             </p>
-            <Button onClick={() => (window.location.href = 'tel:+919004832184')} size="lg" className="bg-white text-primary hover:bg-white/90">
+            <Button onClick={() => (window.location.href = 'tel:+919004832184')} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone" size="lg" className="bg-white text-primary hover:bg-white/90">
               Call Moon Studios
             </Button>
           </div>

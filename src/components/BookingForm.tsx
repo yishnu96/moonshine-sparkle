@@ -48,6 +48,7 @@ const BookingForm = () => {
     trackEvent('booking_form_start', {
       section_name: 'booking',
       booking_method: 'whatsapp',
+      booking_type: 'form',
     });
   };
 
@@ -74,6 +75,7 @@ const BookingForm = () => {
     trackEvent('booking_start', {
       section_name: 'booking',
       booking_method: 'whatsapp',
+      booking_type: 'form',
       preferred_date: formData.date,
       preferred_time: formData.time,
       problem_length: formData.problem.trim().length,
@@ -105,6 +107,14 @@ const BookingForm = () => {
   };
 
   const setMobileVal = (k: string, v: string) => {
+    if (!hasStartedForm) {
+      setHasStartedForm(true);
+      trackEvent('booking_form_start', {
+        section_name: 'booking',
+        booking_method: 'whatsapp',
+        booking_type: 'form',
+      });
+    }
     setMobileData((d) => ({ ...d, [k]: v }));
     setMobileDone(false);
   };
@@ -136,6 +146,7 @@ const BookingForm = () => {
     trackEvent('booking_start', {
       section_name: 'booking',
       booking_method: 'whatsapp',
+      booking_type: 'form',
       preferred_date: mobileData.date,
       preferred_time: mobileData.time,
       problem_length: mobileData.problem.trim().length,
@@ -288,10 +299,6 @@ const BookingForm = () => {
                     <Button
                       type="submit"
                       size="lg"
-                      data-analytics-event="booking_cta_click"
-                      data-analytics-section="booking"
-                      data-analytics-label="Book on WhatsApp"
-                      data-analytics-booking-method="whatsapp"
                       className="flex-1 bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground font-semibold px-6 h-12 sm:h-14 text-base sm:text-lg rounded-xl shadow-medium hover:shadow-hover transition-all duration-300"
                     >
                       Book on WhatsApp
@@ -300,10 +307,6 @@ const BookingForm = () => {
                     <Button
                       type="button"
                       onClick={handleCall}
-                      data-analytics-event="cta_click"
-                      data-analytics-section="booking"
-                      data-analytics-label="Call Us"
-                      data-analytics-cta-type="phone"
                       variant="outline"
                       size="lg"
                       className="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-6 h-12 sm:h-14 text-base sm:text-lg rounded-xl transition-all"

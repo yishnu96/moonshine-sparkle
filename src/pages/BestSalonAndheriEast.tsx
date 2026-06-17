@@ -29,7 +29,7 @@ const BestSalonAndheriEast = () => {
               Facial, Olaplex repair treatments, and everyday grooming that feels genuinely cared for.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button onClick={() => (window.location.href = 'tel:+919004832184')} size="lg" className="bg-primary hover:bg-primary/90">
+              <Button onClick={() => (window.location.href = 'tel:+919004832184')} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone" size="lg" className="bg-primary hover:bg-primary/90">
                 Call to Book
               </Button>
             </div>
@@ -132,7 +132,7 @@ const BestSalonAndheriEast = () => {
               Call Moon Studios for appointments, treatment consultations, or quick directions from anywhere around
               Andheri East and Marol.
             </p>
-            <Button onClick={() => (window.location.href = 'tel:+919004832184')} size="lg" className="bg-white text-primary hover:bg-white/90">
+            <Button onClick={() => (window.location.href = 'tel:+919004832184')} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone" size="lg" className="bg-white text-primary hover:bg-white/90">
               Call Moon Studios
             </Button>
           </div>

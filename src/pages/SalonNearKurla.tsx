@@ -27,7 +27,7 @@ const SalonNearKurla = () => {
               Moon Studios in Andheri East is a warm, family-friendly salon for clients coming from Kurla who want
               trusted hair, facial, color, and treatment services with honest consultation and attentive care.
             </p>
-            <Button onClick={() => (window.location.href = 'tel:+919004832184')} size="lg" className="bg-primary hover:bg-primary/90">
+            <Button onClick={() => (window.location.href = 'tel:+919004832184')} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone" size="lg" className="bg-primary hover:bg-primary/90">
               Call to Book
             </Button>
           </div>
@@ -69,7 +69,7 @@ const SalonNearKurla = () => {
               Call Moon Studios before you travel and we will guide you on timing, availability, and the best route to
               the salon.
             </p>
-            <Button onClick={() => (window.location.href = 'tel:+919004832184')} size="lg" className="bg-white text-primary hover:bg-white/90">
+            <Button onClick={() => (window.location.href = 'tel:+919004832184')} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone" size="lg" className="bg-white text-primary hover:bg-white/90">
               Call Moon Studios
             </Button>
           </div>

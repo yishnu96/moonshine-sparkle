@@ -1,4 +1,7 @@
+import mixpanel from "mixpanel-browser";
+
 const GA_MEASUREMENT_ID = "G-YHS0ML3TRK";
+const MIXPANEL_TOKEN = import.meta.env.VITE_MIXPANEL_TOKEN as string | undefined;
 const TRAFFIC_SOURCE_STORAGE_KEY = "moonstudios.ga4.traffic_source";
 const TRAFFIC_SOURCE_EVENT_KEY = "moonstudios.ga4.traffic_source_tracked";
 
@@ -65,6 +68,30 @@ const SEARCH_REFERRERS: Record<string, string> = {
 const CLICK_ID_PARAM_PRIORITY = ["gclid", "fbclid", "msclkid"] as const;
 
 const isBrowser = typeof window !== "undefined";
+
+let mixpanelReady = false;
+
+export const initMixpanel = () => {
+  if (!isBrowser || mixpanelReady || !MIXPANEL_TOKEN) return;
+
+  mixpanel.init(MIXPANEL_TOKEN, {
+    // GA4 already owns page-load attribution; Mixpanel mirrors our explicit events.
+    track_pageview: false,
+    persistence: "localStorage",
+    ignore_dnt: false,
+    debug: import.meta.env.DEV,
+  });
+  mixpanelReady = true;
+};
+
+const trackMixpanel = (eventName: string, params: AnalyticsParams) => {
+  if (!mixpanelReady) return;
+  try {
+    mixpanel.track(eventName, params);
+  } catch {
+    /* never let analytics break the UI */
+  }
+};
 
 const normalizeHost = (value: string) => value.replace(/^www\./, "").toLowerCase();
 
@@ -241,13 +268,18 @@ const getDefaultEventContext = (): AnalyticsParams => {
 };
 
 export const trackEvent = (eventName: string, params: AnalyticsParams = {}) => {
-  if (!isBrowser || typeof window.gtag !== "function") return;
+  if (!isBrowser) return;
 
-  window.gtag("event", eventName, sanitizeParams({
+  const payload = sanitizeParams({
     ...getDefaultEventContext(),
     ...params,
     debug_mode: import.meta.env.DEV || undefined,
-  }));
+  });
+
+  if (typeof window.gtag === "function") {
+    window.gtag("event", eventName, payload);
+  }
+  trackMixpanel(eventName, payload);
 };
 
 export const initializeTrafficSourceTracking = () => {
@@ -268,15 +300,19 @@ export const trackPageView = (params: {
   page_title: string;
   page_referrer?: string;
 }) => {
-  if (!isBrowser || typeof window.gtag !== "function") return;
+  if (!isBrowser) return;
 
   const trafficSource = getTrafficSource();
-
-  window.gtag("event", "page_view", sanitizeParams({
+  const payload = sanitizeParams({
     ...params,
     ...trafficSource,
     debug_mode: import.meta.env.DEV || undefined,
-  }));
+  });
+
+  if (typeof window.gtag === "function") {
+    window.gtag("event", "page_view", payload);
+  }
+  trackMixpanel("page_view", payload);
 };
 
 export const getAnalyticsPageTitle = (pathname: string) => {

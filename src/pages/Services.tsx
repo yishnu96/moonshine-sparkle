@@ -129,7 +129,11 @@ const DetailSheet = ({ entry, onClose }: { entry: SheetState; onClose: () => voi
         <div className="flex gap-2.5 px-5 pt-3 flex-shrink-0"
           style={{ paddingBottom: 'calc(14px + env(safe-area-inset-bottom,0px))', background: 'linear-gradient(hsl(var(--card)/0), hsl(var(--card)) 22%)' }}>
           <a href={waLink(svc?.name)} target="_blank" rel="noopener"
-            onClick={() => trackEvent('cta_click', { section_name: 'service_sheet', service_name: svc?.name, cta_type: 'whatsapp' })}
+            data-analytics-event="booking_start"
+            data-analytics-section="service_sheet"
+            data-analytics-booking-method="whatsapp"
+            data-analytics-booking-type="quick"
+            data-analytics-service-name={svc?.name}
             className="flex-[1.4] flex items-center justify-center gap-2 h-[52px] rounded-full font-bold text-[15px] text-white no-underline active:scale-[0.96] transition-transform"
             style={{ background: 'hsl(145 63% 42%)', boxShadow: '0 8px 20px -6px hsl(145 63% 42%/0.6)' }}>
             <span style={{ width: 19, height: 19, display: 'inline-flex' }}><Icon name="whatsapp" /></span>

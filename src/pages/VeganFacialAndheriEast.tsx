@@ -27,7 +27,7 @@ const VeganFacialAndheriEast = () => {
             <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
               If you are looking for a clean, cruelty-free, and plant-based skincare treatment, Moon Studios offers a rejuvenating Vegan Facial in Andheri East. We prioritize organic and natural formulations to nourish your skin without harsh chemicals.
             </p>
-            <Button onClick={() => (window.location.href = 'tel:+919004832184')} size="lg" className="bg-primary hover:bg-primary/90">
+            <Button onClick={() => (window.location.href = 'tel:+919004832184')} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone" size="lg" className="bg-primary hover:bg-primary/90">
               Book Your Facial
             </Button>
           </div>
@@ -84,7 +84,7 @@ const VeganFacialAndheriEast = () => {
             <p className="text-lg text-white/90 mb-8">
               Call Moon Studios to book your Vegan Facial or consult with our skincare specialists.
             </p>
-            <Button onClick={() => (window.location.href = 'tel:+919004832184')} size="lg" className="bg-white text-primary hover:bg-white/90">
+            <Button onClick={() => (window.location.href = 'tel:+919004832184')} data-analytics-event="phone_call_click" data-analytics-section="landing_cta" data-analytics-contact-method="phone" size="lg" className="bg-white text-primary hover:bg-white/90">
               Call for a Consultation
             </Button>
           </div>
