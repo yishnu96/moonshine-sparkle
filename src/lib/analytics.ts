@@ -1,7 +1,7 @@
 import mixpanel from "mixpanel-browser";
 
 const GA_MEASUREMENT_ID = "G-YHS0ML3TRK";
-const MIXPANEL_TOKEN = import.meta.env.VITE_MIXPANEL_TOKEN as string | undefined;
+const MIXPANEL_TOKEN = import.meta.env.VITE_MIXPANEL_TOKEN?.trim();
 const TRAFFIC_SOURCE_STORAGE_KEY = "moonstudios.ga4.traffic_source";
 const TRAFFIC_SOURCE_EVENT_KEY = "moonstudios.ga4.traffic_source_tracked";
 
@@ -74,14 +74,19 @@ let mixpanelReady = false;
 export const initMixpanel = () => {
   if (!isBrowser || mixpanelReady || !MIXPANEL_TOKEN) return;
 
-  mixpanel.init(MIXPANEL_TOKEN, {
-    // GA4 already owns page-load attribution; Mixpanel mirrors our explicit events.
-    track_pageview: false,
-    persistence: "localStorage",
-    ignore_dnt: false,
-    debug: import.meta.env.DEV,
-  });
-  mixpanelReady = true;
+  try {
+    mixpanel.init(MIXPANEL_TOKEN, {
+      // GA4 already owns page-load attribution; Mixpanel mirrors our explicit events.
+      track_pageview: false,
+      persistence: "localStorage",
+      ignore_dnt: false, // respect the visitor's Do Not Track setting
+      debug: import.meta.env.DEV,
+    });
+    mixpanelReady = true;
+  } catch {
+    // A bad token or blocked SDK must never break the site — fall back to GA4-only.
+    mixpanelReady = false;
+  }
 };
 
 const trackMixpanel = (eventName: string, params: AnalyticsParams) => {

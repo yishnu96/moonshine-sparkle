@@ -110,11 +110,16 @@ On the Services page, `booking_start` carries `service_name`. Break down by it.
 
 * Import `phone_call_click` and `booking_start` as conversions (Tools → Conversions → Import → GA4). Set a sensible value if you want ROAS.
 
-### Mixpanel
+### Mixpanel + Vercel deployment
 
-1. Set `VITE_MIXPANEL_TOKEN` in Vercel → Project Settings → Environment Variables, then redeploy. (Empty token = Mixpanel silently off, GA4 still runs.)
-2. Build a **Funnel:** `booking_form_start` → `booking_start`, breakdown by `booking_method`.
-3. Build an **Insights** report: `phone_call_click` + `booking_start` over time, segmented by `source_channel`.
+1. **Set the token in Vercel:** Project → Settings → Environment Variables → add `VITE_MIXPANEL_TOKEN` = your token, for **Production** (and Preview if you want staging data).
+2. **Redeploy.** ⚠️ Vite inlines `VITE_*` variables at **build time**, not runtime. The variable must exist *before* the build, and any change requires a **fresh deploy** to take effect — editing it in Vercel does nothing until you redeploy.
+3. **Safe by default:** if the token is missing or invalid, Mixpanel silently no-ops (wrapped in try/catch) — GA4/GTM keep working and the site never breaks. The token is read from env at build, never hardcoded in the repo.
+4. **Verify live:** open the production site, then Mixpanel → Events (Live View) and confirm `page_view` / `booking_start` arrive.
+5. Build a **Funnel:** `booking_form_start` → `booking_start`, breakdown by `booking_method`.
+6. Build an **Insights** report: `phone_call_click` + `booking_start` over time, segmented by `source_channel`.
+
+> **Local dev:** copy `.env.example` → `.env` and paste a token only if you want to test Mixpanel locally. `.env` is gitignored, so tokens never reach the repo.
 
 ***
 
