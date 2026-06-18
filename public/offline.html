@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline | Moon Studios – The Family Salon</title>
+  <style>
+    :root {
+      --background: #fbf9f6;
+      --foreground: #1c1c1c;
+      --primary: #df6651;
+      --card: #ffffff;
+      --muted: #737373;
+      --border: #e5e0d8;
+    }
+    
+    body {
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 480px;
+      padding: 40px 24px;
+      background: var(--card);
+      border-radius: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border);
+      margin: 16px;
+    }
+
+    .logo-container {
+      margin-bottom: 24px;
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin: 0;
+      color: var(--foreground);
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--primary);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    .illustration {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px auto;
+      background: #fdf2f0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+    }
+
+    .illustration svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0 0 12px 0;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin: 0 0 28px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+      box-shadow: 0 4px 12px rgba(223, 102, 81, 0.2);
+    }
+
+    .btn:hover {
+      background-color: #cb533f;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .footer-info {
+      margin-top: 32px;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+
+    .footer-info a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-container">
+      <h2 class="logo-text">MOON STUDIOS</h2>
+      <div class="logo-sub">The Family Salon</div>
+    </div>
+    
+    <div class="illustration">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205 3 1m1.5.5-1.5-.5M6.75 7.364V3h-3v18m3-13.636 10.5-3.819" />
+      </svg>
+    </div>
+
+    <h1>You're Offline</h1>
+    <p>It seems you are not connected to the internet. While offline, you can still view some of our pages, but booking an appointment or calling us requires a network connection.</p>
+    
+    <button class="btn" onclick="window.location.reload()">Retry Connection</button>
+
+    <div class="footer-info">
+      Need help? Call us at <a href="tel:+919004832184">+91 90048 32184</a> when you're back online.
+    </div>
+  </div>
+</body>
+</html>
