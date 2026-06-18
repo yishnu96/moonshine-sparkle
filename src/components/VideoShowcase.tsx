@@ -11,12 +11,14 @@ interface VideoItem {
 }
 
 const videos: VideoItem[] = [
-  { id: 'gMn0cAUdfrE', title: 'Complete Makeover', description: 'Sun-kissed colour, zero effort after.' },
+  { id: 'Io3uJg9J058', title: 'Sharp Fade & Finish', description: 'From a relaxing wash to a precision cut—walk' },
+  { id: 'qIva0NIus6Y', title: 'Why Ragini Dwivedi Trusts Moon Studios!', description: 'From Germany to Mumbai—world-class hair care ...' },
   { id: 'v_w9hHuOthg', title: 'Hair Rescue Story', description: 'Turning hair heartbreak into a healthy, happy..' },
   { id: 'vW7M-onjBmQ', title: 'Global Grooming', description: 'From Germany to Mumbai—world-class hair care ...' },
   { id: 'sIkMaPHcmJg', title: 'ICWF Event Mackup', description: 'Where good music meets great hair...' },
-  { id: 'Io3uJg9J058', title: 'Sharp Fade & Finish', description: 'From a relaxing wash to a precision cut—walk' },
+
   { id: '5zehCF1RbLA', title: 'The Weekend Refresh', description: 'Walk in tired, walk out ready.' },
+  { id: 'gMn0cAUdfrE', title: 'Complete Makeover', description: 'Sun-kissed colour, zero effort after.' },
   { id: 'gLb8TlAVgZY', title: 'The Search is Over', description: 'Finding your "hair home" after years ...' }
 ];
 
