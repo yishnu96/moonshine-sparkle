@@ -79,7 +79,7 @@ const TopServices: React.FC = () => {
           <div className="sub">Tap any service to see what's involved, then book in one tap.</div>
         </div>
         
-        <div className="grid top4">
+        <div className="m-grid top4">
           {mobileServices.map((s, i) => (
             <button
               key={s.id}
